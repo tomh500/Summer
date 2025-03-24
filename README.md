@@ -71,8 +71,8 @@ bind mouse_x yaw;bind mouse_y pitch;unbindall;binddefaults;binddefaults;joy_resp
 ```
 
 ## 常见问题
-  Q.为什么打开游戏闪退/卡死
+  Q.为什么打开游戏闪退/卡死<br>
   A.请确保MoClient文件夹下存在```免费发布.mql```
 
-  Q.为什么玩久了无法在游戏内操作
+  Q.为什么玩久了无法在游戏内操作<br>
   A.重启游戏就好了，这是所有CFG无法避免的问题
