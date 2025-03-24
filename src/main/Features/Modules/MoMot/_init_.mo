@@ -29,3 +29,6 @@ alias +Momot_action_left "+left;socd_switch_cancel_right;socd_switch_cancel_righ
 alias -Momot_action_left "left -1009 0 0;alias +socd_press_l;+socd_press_r;alias sq_4"
 alias +Momot_left "alias sq_4 +Momot_action_left"
 alias -Momot_left "alias sq_4 -Momot_action_left"
+
+
+exec MoClient/src/main/Features/Modules/MoMot/spacejump/_init_.mo
