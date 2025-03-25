@@ -28,6 +28,9 @@ alias MoClient_AutoBhop_Disable "alias autobhop_activeA ;alias autobhop_activeF"
 alias Moclient_SoundTips_Enable "alias soundtips_1 .soundtips_1;alias soundtips_0 .soundtips_0;"
 alias Moclient_SoundTips_Disable "alias soundtips_1;alias soundtips_0;"
 
+alias +smartattack "+attack;"
+alias -smartattack "-attack;spec_next"
+ 
 
 //reg keybinds
 alias +MoClient_bind_forward +Momot_forward
