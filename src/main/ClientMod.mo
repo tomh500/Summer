@@ -5,6 +5,7 @@ alias Checkpass quit;Passcheck;clear;
 
 exec MoClient/src/main/Tools/Ticker/_init_.mo   //注册Ticker
 exec Moclient/src/main/Features/Modules/ModulesRegister.mo //注册模块
+exec Moclient/src/main/Features/OutputSystem/_init_.mo //注册输出
 exec Moclient/src/main/Commands/_init_.mo   //注册命令
 exec Moclient/userspace/UserSetting.cfg
 exec Moclient/userspace/UserKeyBinds.cfg

@@ -17,3 +17,5 @@ alias sq_66ms_1;alias sq_66ms_2;alias sq_66ms_3;alias sq_66ms_4;
 //对于本Ticker采用540fps最大化计时，因此强制锁定在540fps内，几乎没有超过540hz的显示器
 fps_max 540
 
+alias ticker_clear "exec MoClient/src/main/Tools/Ticker/_init_.mo"
+
