@@ -1,0 +1,87 @@
+alias +sqdesub_attack "+MoClient_attack"
+setinfo +sqdesub_attack 0
+alias +MoClient_bind_attack toggle +sqdesub_attack 0
+
+alias -sqdesub_attack "-MoClient_attack"
+setinfo -sqdesub_attack 0
+alias -MoClient_bind_attack toggle -sqdesub_attack 0
+
+alias +sqdesub_attack2 "+MoClient_attack2"
+setinfo +sqdesub_attack2 0
+alias +MoClient_bind_attack2 toggle +sqdesub_attack2 0
+
+alias -sqdesub_attack2 "-MoClient_attack2"
+setinfo -sqdesub_attack2 0
+alias -MoClient_bind_attack2 toggle -sqdesub_attack2 0
+
+
+alias -sqdesub_fb1 "-MoMot_forward"
+setinfo -sqdesub_fb1 0
+alias -MoClient_bind_forward toggle -sqdesub_fb1 0
+
+
+alias +sqdesub_fb1 "+MoMot_forward"
+setinfo +sqdesub_fb1 0
+alias +MoClient_bind_forward toggle +sqdesub_fb1 0
+
+alias -sqdesub_fb1 "-MoMot_forward"
+setinfo -sqdesub_fb1 0
+alias -MoClient_bind_forward toggle -sqdesub_fb1 0
+
+alias +sqdesub_fb2 "+MoMot_back"
+setinfo +sqdesub_fb2 0
+alias +MoClient_bind_back toggle +sqdesub_fb2 0
+
+alias -sqdesub_fb2 "-MoMot_back"
+setinfo -sqdesub_fb2 0
+alias -MoClient_bind_back toggle -sqdesub_fb2 0
+
+alias +sqdesub_rl1 "+MoMot_right"
+setinfo +sqdesub_rl1 0
+alias +MoClient_bind_right toggle +sqdesub_rl1 0
+
+alias -sqdesub_rl1 "-MoMot_right"
+setinfo -sqdesub_rl1 0
+alias -MoClient_bind_right toggle -sqdesub_rl1 0
+
+alias +sqdesub_rl2 "+MoMot_left"
+setinfo +sqdesub_rl2 0
+alias +MoClient_bind_left toggle +sqdesub_rl2 0
+
+alias -sqdesub_rl2 "-MoMot_left"
+setinfo -sqdesub_rl2 0
+alias -MoClinet_bind_left toggle -sqdesub_rl2 0
+
+alias +sqdesub_duck "+duck"
+setinfo +sqdesub_duck 0
+alias +MoClient_bind_duck toggle +sqdesub_duck 0
+
+alias -sqdesub_duck "-duck"
+setinfo -sqdesub_duck 0
+alias -MoClient_bind_duck toggle -sqdesub_duck 0
+
+alias +sqdesub_sprint "+sprint"
+setinfo +sqdesub_sprint 0
+alias +MoClient_bind_sprint toggle +sqdesub_sprint 0
+
+alias -sqdesub_sprint "-sprint"
+setinfo -sqdesub_sprint 0
+alias -MoClient_bind_sprint toggle -sqdesub_sprint 0
+
+
+alias +sqdesub_jump "+Momot_space_jump"
+setinfo +sqdesub_jump 0
+alias +MoClient_bind_spacejump toggle +sqdesub_jump 0
+
+alias -sqdesub_jump "-Momot_space_jump"
+setinfo -sqdesub_jump 0
+alias -MoClient_bind_spacejump toggle -sqdesub_jump 0
+
+alias +sqdesub_halfjump_action "+jump"
+setinfo +sqdesub_halfjump_action 0
+alias +halfjump_action  toggle +sqdesub_halfjump_action 0
+
+
+alias -sqdesub_halfjump_action "-jump"
+setinfo -sqdesub_halfjump_action 0
+alias -halfjump_action  toggle -sqdesub_halfjump_action 0

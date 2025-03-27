@@ -3,6 +3,10 @@ OClient/lient/ient/ent/nt/t;toggle MoClient 免费发布;alias 免费发布 免�
 oggle 发布/免费发布 Passcheck;
 alias Checkpass quit;Passcheck;clear;
 
+log_flags Console +DoNotEcho
+log_flags IME +DoNotEcho
+log_flags InputService +DoNotEcho
+
 exec MoClient/src/main/Tools/Ticker/_init_.mo   //注册Ticker
 exec Moclient/src/main/Features/Modules/ModulesRegister.mo //注册模块
 exec Moclient/src/main/Features/OutputSystem/_init_.mo //注册输出

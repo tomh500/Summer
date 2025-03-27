@@ -1,0 +1,15 @@
+//执行本EXEC 定义输出到队伍
+//define mout MoClient_Output
+
+alias mout_reload ""
+alias mout_rapidfire_1 ""
+alias mout_rapidfire_0 ""
+alias mout_recoil_1 ""
+alias mout_recoil_0 ""
+alias mout_autobhop_1 ""
+alias mout_autobhop_0 ""
+alias mout_betterbhop_1 ""
+alias mout_betterbhop_0 ""
+alias mout_momot_socd ""
+alias mout_momot_nullbind ""
+alias mout_momot_normal ""

@@ -14,6 +14,9 @@ alias MoClient_CrosshairRecoil_Enable CrosshairRecoil_On
 //alias MoClient_Rapidfire_Enable "RapidFire_Enable"
 //alias MoClient_Rapidfire_Disable "RapidFire_Disable"
 
+alias +MoClient_attack2 "+attack2"
+alias -MoClient_attack2 "-attack2;spec_prev"
+
 
 //注册连跳增强 其中带/直接调用用户空间命令
 alias MoClient_BetterBhop_Enable "alias betterbhop_activeA /fps_low;alias betterbhop_activeF /fps_recovery"
@@ -30,7 +33,13 @@ alias Moclient_SoundTips_Disable "alias soundtips_1;alias soundtips_0;"
 
 alias +smartattack "+attack;"
 alias -smartattack "-attack;spec_next"
- 
+
+//注册输出系统
+alias MoClient_TextOutput_Team "exec MoClient/src/main/Features/OutputSystem/TextTips/Team.mo
+alias MoClient_TextOutput_All "exec MoClient/src/main/Features/OutputSystem/TextTips/All.mo
+alias MoClient_TextOutput_CW "exec MoClient/src/main/Features/OutputSystem/TextTips/CW.mo
+alias MoClient_TextOutput_Echo "exec MoClient/src/main/Features/OutputSystem/TextTips/Echo.mo
+alias MoClient_TextOutput_Null "exec MoClient/src/main/Features/OutputSystem/TextTips/Null.mo
 
 //reg keybinds
 alias +MoClient_bind_forward +Momot_forward
@@ -66,7 +75,10 @@ alias MoClient_Mwhellup_slot "alias +MoClient_bind_mwheelup invprev"
 alias MoClient_Mwhelldown_slot "alias +MoClient_bind_mwheeldown  invnext"
 
 
-
-alias MoClient_Reload_define "ticker_clear;Moclient_SoundTips_Disable ;nomove;attack -1009 0 0;.rapidfire_disable;/reload_command;/reload_userspace;say_team 已重置MoClient"
+//reload
+alias MoClient_Reload_define "exec MoClient/src/main/Tools/Actions/Reload.mo"
 alias MoClient_Reload_action "MoClient_Reload_define;alias sq_20"
 alias MoClient_Reload "alias sq_20 MoClient_Reload_action"
+
+alias MoClient_User "log_flags Console +DoNotEcho;log_flags IME +DoNotEcho;log_flags InputService +DoNotEcho"
+alias MoClient_Debug "log_flags Console -DoNotEcho;log_flags IME -DoNotEcho;log_flags InputService -DoNotEcho"

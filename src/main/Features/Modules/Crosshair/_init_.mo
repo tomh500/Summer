@@ -1,4 +1,4 @@
 //准心跟随部分
 alias CrosshairRecoilSW "CrosshairRecoil_ON"
-alias CrosshairRecoil_On "soundtips_1;/crosshair_color_recoil;cl_crosshair_recoil true;alias CrosshairRecoilSW CrosshairRecoil_Off"
-alias CrosshairRecoil_Off "soundtips_0;/crosshair_color_recovery;cl_crosshair_recoil false;alias CrosshairRecoilSW CrosshairRecoil_On"
+alias CrosshairRecoil_On "mout_recoil_1;soundtips_1;/crosshair_color_recoil;cl_crosshair_recoil true;alias CrosshairRecoilSW CrosshairRecoil_Off"
+alias CrosshairRecoil_Off "mout_recoil_0;soundtips_0;/crosshair_color_recovery;cl_crosshair_recoil false;alias CrosshairRecoilSW CrosshairRecoil_On"

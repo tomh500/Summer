@@ -4,18 +4,10 @@ exec_async MoClient/src/main/Tools/Ticker/540fps/6ms/Ticker_Setup.cfg
 exec_async MoClient/src/main/Tools/Ticker/540fps/66ms/Ticker_Setup.cfg
 
 //分配计时器
-alias sq "sq_1;sq_2;sq_3;sq_4;sq_5;sq_6;sq_7;sq_8;sq_9;sq_10;sq_11;sq_12;sq_13;sq_14;sq_15;sq_16;sq_17;sq_18;sq_19;sq_20"
-alias sq_1;alias sq_2;alias sq_3;alias sq_4;alias sq_5;alias sq_6;alias sq_7;alias sq_8;alias sq_9;alias sq_10;alias sq_11;
-alias sq_12;alias sq_13;alias sq_14;alias sq_15;alias sq_16;alias sq_17;alias sq_18;alias sq_19;alias sq_20;
-
-alias sq_6ms "sq_6ms_1;sq_6ms_2;sq_6ms_3;sq_6ms_4;sq_6ms_5;sq_6ms_6"
-alias sq_6ms_1;alias sq_6ms_2;alias sq_6ms_3;alias sq_6ms_4;alias sq_6ms_5;alias sq_6ms_6;
-
-alias sq_66ms "sq_66ms_1;sq_66ms_2;sq_66ms_3;sq_66ms_4"
-alias sq_66ms_1;alias sq_66ms_2;alias sq_66ms_3;alias sq_66ms_4;
+exec MoClient/src/main/Tools/Ticker/ticker_clear.mo
 
 //对于本Ticker采用540fps最大化计时，因此强制锁定在540fps内，几乎没有超过540hz的显示器
 fps_max 540
 
-alias ticker_clear "exec MoClient/src/main/Tools/Ticker/_init_.mo"
-
+alias ticker_clear "exec MoClient/src/main/Tools/Ticker/ticker_clear.mo;fps_max 540"
+//需要清空初始化ticker但是无需加载的时候
