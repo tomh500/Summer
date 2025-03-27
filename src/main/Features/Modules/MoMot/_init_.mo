@@ -10,23 +10,23 @@
 alias -socd_press_f -forward;alias -socd_press_b -back;alias -socd_press_r -right;alias -socd_press_l -left
 
 //注册前后左右移动
-alias +Momot_action_forward "+forward;socd_switch_cancel_back;socd_switch_cancel_back;alias +socd_press_f socd_switch_forward;alias sq_1"
-alias -Momot_action_forward "forward -1009 0 0;alias +socd_press_f;+socd_press_b;alias sq_1"
+alias +Momot_action_forward "+forward;socd_switch_cancel_back;socd_switch_cancel_back;alias +socd_press_f socd_switch_forward;alias antiflash_needback +back;alias Antiflash_recforward recforward_pack;alias sq_1"
+alias -Momot_action_forward "forward -1009 0 0;alias +socd_press_f;+socd_press_b;alias antiflash_needback;alias Antiflash_recforward;alias sq_1"
 alias +Momot_forward "alias sq_1 +Momot_action_forward"
 alias -Momot_forward "alias sq_1 -Momot_action_forward"
 
-alias +Momot_action_back "+back;socd_switch_cancel_forward;socd_switch_cancel_forward;alias +socd_press_b socd_switch_back;alias sq_2"
-alias -Momot_action_back "back -1009 0 0;alias +socd_press_b;+socd_press_f;alias sq_2"
+alias +Momot_action_back "+back;socd_switch_cancel_forward;socd_switch_cancel_forward;alias +socd_press_b socd_switch_back;alias antiflash_needforward +forward;alias Antiflash_recforward recback_pack;alias sq_2"
+alias -Momot_action_back "back -1009 0 0;alias +socd_press_b;+socd_press_f;alias antiflash_needforward;alias Antiflash_recback;alias sq_2"
 alias +Momot_back "alias sq_2 +Momot_action_back"
 alias -Momot_back "alias sq_2 -Momot_action_back"
 
-alias +Momot_action_right "+right;socd_switch_cancel_left;socd_switch_cancel_left;alias +socd_press_r socd_switch_right;alias sq_3"
-alias -Momot_action_right "right -1009 0 0;alias +socd_press_r;+socd_press_l;alias sq_3"
+alias +Momot_action_right "+right;socd_switch_cancel_left;socd_switch_cancel_left;alias +socd_press_r socd_switch_right;alias antiflash_needleft +left;alias Antiflash_recright recright_pack;alias sq_3"
+alias -Momot_action_right "right -1009 0 0;alias +socd_press_r;+socd_press_l;alias antiflash_needleft;alias Antiflash_recright;alias sq_3"
 alias +Momot_right "alias sq_3 +Momot_action_right"
 alias -Momot_right "alias sq_3 -Momot_action_right"
 
-alias +Momot_action_left "+left;socd_switch_cancel_right;socd_switch_cancel_right;alias +socd_press_l socd_switch_left;alias sq_4"
-alias -Momot_action_left "left -1009 0 0;alias +socd_press_l;+socd_press_r;alias sq_4"
+alias +Momot_action_left "+left;socd_switch_cancel_right;socd_switch_cancel_right;alias +socd_press_l socd_switch_left;alias antiflash_needright +right;alias Antiflash_recleft recleft_pack;alias sq_4"
+alias -Momot_action_left "left -1009 0 0;alias +socd_press_l;+socd_press_r;alias antiflash_needright;alias Antiflash_recleft;alias sq_4"
 alias +Momot_left "alias sq_4 +Momot_action_left"
 alias -Momot_left "alias sq_4 -Momot_action_left"
 

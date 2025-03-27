@@ -54,8 +54,8 @@ alias +Moclient_bind_spacejump +Momot_space_jump
 alias -Moclient_bind_spacejump -Momot_space_jump
 //嵌套一层命令 是为了正确处理desubtick等内容
 
-alias +Moclient_define_attack "+smartattack;"
-alias -Moclient_define_attack "-smartattack;spec_next"
+alias +Moclient_define_attack "+smartattack;alias sq_6ms_4"
+alias -Moclient_define_attack "-smartattack;needrec_spinbot;spec_next"
 alias +MoClient_action_attack "+Moclient_define_attack;alias sq_7"
 alias -MoClient_action_attack "-Moclient_define_attack;alias sq_7"
 alias +MoClient_attack "alias sq_7 +MoClient_action_attack"
