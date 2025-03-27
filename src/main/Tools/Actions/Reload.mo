@@ -1,5 +1,6 @@
 ticker_clear;
 Moclient_SoundTips_Disable;
+MoClient_TextOutput_Null;
 nomove;
 attack -1009 0 0;
 attack2 -1009 0 0;
