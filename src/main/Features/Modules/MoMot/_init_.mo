@@ -6,6 +6,9 @@
 //socd_f/b/r/l是用于记录移动状态的，他们将会适用于snaptap功能
 //针对CS2的特性，当命令无论多么小 都将视为0，因此可以简易实现
 
+alias NeedSwitchModeJ2K
+alias NeedSwitchModeK2J
+
 //提前注册-命令，适应snaptap
 alias -socd_press_f -forward;alias -socd_press_b -back;alias -socd_press_r -right;alias -socd_press_l -left
 
