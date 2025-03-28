@@ -5,9 +5,10 @@ nomove;
 attack -1009 0 0;
 attack2 -1009 0 0;
 .rapidfire_disable;
+exec MoClient/src/main/Features/Modules/ModulesRegister.mo
 /reload_command;
 /reload_userspace;
 exec MoClient/Userspace/UserValue
-exec MoClient/src/main/Features/Modules/ModulesRegister.mo
++BUGkey
 .moclient_colorful_loop
 mout_reload

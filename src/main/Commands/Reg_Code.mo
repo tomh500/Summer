@@ -1,3 +1,7 @@
+//reg modulesregister
+alias Register_Momot Momot_Need_Load
+alias Momot_Need_Load exec Moclient/src/main/Features/Modules/Momot/_init_.mo
+alias MoClient_Autostop_pass "alias Momot_Need_Load"
 //reg userspace
 alias MoMot_fb_SOCD "exec Moclient/src/main/Features/Modules/Momot/mode/fb/socd.mo"
 alias MoMot_fb_NullBind "exec Moclient/src/main/Features/Modules/Momot/mode/fb/nullbind.mo"
@@ -16,6 +20,9 @@ alias MoClient_CrosshairRecoil_Enable CrosshairRecoil_On
 
 alias +MoClient_attack2 "+attack2"
 alias -MoClient_attack2 "-attack2;spec_prev"
+
+alias MoClient_Autostop_pass ""
+alias MoClient_Autostop_sideload "exec MoClient/src/jiting/setup"
 
 
 //注册连跳增强 其中带/直接调用用户空间命令
@@ -65,6 +72,74 @@ alias -MoClient_bind_attack -MoClient_attack
 //开火
 //smartattack指的是智能开火 通过判断rapidfire的开关状态 判断按下开火执行的是什么命令
 //因为就算是普通开火 也是直接把smartattack定义为+attack 所以无需更改结构
+
+alias +MoClient_bind_slot1     +MoClient_slot1 
+alias +MoClient_bind_slot2     +MoClient_slot2 
+alias +MoClient_bind_slot3     +MoClient_slot3
+alias +MoClient_bind_slot4     +MoClient_slot4
+alias +MoClient_bind_slot5     +MoClient_slot5
+alias +MoClient_bind_drop    +MoClient_drop
+alias +MoClient_bind_lastslot    +MoClient_lastslot
+
+alias -MoClient_bind_slot1     -MoClient_slot1 
+alias -MoClient_bind_slot2     -MoClient_slot2
+alias -MoClient_bind_slot3     -MoClient_slot3
+alias -MoClient_bind_slot4     -MoClient_slot4 
+alias -MoClient_bind_slot5     -MoClient_slot5
+alias -MoClient_bind_drop     -MoClient_drop
+alias -MoClient_bind_lastslot    -MoClient_lastslot
+
+alias esutools  //用于外置急停，此处先进行初始化，避免unknown command
+alias slot1tools;alias slot2tools;alias slot3tools;alias slot4tools;alias slot5tools
+alias +MoClient_define_slot1 "slot1;slot1tools;"
+alias +MoClient_define_slot2 "slot2;slot2tools"
+alias +MoClient_define_slot3 "slot3;slot3tools"
+alias +MoClient_define_slot4 "slot4;slot4tools"
+alias +MoClient_define_slot5 "slot5;slot5tools"
+alias +MoClient_define_drop "drop"
+alias +MoClient_define_lastslot "lastinv"
+
+alias -MoClient_define_slot1 ""
+alias -MoClient_define_slot2 ""
+alias -MoClient_define_slot3 ""
+alias -MoClient_define_slot4 ""
+alias -MoClient_define_slot5 ""
+alias -MoClient_define_drop ""
+alias -MoClient_define_lastslot ""
+
+alias +MoClient_action_slot1 "+MoClient_define_slot1;alias sq_9"
+alias +MoClient_action_slot2 "+MoClient_define_slot2;alias sq_9"
+alias +MoClient_action_slot3 "+MoClient_define_slot3;alias sq_9"
+alias +MoClient_action_slot4 "+MoClient_define_slot4;alias sq_9"
+alias +MoClient_action_slot5 "+MoClient_define_slot5;alias sq_9"
+alias +MoClient_action_drop "+MoClient_define_drop;alias sq_9"
+alias +MoClient_action_lastslot "+MoClient_define_lastslot;alias sq_9"
+
+alias -MoClient_action_slot1 "-MoClient_define_slot1;alias sq_9"
+alias -MoClient_action_slot2 "-MoClient_define_slot2;alias sq_9"
+alias -MoClient_action_slot3 "-MoClient_define_slot3;alias sq_9"
+alias -MoClient_action_slot4 "-MoClient_define_slot4;alias sq_9"
+alias -MoClient_action_slot5 "-MoClient_define_slot5;alias sq_9"
+alias -MoClient_action_drop "-MoClient_define_drop;alias sq_9"
+alias -MoClient_action_lastslot "-MoClient_define_lastslot;alias sq_9"
+
+alias +MoClient_slot1 "alias sq_9 +MoClient_action_slot1"
+alias +MoClient_slot2  "alias sq_9 +MoClient_action_slot2"
+alias +MoClient_slot3 "alias sq_9 +MoClient_action_slot3"
+alias +MoClient_slot4 "alias sq_9 +MoClient_action_slot4"
+alias +MoClient_slot5 "alias sq_9 +MoClient_action_slot5"
+alias +MoClient_drop "alias sq_9 +MoClient_action_drop"
+alias +MoClient_lastslot "alias sq_9 +MoClient_action_lastslot"
+
+alias -MoClient_slot1  "alias sq_9 -MoClient_action_slot1"
+alias -MoClient_slot2  "alias sq_9 -MoClient_action_slot2"
+alias -MoClient_slot3 "alias sq_9 -MoClient_action_slot3"
+alias -MoClient_slot4 "alias sq_9 -MoClient_action_slot4"
+alias -MoClient_slot5 "alias sq_9 -MoClient_action_slot5"
+alias -MoClient_drop "alias sq_9 -MoClient_action_drop"
+alias -MoClient_lastslot "alias sq_9 -MoClient_action_lastslot"
+
+
 
 
 

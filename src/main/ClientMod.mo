@@ -3,6 +3,8 @@ OClient/lient/ient/ent/nt/t;toggle MoClient 免费发布;alias 免费发布 免�
 oggle 发布/免费发布 Passcheck;
 alias Checkpass quit;Passcheck;clear;
 
+cl_scoreboard_mouse_enable_binding +MoClient_bind_attack2
+
 log_flags Console +DoNotEcho
 log_flags IME +DoNotEcho
 log_flags InputService +DoNotEcho
