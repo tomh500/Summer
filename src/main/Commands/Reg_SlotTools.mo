@@ -1,0 +1,10 @@
+alias slot1tools
+alias slot2tools
+alias slot3tools
+alias slot4tools 
+alias slotgratools
+alias slotflashtools
+alias slotdecoytools 
+alias slotsmoketools
+alias slotmolotools
+alias quickinvtools 
