@@ -1,4 +1,8 @@
-alias +MoMot_define_jump "+jump;esutools;"
-alias +Momot_action_jump "+Momot_define_jump;alias sq_5"
-alias +Momot_jump "alias sq_5 +Momot_action_jump"
+alias MoMot_jump_action "esutools;+jump;alias sq_5"
+alias +Momot_jump_define "alias sq_5 MoMot_jump_action"
+
+//alias wjump "+Momot_jump_define"
+//setinfo wjump 0
+alias +Momot_jump "MoMot_jump_action"
+
 alias -MoMot_jump -jump

@@ -24,5 +24,5 @@ alias -MoClient_bind_forward -Momot_forward
 alias -MoClient_bind_back -Momot_back
 alias -MoClient_bind_left -Momot_left
 alias -MoClient_bind_right -Momot_right
-alias +Moclient_bind_spacejump +Momot_space_jump
-alias -Moclient_bind_spacejump -Momot_space_jump
+alias +MoClient_bind_spacejump +Momot_space_jump
+alias -MoClient_bind_spacejump -Momot_space_jump

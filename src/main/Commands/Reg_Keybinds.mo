@@ -6,14 +6,14 @@ alias -MoClient_bind_forward -Momot_forward
 alias -MoClient_bind_back -Momot_back
 alias -MoClient_bind_left -Momot_left
 alias -MoClient_bind_right -Momot_right
-alias +Moclient_bind_spacejump +Momot_space_jump
-alias -Moclient_bind_spacejump -Momot_space_jump
+alias +MoClient_bind_spacejump +Momot_space_jump
+alias -MoClient_bind_spacejump -Momot_space_jump
 //嵌套一层命令 是为了正确处理desubtick等内容
 
-alias +Moclient_define_attack "+smartattack;alias sq_6ms_4"
-alias -Moclient_define_attack "-smartattack;needrec_spinbot"
-alias +MoClient_action_attack "+Moclient_define_attack;alias sq_7"
-alias -MoClient_action_attack "-Moclient_define_attack;alias sq_7"
+alias +MoClient_define_attack "+smartattack;alias sq_6ms_4"
+alias -MoClient_define_attack "-smartattack;needrec_spinbot"
+alias +MoClient_action_attack "+MoClient_define_attack;alias sq_7"
+alias -MoClient_action_attack "-MoClient_define_attack;alias sq_7"
 alias +MoClient_attack "alias sq_7 +MoClient_action_attack"
 alias -MoClient_attack "alias sq_7 -MoClient_action_attack"
 alias +MoClient_bind_attack +MoClient_attack

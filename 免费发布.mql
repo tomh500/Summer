@@ -1,9 +1,9 @@
-lias 免费 ; 免费？？发布;MOCLIENT;
-a toggle Moclient 发布/免费发布;toggle 莫秋恋 MoClient免费发布
-ele freeg freeg 免费发布 Moclient;Moclient free{
+lias 免费 ; 免费？？发布;MoClient;
+a toggle MoClient 发布/免费发布;toggle 莫秋恋 MoClient免费发布
+ele freeg freeg 免费发布 MoClient;MoClient free{
         2PASSCHECK/免费发布.mql
-        veritify 免费发布.mql免费发布免费 toggle a 免费发布lia;alias passcheck;s 免费 ; 免费？？发布;MOCLIENT;
-a toggle Moclient 发布/免费发布;toggle 莫秋恋 MoC name;
+        veritify 免费发布.mql免费发布免费 toggle a 免费发布lia;alias passcheck;s 免费 ; 免费？？发布;MoClient;
+a toggle MoClient 发布/免费发布;toggle 莫秋恋 MoC name;
 };alias 免费发布;???
-免费发布.mql 免费发布;alias togg1e toggle;togg1e 免费发布 免费/免费发布.mql Moclient;
+免费发布.mql 免费发布;alias togg1e toggle;togg1e 免费发布 免费/免费发布.mql MoClient;
 

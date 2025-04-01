@@ -1,18 +1,18 @@
 //reg modulesregister
 alias Register_Momot Momot_Need_Load
-alias Momot_Need_Load exec Moclient/src/main/Features/Modules/Momot/_init_.mo
+alias Momot_Need_Load exec MoClient/src/main/Features/Modules/Momot/_init_.mo
 alias MoClient_Autostop_pass "alias Momot_Need_Load"
 //reg userspace
-alias MoMot_fb_SOCD "exec Moclient/src/main/Features/Modules/Momot/mode/fb/socd.mo"
-alias MoMot_fb_NullBind "exec Moclient/src/main/Features/Modules/Momot/mode/fb/nullbind.mo"
-alias MoMot_fb_Normal "exec Moclient/src/main/Features/Modules/Momot/mode/fb/normal.mo"
-alias MoMot_rl_SOCD "exec Moclient/src/main/Features/Modules/Momot/mode/rl/socd.mo"
-alias MoMot_rl_NullBind "exec Moclient/src/main/Features/Modules/Momot/mode/rl/nullbind.mo"
-alias MoMot_rl_Normal "exec Moclient/src/main/Features/Modules/Momot/mode/rl/normal.mo"
-alias MoMot_MW_A "exec Moclient/src/main/Features/Modules/Momot/mwheeljump/MW_A.mo"
-alias MoMot_MW_B "exec Moclient/src/main/Features/Modules/Momot/mwheeljump/MW_B.mo"
-alias MoMot_MW_C "exec Moclient/src/main/Features/Modules/Momot/mwheeljump/MW_C.mo"
-alias MoMot_MW_D "exec Moclient/src/main/Features/Modules/Momot/mwheeljump/MW_D.mo"
+alias MoMot_fb_SOCD "exec MoClient/src/main/Features/Modules/Momot/mode/fb/socd.mo"
+alias MoMot_fb_NullBind "exec MoClient/src/main/Features/Modules/Momot/mode/fb/nullbind.mo"
+alias MoMot_fb_Normal "exec MoClient/src/main/Features/Modules/Momot/mode/fb/normal.mo"
+alias MoMot_rl_SOCD "exec MoClient/src/main/Features/Modules/Momot/mode/rl/socd.mo"
+alias MoMot_rl_NullBind "exec MoClient/src/main/Features/Modules/Momot/mode/rl/nullbind.mo"
+alias MoMot_rl_Normal "exec MoClient/src/main/Features/Modules/Momot/mode/rl/normal.mo"
+alias MoMot_MW_A "alias default_mwmode exec MoClient/src/main/Features/Modules/Momot/mwheeljump/MW_A.mo;exec MoClient/src/main/Features/Modules/Momot/mwheeljump/MW_A.mo"
+alias MoMot_MW_B "alias default_mwmode exec MoClient/src/main/Features/Modules/Momot/mwheeljump/MW_B.mo;exec MoClient/src/main/Features/Modules/Momot/mwheeljump/MW_B.mo"
+alias MoMot_MW_C "alias default_mwmode exec MoClient/src/main/Features/Modules/Momot/mwheeljump/MW_C.mo;exec MoClient/src/main/Features/Modules/Momot/mwheeljump/MW_C.mo"
+alias MoMot_MW_D "exec MoClient/src/main/Features/Modules/Momot/mwheeljump/MW_D.mo"
 alias MoClient_CrosshairRecoil_Disable CrosshairRecoil_Off
 alias MoClient_CrosshairRecoil_Enable CrosshairRecoil_On
 //alias MoClient_Rapidfire_Enable "RapidFire_Enable"
@@ -26,7 +26,9 @@ alias MoClient_Autostop_sideload "exec MoClient/src/jiting/setup"
 
 
 //注册连跳增强 其中带/直接调用用户空间命令
-alias MoClient_BetterBhop_Enable "alias betterbhop_activeA /fps_low;alias betterbhop_activeF /fps_recovery"
+alias betterbhop_Adefine "/fps_low;exec MoClient/src/main/Features/Modules/Momot/mwheeljump/MW_C.mo"
+alias betterbhop_Fdefine "/fps_recovery;default_mwmode"
+alias MoClient_BetterBhop_Enable "alias betterbhop_activeA betterbhop_Adefine;alias betterbhop_activeF betterbhop_Fdefine "
 alias MoClient_BetterBhop_Disable "alias betterbhop_activeA;alias betterbhop_activeF"
 
 //注册自动连跳
@@ -35,8 +37,8 @@ alias MoClient_AutoBhop_Disable "alias autobhop_activeA ;alias autobhop_activeF"
 
 
 //注册是否开启声音提示
-alias Moclient_SoundTips_Enable "alias soundtips_1 .soundtips_1;alias soundtips_0 .soundtips_0;"
-alias Moclient_SoundTips_Disable "alias soundtips_1;alias soundtips_0;"
+alias MoClient_SoundTips_Enable "alias soundtips_1 .soundtips_1;alias soundtips_0 .soundtips_0;"
+alias MoClient_SoundTips_Disable "alias soundtips_1;alias soundtips_0;"
 
 alias +smartattack "+attack;"
 alias -smartattack "-attack;spec_next"
