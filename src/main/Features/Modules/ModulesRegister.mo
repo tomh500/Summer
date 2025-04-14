@@ -5,3 +5,4 @@ exec MoClient/src/main/Features/Modules/HudColorful/_init_.mo
 exec MoClient/src/main/Features/Modules/Desubtick/_init_.mo
 exec MoClient/src/main/Features/Modules/AntiFlash/_init_.mo
 exec MoClient/src/main/Features/Modules/ThrowItems/_init_.mo
+exec MoClient/src/main/Features/Modules/SmartActive/_init_.mo
