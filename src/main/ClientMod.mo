@@ -16,4 +16,13 @@ exec MoClient/src/main/Commands/_init_.mo   //注册命令
 exec MoClient/userspace/UserSetting.cfg
 exec MoClient/userspace/UserKeyBinds.cfg
 exec MoClient/userspace/UserValue.cfg
+
+//注册轮盘
+alias CFGLoad "exec MoClient/src/main/Tools/QuickAccessWheel/Load2"
+//exec MoClient/src/legacy/4items/_init_.cfg
+CFGDone
+alias CFGDone "alias CFGLoad ResetCFG"
+CFGLoad
+
 /fps_recovery
+rec_sensitivity

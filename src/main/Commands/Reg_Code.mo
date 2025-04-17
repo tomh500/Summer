@@ -120,3 +120,9 @@ alias autostop_mode_4 "exec MoClient/src/main/Features/Modules/MoMot/autostop/12
 alias autostop_mode_5 "exec MoClient/src/main/Features/Modules/MoMot/autostop/144-240/_init_.mo"
 alias autostop_mode_6 "exec MoClient/src/main/Features/Modules/MoMot/autostop/220-280/_init_.mo"
 alias autostop_mode_7 "exec MoClient/src/main/Features/Modules/MoMot/autostop/280-330/_init_.mo"
+
+alias +Lsqaure_bind_items "recxy;sensitivity 1.28;alias sq_14"
+alias -Lsqaure_bind_items "rec_sensitivity;alias sq_14"
+alias +sqaure_bind_items "alias sq_14 +Lsqaure_bind_items "
+alias -sqaure_bind_items "alias sq_14 -Lsqaure_bind_items;"
+

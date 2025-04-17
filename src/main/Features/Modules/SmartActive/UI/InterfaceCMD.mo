@@ -1,0 +1,51 @@
+//首页
+alias PreviousLevel "alias RadioGuiText exec  MoClient/src/main/Tools/QuickAccessWheel/gui/Modules/Dust2/InterfaceText; alias RadioGuiCMD exec  MoClient/src/main/Tools/QuickAccessWheel/gui/Modules/Dust2/InterfaceCMD"
+
+//1.首页
+cl_radial_radio_tab_2_text_1 cmd";FrontPage;
+//2.向下滚轮切换下一页
+cl_radial_radio_tab_2_text_2 cmd";WheelNexttPage;
+cl_radial_radio_tab_2_text_3 cmd";NoneFunction;
+cl_radial_radio_tab_2_text_4 cmd";NoneFunction;
+cl_radial_radio_tab_2_text_5 cmd";NoneFunction;
+cl_radial_radio_tab_2_text_6 cmd";NoneFunction;
+cl_radial_radio_tab_2_text_7 cmd";NoneFunction;
+//8.已到第一页
+cl_radial_radio_tab_2_text_8 cmd";AtFirstPage;
+
+//1.首页
+cl_radial_radio_tab_1_text_1 cmd";FrontPage;
+//2.向下滚轮切换下一页
+cl_radial_radio_tab_1_text_2 cmd";WheelNexttPage;
+//3.常用功能
+cl_radial_radio_tab_1_text_3 cmd";exec MoClient/src/main/Features/Modules/SmartActive/mirage/mid_to_window/_init_.mo;
+//4.nuke
+cl_radial_radio_tab_1_text_4 cmd";exec MoClient/src/main/Features/Modules/SmartActive/mirage/window_to_short/_init_.mo;
+//5.重置
+cl_radial_radio_tab_1_text_5 cmd";NoneFunction;
+//6.道具轮盘
+cl_radial_radio_tab_1_text_6 cmd";NoneFunction;
+//7.dust
+cl_radial_radio_tab_1_text_7 cmd";NoneFunction;
+//8.向上滚轮切换上一页
+cl_radial_radio_tab_1_text_8 cmd";WheelBackPage;
+
+//1.首页
+cl_radial_radio_tab_0_text_1 cmd";FrontPage;
+//2.已到最后一页
+cl_radial_radio_tab_0_text_2 cmd";AtLastPage;
+//3.管理员功能
+cl_radial_radio_tab_0_text_3 cmd";NoneFunction;
+cl_radial_radio_tab_0_text_4 cmd";NoneFunction;
+cl_radial_radio_tab_0_text_5 cmd";NoneFunction;
+cl_radial_radio_tab_0_text_6 cmd";NoneFunction;
+cl_radial_radio_tab_0_text_7 cmd";NoneFunction;
+//8.向上滚轮切换上一页
+cl_radial_radio_tab_0_text_8 cmd";WheelBackPage;
+
+
+//RadioGuiText 文字档
+//RadioGuiCMD 指令档
+
+//写法
+///alias RadioGuiText exec xxx; alias RadioGuiCMD exec xxx

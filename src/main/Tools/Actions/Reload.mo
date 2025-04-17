@@ -1,4 +1,5 @@
 ticker_clear;
+ResetGUIPage
 MoClient_SoundTips_Disable;
 MoClient_TextOutput_Null;
 nomove;
@@ -13,3 +14,4 @@ exec MoClient/Userspace/UserValue
 .MoClient_colorful_loop
 mout_reload
 /fps_recovery
+rec_sensitivity

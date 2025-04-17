@@ -127,5 +127,8 @@
 	"Ignore_Broadcast_Messages"								"MoClient 内测版本 保证不卖"
 	"Ignore_Broadcast_Team_Messages"							""
 	"Accept_All_Messages"									""
-
+	"SMART_UI"	"身法轮盘"
+	"SMART_MIRAGE_MID_TO_WINDOW"		"[荒漠迷城]中路长椅->窗户"
+	"SMART_MIRAGE_WINDOW_TO_SHORT"		"[荒漠迷城]窗户->B小"
+	"SMART_MIRAGE_WINDOW_TO_LADDER"	"[荒漠迷城]窗户->小黑屋"
 }
