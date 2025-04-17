@@ -18,11 +18,21 @@ alias MoClient_CrosshairRecoil_Enable CrosshairRecoil_On
 //alias MoClient_Rapidfire_Enable "RapidFire_Enable"
 //alias MoClient_Rapidfire_Disable "RapidFire_Disable"
 
+alias sa_tips "play sounds/tools/sfm/beep.vsnd_c"
+
 alias +MoClient_attack2 "+attack2"
 alias -MoClient_attack2 "-attack2;spec_prev"
 
-alias MoClient_Autostop_pass ""
-alias MoClient_Autostop_sideload "exec MoClient/src/jiting/setup"
+alias MoClient_Autostop_f_pass ".autostop_f_disable;alias rec_f_autostop .autostop_f_disable"
+alias MoClient_Autostop_f_load ".autostop_f_enable;alias rec_f_autostop .autostop_f_enable"
+alias MoClient_Autostop_b_pass ".autostop_b_disable;alias rec_b_autostop .autostop_b_disable"
+alias MoClient_Autostop_b_load ".autostop_b_enable;alias rec_b_autostop .autostop_b_enable"
+alias MoClient_Autostop_r_pass ".autostop_r_disable;alias rec_r_autostop .autostop_r_disable"
+alias MoClient_Autostop_r_load ".autostop_r_enable;alias rec_r_autostop .autostop_r_enable"
+alias MoClient_Autostop_l_pass ".autostop_l_disable;alias rec_l_autostop .autostop_l_disable"
+alias MoClient_Autostop_l_load ".autostop_l_enable;alias rec_l_autostop .autostop_l_enable"
+//alias MoClient_Autostop_sideload "exec MoClient/src/jiting/setup"
+//外置急停代码，弃用！
 
 
 //注册连跳增强 其中带/直接调用用户空间命令
@@ -64,8 +74,49 @@ alias MoClient_Mwhelldown_slot "alias +MoClient_bind_mwheeldown  invnext"
 
 //reload
 alias MoClient_Reload_define "exec MoClient/src/main/Tools/Actions/Reload.mo"
-alias MoClient_Reload_action "MoClient_Reload_define;alias sq_20"
-alias MoClient_Reload "alias sq_20 MoClient_Reload_action"
+alias MoClient_Reload_action "MoClient_Reload_define;alias sq_21"
+alias MoClient_Reload "alias sq_21 MoClient_Reload_action"
 
 alias MoClient_User "log_flags Console +DoNotEcho;log_flags IME +DoNotEcho;log_flags InputService +DoNotEcho"
 alias MoClient_Debug "log_flags Console -DoNotEcho;log_flags IME -DoNotEcho;log_flags InputService -DoNotEcho"
+
+//定义身法菜单显示的内容
+alias \n "echoln ‎"
+alias .show_sfmenu "text_sfmenu_show;cmd_sfmenu_show"
+
+alias text_sfmenu_show "text_sfmenu_1;text_sfmenu_2;text_sfmenu_3;text_sfmenu_4;text_sfmenu_5;text_sfmenu_6;text_sfmenu_7;text_sfmenu_8"
+
+alias text_sfmenu_1 echoln 身法菜单-MoClient;
+alias text_sfmenu_2 \n;
+alias text_sfmenu_3 \n;
+alias text_sfmenu_4 echoln 1.[Mirage]中路->窗户;
+alias text_sfmenu_5 echoln 2.[Mirage]窗户->B小
+alias text_sfmenu_6
+alias text_sfmenu_7
+alias text_sfmenu_8
+
+alias cmd_sfmenu_show "cmd_sfmenu_1;cmd_sfmenu_2;cmd_sfmenu_3;cmd_sfmenu_4"
+alias cmd_sfmenu_1 "alias 1 init_mid_to_window;"
+alias cmd_sfmenu_2 "alias 2 init_window_to_short;"
+alias cmd_sfmenu_3 
+alias cmd_sfmenu_4
+alias cmd_sfmenu_5 
+alias cmd_sfmenu_6
+alias cmd_sfmenu_7
+alias cmd_sfmenu_8
+
+alias init_mid_to_window "exec MoClient/src/main/Features/Modules/SmartActive/mirage/mid_to_window/_init_.mo;clear_num;echoln 选择成功！"
+alias init_window_to_short "exec MoClient/src/main/Features/Modules/SmartActive/mirage/window_to_short/_init_.mo;clear_num;echoln 选择成功！"
+
+//自动急停是否智能模式
+alias Autostop_Smart "alias +autostop_sprinttool +autostop_sprintsmartpack;alias -autostop_sprinttool -autostop_sprintsmartpack;alias autostop_smartdisable_cause_slot .autostop_disable_all"
+alias Autostop_Stupid "alias +autostop_sprinttool;alias -autostop_sprinttool;alias autostop_smartdisable_cause_slot"
+
+//注册自动急停档位
+alias autostop_mode_1 "exec MoClient/src/main/Features/Modules/MoMot/autostop/64-80/_init_.mo"
+alias autostop_mode_2 "exec MoClient/src/main/Features/Modules/MoMot/autostop/80-100/_init_.mo"
+alias autostop_mode_3 "exec MoClient/src/main/Features/Modules/MoMot/autostop/100-120/_init_.mo"
+alias autostop_mode_4 "exec MoClient/src/main/Features/Modules/MoMot/autostop/120-144/_init_.mo"
+alias autostop_mode_5 "exec MoClient/src/main/Features/Modules/MoMot/autostop/144-240/_init_.mo"
+alias autostop_mode_6 "exec MoClient/src/main/Features/Modules/MoMot/autostop/220-280/_init_.mo"
+alias autostop_mode_7 "exec MoClient/src/main/Features/Modules/MoMot/autostop/280-330/_init_.mo"

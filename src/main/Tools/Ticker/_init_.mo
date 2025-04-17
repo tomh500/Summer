@@ -7,7 +7,6 @@ exec_async MoClient/src/main/Tools/Ticker/540fps/66ms/Ticker_Setup.cfg
 exec MoClient/src/main/Tools/Ticker/ticker_clear.mo
 
 //对于本Ticker采用540fps最大化计时，因此强制锁定在540fps内，几乎没有超过540hz的显示器
-fps_max 540
 
-alias ticker_clear "exec MoClient/src/main/Tools/Ticker/ticker_clear.mo;fps_max 540"
+alias ticker_clear "exec MoClient/src/main/Tools/Ticker/ticker_clear.mo;/fps_recovery"
 //需要清空初始化ticker但是无需加载的时候

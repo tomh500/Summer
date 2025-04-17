@@ -1,4 +1,4 @@
-alias MoMot_jump_action "esutools;+jump;alias sq_5"
+alias MoMot_jump_action "autostop_jumptool;+jump;alias sq_5"
 alias +Momot_jump_define "alias sq_5 MoMot_jump_action"
 
 //alias wjump "+Momot_jump_define"

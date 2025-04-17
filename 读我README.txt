@@ -20,3 +20,5 @@
 /s_4                                 快捷灵敏度—高
 /s_5                                 快捷灵敏度—最高
 /RapidFire			自动手枪开关
+/menu				自动身法菜单
+/autostop_all			开关自动急停

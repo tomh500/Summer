@@ -10,8 +10,8 @@ alias -MoClient_bind_attack2 -MoClient_attack2
 alias +MoClient_bind_duck +duck
 alias -MoClient_bind_duck -duck
 
-alias +MoClient_bind_sprint +sprint
-alias -MoClient_bind_sprint -sprint
+alias +MoClient_bind_sprint "+autostop_sprinttool;+sprint"
+alias -MoClient_bind_sprint "-autostop_sprinttool;-sprint"
 
 alias +MoClient_bind_attack +MoClient_attack
 alias -MoClient_bind_attack -MoClient_attack

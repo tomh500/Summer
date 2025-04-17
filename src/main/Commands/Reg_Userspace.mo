@@ -2,7 +2,7 @@
 //对于部分代码内的行为，可能不存在任何标记
 
 //定义默认帧率到540，后续可能出现需要锁帧的情况
-alias /fps_recovery fps_max 540
+
 
 //定义需要LOW帧的情况
 alias /fps_low fps_max 64

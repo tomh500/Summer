@@ -1,0 +1,41 @@
+//forward-autostop链
+say 载入64-120
+alias autostop_forward_start "autostop_forward_1"
+alias autostop_forward_1 "+back;alias autostop_forward_start autostop_forward_2"
+alias autostop_forward_2 "alias autostop_forward_start autostop_forward_3"
+alias autostop_forward_3 "alias autostop_forward_start autostop_forward_4"
+alias autostop_forward_4 "alias sq_6ms_forwardstop;-back;alias autostop_forward_start autostop_forward_1"
+
+//forward-autostop逻辑
+alias autostop_forward_cmd "alias sq_6ms_forwardstop autostop_forward_start"
+
+//back-autostop链
+alias autostop_back_start "autostop_back_1"
+alias autostop_back_1 "+forward;alias autostop_back_start autostop_back_2"
+alias autostop_back_2 "alias autostop_back_start autostop_back_3"
+alias autostop_back_3 "alias autostop_back_start autostop_back_4"
+alias autostop_back_4 "alias sq_6ms_backstop;-forward;alias autostop_back_start autostop_back_1"
+
+//back-autostop逻辑
+alias autostop_back_cmd "alias sq_6ms_backstop autostop_back_start"
+
+// left-autostop链
+alias autostop_left_start "autostop_left_1"
+alias autostop_left_1 "+right;alias autostop_left_start autostop_left_2"
+alias autostop_left_2 "alias autostop_left_start autostop_left_3"
+alias autostop_left_3 "alias autostop_left_start autostop_left_4"
+alias autostop_left_4 "alias sq_6ms_leftstop;-right;alias autostop_left_start autostop_left_1"
+
+// left-autostop逻辑
+alias autostop_left_cmd "alias sq_6ms_leftstop autostop_left_start"
+
+
+// right-autostop链
+alias autostop_right_start "autostop_right_1"
+alias autostop_right_1 "+left;alias autostop_right_start autostop_right_2"
+alias autostop_right_2 "alias autostop_right_start autostop_right_3"
+alias autostop_right_3 "alias autostop_right_start autostop_right_4"
+alias autostop_right_4 "alias sq_6ms_rightstop;-left;alias autostop_right_start autostop_right_1"
+
+// right-autostop逻辑
+alias autostop_right_cmd "alias sq_6ms_rightstop autostop_right_start"

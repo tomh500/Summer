@@ -1,6 +1,8 @@
 //用于定义按下另一个按键而松开另一个按键的内容
 alias socd_switch_cancel_forward -forward
 alias socd_switch_cancel_back -back
+alias needstopback back -1009 0 0
+alias needstopforward forward -1009 0 0
 
 
 //用于定义发送的内容

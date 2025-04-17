@@ -1,10 +1,10 @@
-alias slot1tools
-alias slot2tools
-alias slot3tools
-alias slot4tools 
-alias slotgratools
-alias slotflashtools
-alias slotdecoytools 
-alias slotsmoketools
-alias slotmolotools
-alias quickinvtools 
+alias slot1tools "autostop_smartenable_cause_slot_pack"
+alias slot2tools "autostop_smartenable_cause_slot_pack"
+alias slot3tools "autostop_smartdisable_cause_slot_pack"
+alias slot4tools "autostop_smartdisable_cause_slot_pack"
+alias slotgratools "autostop_smartdisable_cause_slot_pack"
+alias slotflashtools "autostop_smartdisable_cause_slot_pack"
+alias slotdecoytools  "autostop_smartdisable_cause_slot_pack"
+alias slotsmoketools "autostop_smartdisable_cause_slot_pack"
+alias slotmolotools "autostop_smartdisable_cause_slot_pack"
+alias quickinvtools  "autostop_smartdisable_cause_slot_pack"

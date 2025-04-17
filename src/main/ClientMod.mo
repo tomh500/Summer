@@ -16,3 +16,4 @@ exec MoClient/src/main/Commands/_init_.mo   //注册命令
 exec MoClient/userspace/UserSetting.cfg
 exec MoClient/userspace/UserKeyBinds.cfg
 exec MoClient/userspace/UserValue.cfg
+/fps_recovery

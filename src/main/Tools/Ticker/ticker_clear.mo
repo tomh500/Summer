@@ -1,12 +1,14 @@
-alias sq "sq_1;sq_2;sq_3;sq_4;sq_5;sq_6;sq_7;sq_8;sq_9;sq_10;sq_11;sq_12;sq_13;sq_14;sq_15;sq_16;sq_17;sq_18;sq_19;sq_20"
+alias sq "sq_1;sq_2;sq_3;sq_4;sq_5;sq_6;sq_7;sq_8;sq_9;sq_10;sq_11;sq_12;sq_13;sq_14;sq_15;sq_16;sq_17;sq_18;sq_19;sq_20;sq_21;sq_smartactive;sq_menu"
 alias sq_1;alias sq_2;alias sq_3;alias sq_4;alias sq_5;alias sq_6;alias sq_7;alias sq_8;alias sq_9;alias sq_10;alias sq_11;
-alias sq_12;alias sq_13;alias sq_14;alias sq_15;alias sq_16;alias sq_17;alias sq_18;alias sq_19;alias sq_20;alias sq_sf;
+alias sq_menu
+alias sq_smartactive
+alias sq_12;alias sq_13;alias sq_14;alias sq_15;alias sq_16;alias sq_17;alias sq_18;alias sq_19;alias sq_20;alias sq_21;alias sq_20n
 
-alias sq_6ms "sq_6ms_1;sq_6ms_2;sq_6ms_3;sq_6ms_4;sq_6ms_5;sq_6ms_6"
-alias sq_6ms_1;alias sq_6ms_2;alias sq_6ms_3;alias sq_6ms_4;alias sq_6ms_5;alias sq_6ms_6;
+alias sq_6ms "sq_6ms_1;sq_6ms_2;sq_6ms_3;sq_6ms_4;sq_6ms_5;sq_6ms_6;sq_6ms_forwardstop;sq_6ms_backstop;sq_6ms_rightstop;sq_6ms_leftstop;"
+alias sq_6ms_1;alias sq_6ms_2;alias sq_6ms_3;alias sq_6ms_4;alias sq_6ms_5;alias sq_6ms_6;alias sq_6ms_forwardstop;alias sq_6ms_backstop;alias sq_6ms_rightstop;alias sq_6ms_leftstop
 
-alias sq_66ms "sq_66ms_1;sq_66ms_2;sq_66ms_3;sq_66ms_4"
-alias sq_66ms_1;alias sq_66ms_2;alias sq_66ms_3;alias sq_66ms_4;
+alias sq_66ms "sq_66ms_1;sq_66ms_2;sq_66ms_3;sq_66ms_4;sq_66ms_5;sq_66ms_6"
+alias sq_66ms_1;alias sq_66ms_2;alias sq_66ms_3;alias sq_66ms_4;alias sq_66ms_5;alias sq_66ms_6
 
 //关于sq_20比较特殊 这是给自动身法定义的ticker 实际执行的命令是sq_20n 为确保1s执行64行指令 故有此链
 //在smartactive模块 将sq_sf定义为实际执行的命令 由sq_20n逐行执行
@@ -14,20 +16,19 @@ alias sq_20 sq_20t
 alias sq_20t "sq_20a"
 alias sq_20a "sq_20n;alias sq_20t sq_20b"
 alias sq_20b "alias sq_20t sq_20c"
-alias sq_20c "alias sq_20t sq_20d"
-alias sq_20d "alias sq_20t sq_20e"
-alias sq_20e "alias sq_20t sq_20f"
-alias sq_20f "alias sq_20t sq_20g"
-alias sq_20g "alias sq_20t sq_20h"
-alias sq_20h "alias sq_20t sq_20i"
-alias sq_20i "alias sq_20t sq_20j"
-alias sq_20j "alias sq_20t sq_20k"
-alias sq_20k "alias sq_20t sq_20l"
-alias sq_20l "alias sq_20t sq_20m"
-alias sq_20m "alias sq_20t sq_20o"
-alias sq_20o "alias sq_20t sq_20p"
-alias sq_20p "alias sq_20t sq_20q"
-alias sq_20q "alias sq_20t sq_20r"
-alias sq_20r "alias sq_20t sq_20a"
-
+alias sq_20c "alias sq_20t sq_20a"
+//alias sq_20d "alias sq_20t sq_20a"
+//alias sq_20e "alias sq_20t sq_20a"
+//alias sq_20f "alias sq_20t sq_20g"
+//alias sq_20g "alias sq_20t sq_20a"
 alias sq_20n
+//alias sq_20h "alias sq_20t sq_20i"
+//alias sq_20i "alias sq_20t sq_20j"
+//alias sq_20j "alias sq_20t sq_20k"
+//alias sq_20k "alias sq_20t sq_20l"
+//alias sq_20l "alias sq_20t sq_20m"
+//alias sq_20m "alias sq_20t sq_20o"
+//alias sq_20o "alias sq_20t sq_20p"
+//alias sq_20p "alias sq_20t sq_20q"
+//alias sq_20q "alias sq_20t sq_20r"
+//alias sq_20r "alias sq_20t sq_20a"

@@ -23,3 +23,38 @@ alias TakeAttackToRapidFireA "alias sq_6ms_2 fullattack_action;smart_rapidfire_f
 alias TakeAttackToRapidFire "TakeAttackToRapidFireA;"
 
 alias TakeAttackCancelRapidFire "alias sq_6ms_2;/fps_recovery;alias smart_rapidfire_fps_rec /fps_recovery"
+
+alias clear_num "alias 1;alias 2;alias 3;alias 4;alias 5;alias 6;alias 7;alias 8;alias 9;alias 0"
+
+alias forwardlock_pack ".autostop_f_disable;alias sq_66ms_3 autostop_forwardlock_start"
+alias backlock_pack ".autostop_b_disable;alias sq_66ms_4 autostop_backlock_start"
+alias rightlock_pack ".autostop_r_disable;alias sq_66ms_5 autostop_rightlock_start"
+alias leftlock_pack ".autostop_l_disable;alias sq_66ms_6 autostop_leftlock_start"
+
+alias +autostop_sprintsmartpack "+smartpack_pack;"
+alias -autostop_sprintsmartpack "-smartpack_pack;"
+
+alias +autostop_slotsmartpack "+smartpack_pack;alias -autostop_sprintsmartpack"
+alias -autostop_slotsmartpack "-smartpack_pack;alias -autostop_sprintsmartpack -smartpack_pack"
+
+alias +autostop_switchpack "+smartpack_pack;alias -autostop_sprintsmartpack;alias -autostop_slotsmartpack"
+alias -autostop_switchpack "-smartpack_pack;alias -autostop_sprintsmartpack -smartpack_pack;alias -autostop_slotsmartpack -smartpack_pack"
+
+alias autostop_r_enable_pack "alias autostop_right_cmd_active autostop_right_cmd;alias /autostop_r .autostop_r_disable"
+alias autostop_r_disable_pack "alias autostop_right_cmd_active;alias /autostop_r .autostop_r_enable"
+alias autostop_l_enable_pack "alias autostop_left_cmd_active autostop_left_cmd;alias /autostop_l .autostop_l_disable"
+alias autostop_l_disable_pack "alias autostop_left_cmd_active;alias /autostop_l .autostop_l_enable"
+alias autostop_f_enable_pack "alias autostop_forward_cmd_active autostop_forward_cmd;alias /autostop_f .autostop_f_disable"
+alias autostop_f_disable_pack "alias autostop_forward_cmd_active;alias /autostop_f .autostop_f_enable"
+alias autostop_b_enable_pack "alias autostop_back_cmd_active autostop_back_cmd;alias /autostop_b .autostop_b_disable"
+alias autostop_b_disable_pack "alias autostop_back_cmd_active;alias /autostop_b .autostop_b_enable"
+
+//延迟恢复急停命令
+alias autostop_recall_pack "rec_f_autostop;rec_r_autostop;rec_b_autostop;rec_l_autostop;alias sq_6ms_3 "
+alias autostop_wait_rec "alias sq_6ms_3 autostop_recall_pack"
+
+alias autostop_smartdisable_cause_slot_pack  " +autostop_slotsmartpack;"
+alias autostop_smartenable_cause_slot_pack  " -autostop_slotsmartpack;"
+
+alias +smartpack_pack ".autostop_f_disable;.autostop_r_disable;.autostop_b_disable;.autostop_l_disable;alias .autostop_r_enable;alias .autostop_l_enable;alias .autostop_f_enable;alias .autostop_b_enable"
+alias -smartpack_pack "alias .autostop_r_enable autostop_r_enable_pack;alias .autostop_l_enable autostop_l_enable_pack;alias .autostop_f_enable autostop_f_enable_pack;alias .autostop_b_enable autostop_b_enable_pack;autostop_wait_rec"

@@ -60,11 +60,11 @@ alias -sqdesub_duck "-duck"
 setinfo -sqdesub_duck 0
 alias -MoClient_bind_duck toggle -sqdesub_duck 0
 
-alias +sqdesub_sprint "+sprint"
+alias +sqdesub_sprint "+autostop_sprinttool;+sprint"
 setinfo +sqdesub_sprint 0
 alias +MoClient_bind_sprint toggle +sqdesub_sprint 0
 
-alias -sqdesub_sprint "-sprint"
+alias -sqdesub_sprint "-autostop_sprinttool;-sprint"
 setinfo -sqdesub_sprint 0
 alias -MoClient_bind_sprint toggle -sqdesub_sprint 0
 

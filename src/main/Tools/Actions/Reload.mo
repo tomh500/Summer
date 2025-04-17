@@ -12,3 +12,4 @@ exec MoClient/Userspace/UserValue
 +BUGkey
 .MoClient_colorful_loop
 mout_reload
+/fps_recovery
