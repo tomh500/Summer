@@ -1,0 +1,1 @@
+start GetCpuInfo.exe
