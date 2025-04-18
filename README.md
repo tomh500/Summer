@@ -12,8 +12,8 @@
     <a href="https://github.com/Yunkong-ouo/Cs2CfgHighlighterExtension">
         <img alt="CS2 Visual Studio Code 高亮扩展" src="https://img.shields.io/badge/CS2%20VSCode%20%E9%AB%98%E4%BA%AE%E6%93%B4%E5%B1%95-blue?style=for-the-badge&logo=github">
     </a>
-    <a href="https://github.com/tomh500/SqaureConfig_Nextgen">
-        <img alt="Sqaure下一代" src="https://img.shields.io/badge/Sqaure%20Nextgen%20Config-green?style=for-the-badge&logo=github">
+    <a href="https://github.com/tomh500/SquareConfig_Nextgen">
+        <img alt="Square下一代" src="https://img.shields.io/badge/Square%20Nextgen%20Config-green?style=for-the-badge&logo=github">
     </a>
 </p>
 
@@ -21,7 +21,7 @@
 ##
 因为开发者的个人原因，决定归档本仓库！以后也不会有类似的功能了，这一次，是真的累了
 ## 💼 MoClient 介绍
-**MoClient** 延续了**Sqaure**的功能，对底层完全进行重构，性能++
+**MoClient** 延续了**Square**的功能，对底层完全进行重构，性能++
 
 ## ✨ 特性
 - 🔥 配置迅速
