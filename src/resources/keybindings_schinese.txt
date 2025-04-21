@@ -125,6 +125,7 @@
 	"CFG_SETTING_PLATFORM_PERFECT"							"完美平台、官匹\n \n \n \n"
 	"CFG_SETTING_PLATFORM_EEEEE"							"5E平台\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FK4_DZ"								"小镇4号位匪口烟\n \n \n \n"
+	"CFG_ITEMS_INFERNO_FKQD4_DZ"								"小镇4号位匪口前端烟\n \n \n \n"
 	"Ignore_Broadcast_Messages"								"Mo​Cli​ent​-Omega 1264148869定制版​"
 	"Ignore_Broadcast_Team_Messages"						"Based On MoClient-Delta-1.1 你拥有一般商业许可"
 	"Accept_All_Messages"									"作​者​B​站​ S​a​​n​gat​​su​_P"
