@@ -126,7 +126,7 @@
 	"CFG_SETTING_PLATFORM_EEEEE"							"5E平台\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FK4_DZ"								"小镇1号位匪口烟\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FKQD4_DZ"							"小镇1号位匪口前端烟\n \n \n \n"
-	"Ignore_Broadcast_Messages"								"MoClient-内测版 保证不卖"
+	"Ignore_Broadcast_Messages"								"DearMoments-内测版 保证不卖"
 	"Ignore_Broadcast_Team_Messages"							" "
 	"Accept_All_Messages"									""
 	"SMART_UI"	"身法轮盘"

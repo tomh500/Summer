@@ -1,5 +1,5 @@
 //执行本EXEC 定义输出到队伍
-//define mout MoClient_Output
+//define mout DearMoments_Output
 
 alias mout_reload ""
 alias mout_rapidfire_1 ""
