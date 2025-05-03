@@ -1,0 +1,9 @@
+{
+    "has_variant": true,
+    "has_voice": true,
+    "has_common": true,
+    "has_headshot": true,
+    "has_common_headshot": false,
+    "start": 2,
+    "end": 8
+}
