@@ -126,7 +126,7 @@
 	"CFG_SETTING_PLATFORM_EEEEE"							"5E平台\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FK4_DZ"								"小镇1号位匪口烟\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FKQD4_DZ"							"小镇1号位匪口前端烟\n \n \n \n"
-	"Ignore_Broadcast_Messages"								"DearMoments-Delta公测 1.2.3 免费发布"
+	"Ignore_Broadcast_Messages"								"DearMoments-Delta公测 1.2.4 免费发布"
 	"Ignore_Broadcast_Team_Messages"							" 作者B站 Sangatsu_P"
 	"Accept_All_Messages"									""
 	"SMART_UI"	"身法轮盘"
