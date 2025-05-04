@@ -1,0 +1,7 @@
+"CFGShortcut.exe",
+"DM-GSI.exe",
+"Listener.exe",
+"README.md",
+"GetCpuInfo.exe",
+"SDL2.dll",
+"SDL2_mixer.dll"
