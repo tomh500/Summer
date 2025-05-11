@@ -126,11 +126,12 @@
 	"CFG_SETTING_PLATFORM_EEEEE"							"5E平台\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FK4_DZ"								"小镇1号位匪口烟\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FKQD4_DZ"							"小镇1号位匪口前端烟\n \n \n \n"
-	"Ignore_Broadcast_Messages"								"D​earM​omen​ts-Delt​a公​​测 1.4.1​​ 免​费​发​布"
+	"Ignore_Broadcast_Messages"								"D​earM​omen​ts-Delt​a公​​测 1.4.2​​ 免​费​发​布"
 	"Ignore_Broadcast_Team_Messages"							" 作​者​B​站​ Sa​nga​ts​u_​P"
 	"Accept_All_Messages"									""
 	"SMART_UI"	"身法轮盘"
 	"SMART_MIRAGE_MID_TO_WINDOW"		"[荒漠迷城]中路长椅->窗户"
 	"SMART_MIRAGE_WINDOW_TO_SHORT"		"[荒漠迷城]窗户->B小"
 	"SMART_MIRAGE_WINDOW_TO_LADDER"	"[荒漠迷城]窗户->小黑屋"
+		"SMART_MIRAGE_HIDE_C4"	"[荒漠迷城]A2藏C4"
 }
