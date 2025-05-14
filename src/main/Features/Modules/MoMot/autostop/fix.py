@@ -5,10 +5,10 @@ base_dir = os.path.dirname(os.path.abspath(__file__))
 
 # 映射文件名到要追加的文本
 cfg_suffixes = {
-    'F.cfg': 'autostop_forward_last_delay',
-    'B.cfg': 'autostop_back_last_delay',
-    'R.cfg': 'autostop_right_last_delay',
-    'L.cfg': 'autostop_left_last_delay',
+    'F.cfg': 'alias autostop_forward_start autostop_forward_last',
+    'B.cfg': 'alias autostop_back_start autostop_back_last',
+    'R.cfg': 'alias autostop_right_start autostop_right_last',
+    'L.cfg': 'alias autostop_left_start autostop_left_last',
 }
 
 # 遍历所有子文件夹
