@@ -1,3 +1,2 @@
-chcp 65001
+cd src\main\Lib
 start GetCpuInfo.exe
-start CFGShortcut.exe
