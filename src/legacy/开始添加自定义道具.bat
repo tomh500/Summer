@@ -21,4 +21,5 @@ echo 正在执行 generate.py 脚本...
 python generate.py
 
 echo 脚本执行完毕。
+xcopy "..\resources\keybindings_schinese.txt" "..\..\..\..\resource\keybindings_schinese.txt" /Y /F
 pause
