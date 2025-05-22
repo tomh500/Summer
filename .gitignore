@@ -1,4 +1,6 @@
 Userspace/gsi/killing_sound/*.mp3
 Userspace/gsi/steamid.txt
-cpp/
+.vs/
+/.vs
+/.vs/
 src/.listener.lty

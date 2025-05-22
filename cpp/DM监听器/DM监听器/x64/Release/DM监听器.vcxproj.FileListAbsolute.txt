@@ -1,0 +1,6 @@
+C:\Users\tomh5\source\repos\DM监听器\x64\Release\libcurl.dll
+C:\Users\tomh5\source\repos\DM监听器\x64\Release\zlib1.dll
+C:\Users\tomh5\source\repos\DM监听器\DM监听器\x64\Release\DM监听器.vcxproj.Up2Date
+D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg\DearMoments\cpp\DM监听器\x64\Release\libcurl.dll
+D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg\DearMoments\cpp\DM监听器\x64\Release\zlib1.dll
+D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg\DearMoments\cpp\DM监听器\DM监听器\x64\Release\DM监听器.vcxproj.Up2Date

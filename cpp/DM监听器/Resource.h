@@ -1,0 +1,51 @@
+﻿//{{NO_DEPENDENCIES}}
+// Microsoft Visual C++ 生成的包含文件。
+// 使用者 DM监听器.rc
+
+#define IDS_APP_TITLE			103
+#define IDB_BACKGROUND 201
+
+#define IDC_ENABLE_KILL_SOUND    305
+#define IDC_STEAM_ID_EDIT         304
+#define IDC_DEBUG_CHECKBOX        303
+#define IDC_TOGGLE_CS2            302
+#define IDM_ITEMS_THROW_FOLDER 319
+#define IDM_MUSICPLAYER_INIT 110
+#define ID_PLAY_BUTTON 1111
+#define IDM_USERSPACE_FOLDER 116
+#define IDM_INSTALL_CFG 117
+#define IDR_MAINFRAME			128
+#define IDD_DM_DIALOG	102
+#define IDD_ABOUTBOX			103
+#define IDM_ABOUT				104
+#define IDM_EXIT				105
+#define IDM_UPDATE_CHECK 113
+#define IDI_DM			107
+#define IDI_SMALL				108
+#define IDC_DM			109
+#define IDC_ENABLE_KILL_SOUND (WM_USER + 105)
+#define IDC_TOGGLE_CS2 203
+#define IDM_CLEAR_AUTOEXEC 300
+#define IDM_OPEN_MOD_MARKET 301
+#define  IDM_CLEAR_AND_RESET_BINDINGS 302
+#define IDC_MYICON				2
+#ifndef IDC_STATIC
+#define IDC_STATIC				-1
+#define ID_BUTTON_PAUSE 3001
+#define ID_SLIDER_VOLUME 3002
+#define WM_CHECK_FOR_UPDATE (WM_USER + 103)
+
+#define IDC_LISTBOX 311
+#endif
+// 新对象的下一组默认值
+//
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+
+#define _APS_NO_MFC					130
+#define _APS_NEXT_RESOURCE_VALUE	129
+#define _APS_NEXT_COMMAND_VALUE		32771
+#define _APS_NEXT_CONTROL_VALUE		1000
+#define _APS_NEXT_SYMED_VALUE		110
+#endif
+#endif
