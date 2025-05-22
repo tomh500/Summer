@@ -1,3 +1,4 @@
 Userspace/gsi/killing_sound/*.mp3
 Userspace/gsi/steamid.txt
-cpp/GetCPUInfo/.vs
+cpp/
+src/.listener.lty

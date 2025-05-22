@@ -11,10 +11,8 @@
 #include <filesystem>
 #include <comutil.h>
 #include <shlobj.h>
-#define SDL_MAIN_HANDLED
-#include <SDL.h>
-#include <SDL_mixer.h>
 #include <algorithm>
+#include <set>
 #include <wininet.h>
 #include "CreatFolder.h"
 #include "sw.h"
@@ -74,88 +72,66 @@ std::wstring Utf8ToWstring(const std::string& str) {
 // 辅助函数：添加启动项到 autoexec.cfg
 bool AddStartupToAutoexec(const std::string& autoexecPath) {
     try {
-        path filePath(autoexecPath);
-        path parentDir = filePath.parent_path();
+        fs::path filePath(autoexecPath);
+        fs::path parentDir = filePath.parent_path();
+
+        // 创建目录，如果不存在
         if (!exists(parentDir)) {
             create_directories(parentDir);
         }
-        // 以追加模式打开文件（不存在则创建）
-        ofstream ofs(autoexecPath, ios::app);
-        if (!ofs.is_open()) {
+
+        // 打开文件以读取内容
+        ifstream ifs(autoexecPath);
+        if (!ifs.is_open()) {
             cerr << "打开 autoexec.cfg 失败。" << endl;
             return false;
         }
-        // 写入前先添加换行符
-        ofs << "\r\nexec DearMoments/setup\r\n";
+
+        // 读取文件的每一行
+        stringstream buffer;
+        string line;
+        set<string> uniqueLines;
+        bool containsExec = false;
+        while (getline(ifs, line)) {
+            // 处理每一行，去掉两端空格后检查是否包含目标内容
+            line = line.substr(line.find_first_not_of(" \t"), line.find_last_not_of(" \t") + 1);
+            if (line == "exec DearMoments/setup") {
+                containsExec = true;
+            }
+            else {
+                uniqueLines.insert(line); // 将不重复的行保存
+            }
+        }
+        ifs.close();
+
+        // 如果文件没有包含 exec DearMoments/setup，添加它
+        if (!containsExec) {
+            uniqueLines.insert("exec DearMoments/setup");
+        }
+
+        // 重新打开文件进行写入（以覆盖模式）
+        ofstream ofs(autoexecPath, ios::trunc);
+        if (!ofs.is_open()) {
+            cerr << "无法打开文件进行写入。" << endl;
+            return false;
+        }
+
+        // 写入文件内容，确保 exec DearMoments/setup 只出现一次
+        for (const auto& line : uniqueLines) {
+            ofs << line << "\r\n";
+        }
+
         ofs.close();
         return true;
     }
-    catch (const filesystem_error& e) {
+    catch (const fs::filesystem_error& e) {
         cerr << "修改 autoexec.cfg 失败: " << e.what() << endl;
         return false;
     }
 }
 
 //------------------------
-// 初始化 SDL2 和 SDL_mixer
-bool InitSDL() {
-    if (SDL_Init(SDL_INIT_AUDIO) < 0) {
-        cerr << "SDL 初始化失败: " << SDL_GetError() << endl;
-        return false;
-    }
-    if (Mix_Init(MIX_INIT_MP3) != MIX_INIT_MP3) {
-        cerr << "SDL_mixer 初始化失败: " << Mix_GetError() << endl;
-        SDL_Quit();
-        return false;
-    }
-    if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 1024) < 0) {
-        cerr << "音频设备打开失败: " << Mix_GetError() << endl;
-        Mix_Quit();
-        SDL_Quit();
-        return false;
-    }
-    return true;
-}
 
-//------------------------
-// 从内存播放 MP3（BGM）
-void PlayBGMFromMemory(UINT resourceID) {
-    HRSRC hRes = FindResourceW(NULL, MAKEINTRESOURCEW(resourceID), RT_RCDATA);
-    if (!hRes) {
-        cerr << "找不到资源" << endl;
-        return;
-    }
-    HGLOBAL hData = LoadResource(NULL, hRes);
-    if (!hData) {
-        cerr << "加载资源失败" << endl;
-        return;
-    }
-    DWORD dwSize = SizeofResource(NULL, hRes);
-    void* pData = LockResource(hData);
-    if (!pData) {
-        cerr << "锁定资源失败" << endl;
-        return;
-    }
-    SDL_RWops* rw = SDL_RWFromConstMem(pData, dwSize);
-    if (!rw) {
-        cerr << "创建 RWops 失败: " << SDL_GetError() << endl;
-        return;
-    }
-    Mix_Music* music = Mix_LoadMUS_RW(rw, 1);  // 自动释放 rw
-    if (!music) {
-        cerr << "加载音乐失败: " << Mix_GetError() << endl;
-        return;
-    }
-    if (Mix_PlayMusic(music, 1) == -1) {
-        cerr << "播放音乐失败: " << Mix_GetError() << endl;
-        Mix_FreeMusic(music);
-        return;
-    }
-    while (Mix_PlayingMusic()) {
-        SDL_Delay(100);
-    }
-    Mix_FreeMusic(music);
-}
 
 //------------------------
 // 获取系统国家/地区代码
@@ -437,25 +413,7 @@ int main() {
         int regionCode = GetRegionCode();  
         ShowRegionMessage(regionCode);     
 
-        if (!InitSDL()) {
-            return -1;
-        }
-        //音乐播放 取消注释然后添加资源文件即可
-        /*
-        UINT bgmResourceId = 0;
-        if (regionCode == 1) {
-            bgmResourceId = IDR_BGM_CN;
-        }
-        else if (regionCode == 2) {
-            bgmResourceId = IDR_BGM_CN;
-        }
-        thread musicThread;
-        if (bgmResourceId != 0) {
-            musicThread = thread(PlayBGMFromMemory, bgmResourceId);
-        }
-        
-       
-       */
+
         system("cls");
         GetCPUInfo();
 
@@ -546,13 +504,6 @@ int main() {
         MessageBox(NULL, L"现在你可以退出本程序进行下一步配置", L"tips", MB_OK | MB_ICONINFORMATION);
 
    
-     //   if (musicThread.joinable()) {
-    //        musicThread.join();
-    //    }
-        Mix_CloseAudio();
-        Mix_Quit();
-        SDL_Quit();
-       
     
     return 0;
 }

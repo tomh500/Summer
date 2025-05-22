@@ -30,7 +30,7 @@ class Overlay(QWidget):
     def move_to_center(self):
         screen = QGuiApplication.primaryScreen().geometry()
         center_x = screen.width() // 2 - self.dot_size // 2
-        center_y = screen.height() // 2 -255  - self.dot_size // 2
+        center_y = screen.height() // 2 +25  - self.dot_size // 2
         self.setGeometry(center_x, center_y, self.dot_size, self.dot_size)
 
     def paintEvent(self, event):
