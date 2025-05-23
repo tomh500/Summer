@@ -385,7 +385,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
         case IDM_ITEMS_THROW_FOLDER:
         {
-            wstring userspacePath = L"..\\..\\..\\src\\legacy\\CustomItems";
+            wstring userspacePath = L"..\\..\\..\\src\\legacy";
             ShellExecuteW(NULL, L"open", userspacePath.c_str(), NULL, NULL, SW_SHOW);
             break;
         }
