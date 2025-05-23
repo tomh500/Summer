@@ -1,13 +1,8 @@
 ﻿  CS2-GSI.cpp
-C:\Users\tomh5\source\repos\CS2-GSI\CS2-GSI.cpp(17,9): warning C4005: “CPPHTTPLIB_THREAD_POOL_COUNT”: 宏重定义
-      C:\Users\tomh5\source\repos\CS2-GSI\cpp-httplib\httplib.h(130,9):
-      参见“CPPHTTPLIB_THREAD_POOL_COUNT”的前一个定义
-  
   正在生成代码
-  0 of 5279 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 5279 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   已完成代码的生成
-  CS2-GSI.vcxproj -> C:\Users\tomh5\source\repos\CS2-GSI\x64\Release\DM-GSI.exe
+  CS2-GSI.vcxproj -> D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg\DearMoments\cpp\CS2-GSI\x64\Release\DM-GSI.exe
   'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
   或批处理文件。

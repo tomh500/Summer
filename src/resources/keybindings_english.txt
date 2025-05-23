@@ -134,6 +134,4 @@
 	"SMART_MIRAGE_WINDOW_TO_SHORT"		"[荒漠迷城]窗户->B小"
 	"SMART_MIRAGE_WINDOW_TO_LADDER"	"[荒漠迷城]窗户->小黑屋"
 		"SMART_MIRAGE_HIDE_C4"	"[荒漠迷城]A2藏C4"
-"注释" "以下内容是自定义道具"
-"DUST2_EXAMPLEITEMS1" "示例道具"
 }

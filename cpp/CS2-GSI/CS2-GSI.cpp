@@ -285,6 +285,7 @@ bool LoadKillingSoundConfig(bool& match, float& vol) {
 
 // 接收数据的线程
 // 全局状态变量
+static bool round_started = false;
 
 void ReceiveData(httplib::Server* svr, bool match, float vol, bool debug_mode) {
     svr->Post("/", [debug_mode, match, vol](const httplib::Request& req, httplib::Response& res) {
@@ -310,8 +311,9 @@ void ReceiveData(httplib::Server* svr, bool match, float vol, bool debug_mode) {
             if (debug_mode)
                 std::cout << "[PHASE] " << last_phase << " → " << phase << "\n";
 
-            if (phase == "over") {
-                wait_for_kill_reset = true;
+            if (phase == "over"|| phase == "gameover") {
+                wait_for_kill_reset = true;  
+                 round_started = false;
 
                 // 播放 mvp 音效
                 if (mvp_flag && mvp_candidate_kills > 3 && !mvp_played) {
@@ -334,6 +336,7 @@ void ReceiveData(httplib::Server* svr, bool match, float vol, bool debug_mode) {
                 dead_muted = false;
                 last_kills = -1;
                 wait_for_kill_reset = false;
+                round_started = true;
                 if (debug_mode)
                     std::cout << "[RESET] new round, re-enable sound\n";
             }

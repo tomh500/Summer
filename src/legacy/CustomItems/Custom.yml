@@ -25,25 +25,24 @@
 #  - y: "坐标3，getpos得到的setpos的第3个参数，也可以留空，它是用于本地服务器传送到指定坐标的"
 
 # 配置文件：示例道具投掷参数
-                 
 
-ExampleItems1:
-  filename: "ExampleItems.cfg" 
-  displayname: "示例道具"       
-  map: "Dust2"                  
-  sensitivity: "1.28"           
-  yaw: "-3150"                  
-  pitch: "-390"                 
-  type: "smoke"                 
-  throwmode: "Custom"                          
+                 
+overpass_test1:
+  filename: "" 
+  displayname: ""       
+  map: ""                  
+  sensitivity: ""           
+  yaw: ""                  
+  pitch: ""                 
+  type: ""                 
+  throwmode: ""                          
   extra: ["",""]
   select:
-    - page: "1"
-    - slot: "1"
-    - command: "/CustomItems"
+    - page: ""
+    - slot: ""
+    - command: ""
     - bind: "None" 
   setpos:
-    - x: "0" 
-    - z: "0" 
-    - y: "0"         
-      
+    - x: "" 
+    - z: "" 
+    - y: ""         

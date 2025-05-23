@@ -4,3 +4,4 @@ Userspace/gsi/steamid.txt
 /.vs
 /.vs/
 src/.listener.lty
+src/legacy/4items/actions/dust2/ExampleItems.cfg

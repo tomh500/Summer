@@ -99,7 +99,8 @@ if not data:
                         with open(full_path, "w", encoding="utf-8") as f:
                             f.write(content.strip() + "\n")
     # 复制默认 keybindings
-    resource_dir = os.path.join(BASE_DIR, "resources")
+    resource_dir = os.path.join(BASE_DIR, "..", "resources")
+    resource_dir = os.path.abspath(resource_dir)  # 转为绝对路径，避免路径错乱
     os.makedirs(resource_dir, exist_ok=True)
     shutil.copyfile(
         os.path.join(output_root, "base/base_keybindings_schinese.txt"),
@@ -170,7 +171,7 @@ for item_id, props in data.items():
     overlay_lines.extend([
         f'alias {item_id_l} "items_{item_id_l};alias sq_14"',
         f'alias items_{item_id_l}_set "alias -LSquare_bind_items {item_id_l}"',
-        f'alias items_{item_id_l} "sensitivity {sensitivity};exec {filepath} "\n'
+        f'alias items_{item_id_l} "sensitivity {sensitivity};m_yaw 0.022;exec {filepath} "\n'
     ])
     if command_name:
         overlay_lines.append(f"alias {command_name} items_{item_id_l}_set")
@@ -229,7 +230,7 @@ for map_name, cmd_list in interface_cmd_lines.items():
     )
 
 # 更新 keybinding 文本文件
-resource_dir = os.path.join(BASE_DIR, "resources")
+resource_dir = os.path.abspath(os.path.join(BASE_DIR, "..", "resources"))
 os.makedirs(resource_dir, exist_ok=True)
 def update_keybinding_file(base_path, output_path, mappings):
     with open(base_path, "r", encoding="utf-8") as f:
@@ -252,7 +253,7 @@ def update_keybinding_file(base_path, output_path, mappings):
         f.write(content)
 
 # 生成资源目录并更新
-resource_dir = os.path.join(BASE_DIR, "resources")
+resource_dir = os.path.abspath(os.path.join(BASE_DIR, "..", "resources"))
 os.makedirs(resource_dir, exist_ok=True)
 
 update_keybinding_file(
