@@ -25,21 +25,22 @@ UniqueKeyLoader.add_constructor(
 
 def normalize_to_dict(raw, key_name):
     if isinstance(raw, dict):
-        return raw
+        # convert keys to lowercase for case-insensitive access
+        return {k.lower(): v for k, v in raw.items()}
     elif isinstance(raw, list):
         out = {}
         for entry in raw:
             if isinstance(entry, dict):
-                out.update(entry)
+                out.update({k.lower(): v for k, v in entry.items()})
             else:
                 raise ValueError(f"{key_name} 列表项不是字典：{entry}")
         return out
     else:
         raise ValueError(f"{key_name} 字段类型不支持：{type(raw)}")
 
-VALID_MAPS = {"dust2", "inferno", "mirage", "ancient", "nuke", "anubis", "overpass", "vertigo"}
-VALID_TYPES = {"smoke", "molo", "flash", "grenade", "decoy"}
-VALID_THROWMODES = {"Normal", "Jump", "ForwardJump", "Custom"}
+VALID_MAPS = {m.lower() for m in ("dust2", "inferno", "mirage", "ancient", "nuke", "anubis", "overpass", "vertigo")}
+VALID_TYPES = {t.lower() for t in ("smoke", "molo", "flash", "grenade", "decoy")}
+VALID_THROWMODES = {m.lower() for m in ("Normal", "Jump", "ForwardJump", "Custom")}
 
 TYPE_SLOT_MAP = {
     "grenade": "slot6",
@@ -50,19 +51,21 @@ TYPE_SLOT_MAP = {
 }
 
 def get_throwmode_exec(mode):
-    if mode == "Jump":
+    mode = mode.lower()
+    if mode == "jump":
         return "exec DearMoments/src/legacy/4items/tools/itemthrow;"
-    elif mode == "Normal":
+    elif mode == "normal":
         return "exec DearMoments/src/legacy/4items/tools/itemthrow_withoutjump;"
-    elif mode == "ForwardJump":
+    elif mode == "forwardjump":
         return "+forward;exec DearMoments/src/legacy/4items/tools/itemthrow;"
-    elif mode == "Custom":
+    elif mode == "custom":
         return ""
     else:
         raise ValueError(f"Unknown throwmode: {mode}")
 
 def get_throwmode_cleanup(mode):
-    if mode == "ForwardJump":
+    mode = mode.lower()
+    if mode == "forwardjump":
         return "-forward;rec_sensitivity;alias sq_19"
     return "rec_sensitivity;alias sq_19"
 
@@ -78,8 +81,11 @@ def clear_and_insert_custom_define(path, lines):
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
 
+# 加载并转换为键全小写
 with open("Custom.yml", "r", encoding="utf-8") as f:
-    data = yaml.load(f, Loader=UniqueKeyLoader) or {}
+    raw_data = yaml.load(f, Loader=UniqueKeyLoader) or {}
+# 将外层 props 键也转换为小写
+data = {item_id: {k.lower(): v for k, v in props.items()} for item_id, props in raw_data.items()}
 
 output_root = "4items"
 overlay_path = os.path.join(output_root, "Overlay.cfg")
@@ -130,11 +136,14 @@ for item_id, props in data.items():
     extra = props.get("extra", ["", ""])
     item_type = props["type"]
 
+    # 规范 select 和 setpos
     select_dict = normalize_to_dict(props.get("select", {}), "select")
     setpos_dict = normalize_to_dict(props.get("setpos", {}), "setpos")
 
     bind_key = select_dict.get("bind")
     command_name = select_dict.get("command")
+    if command_name and not command_name.startswith('/'):
+        raise ValueError(f"command 字段必须以 '/' 开头：{command_name}")
     page = select_dict.get("page")
     slot = select_dict.get("slot")
 
