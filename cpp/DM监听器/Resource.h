@@ -34,7 +34,7 @@
 #define ID_BUTTON_PAUSE 3001
 #define ID_SLIDER_VOLUME 3002
 #define WM_CHECK_FOR_UPDATE (WM_USER + 103)
-
+#define IDC_RUN_COMMAND_BUTTON  324
 #define IDC_LISTBOX 311
 #endif
 // 新对象的下一组默认值

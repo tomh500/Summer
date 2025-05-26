@@ -13,8 +13,8 @@ D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg\D
   (编译源文件“DM监听器.cpp”)
   
   正在生成代码
-  1 of 1427 functions (<0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
+  5 of 1694 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+    4 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成
   DM监听器.vcxproj -> D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg\DearMoments\cpp\DM监听器\x64\Release\Listener.exe

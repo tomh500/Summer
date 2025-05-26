@@ -13,7 +13,7 @@ using namespace filesystem;
 
 bool CheckRunPath();
 bool FolderExists(const wstring& folderPath);
-int StartApps(const std::wstring& exePath, const std::wstring& arguments, bool showWindow);
+int StartApps(const wstring& exePath, const wstring& arguments, bool showWindow);
 bool IsProcessRunning(const wstring& processName);
 void KillProcess(const wstring& processName);
 void ClearAutoexec(HWND hWnd);
@@ -22,3 +22,4 @@ string WString2String(const wstring& wstr);
 wstring String2WString(const std::string& str);
 bool CopyFile(const wstring& src, const wstring& dst);
 int CFGInstaller();
+int StartAppsNew(const path& relativeExePath, const wstring& arguments, bool showWindow);

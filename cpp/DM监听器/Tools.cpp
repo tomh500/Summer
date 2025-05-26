@@ -153,6 +153,49 @@ int StartApps(const std::wstring& exePath, const std::wstring& arguments, bool s
     return 0;
 }
 
+// filesystem版本
+#include <filesystem>
+namespace fs = std::filesystem;
+
+int StartAppsNew(const fs::path& relativeExePath, const std::wstring& arguments, bool showWindow)
+{
+    STARTUPINFOW si = { sizeof(si) };
+    PROCESS_INFORMATION pi;
+
+    si.dwFlags |= STARTF_USESHOWWINDOW;
+    si.wShowWindow = showWindow ? SW_SHOWNORMAL : SW_HIDE;
+
+    // 拼接完整路径（现在 relativeExePath 已经是 fs::path）
+    fs::path fullExePath = relativeExePath;
+    std::wstring exePathStr = fullExePath.wstring();
+
+    // 构造命令行
+    std::wstring cmdLine = L"\"" + exePathStr + L"\" " + arguments;
+    LPWSTR cmdLineBuffer = &cmdLine[0];
+
+    extern int debug;
+    if (debug == 1)
+    {
+        std::wstringstream ss;
+        ss << L"即将执行的命令：\n" << cmdLine;
+        MessageBoxW(nullptr, ss.str().c_str(), L"调试信息", MB_OK | MB_ICONINFORMATION);
+    }
+
+    if (!CreateProcessW(nullptr, cmdLineBuffer, nullptr, nullptr, FALSE, 0, nullptr, nullptr, &si, &pi)) {
+        DWORD err = GetLastError();
+
+        std::wstringstream ss;
+        ss << L"无法启动程序！错误代码：" << err;
+        MessageBoxW(nullptr, ss.str().c_str(), L"错误", MB_OK | MB_ICONERROR);
+        return 1;
+    }
+
+    CloseHandle(pi.hProcess);
+    CloseHandle(pi.hThread);
+    return 0;
+}
+
+
 
 bool IsProcessRunning(const std::wstring& processName) {
     DWORD aProcesses[1024], cbNeeded, cProcesses;

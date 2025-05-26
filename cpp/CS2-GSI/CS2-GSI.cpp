@@ -37,7 +37,7 @@ bool IsPortInUse(int port) {
     sockaddr_in service;
 
     if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
-        return true; // 认为初始化失败也不能继续
+        return true; 
     }
 
     sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
@@ -293,8 +293,8 @@ void ReceiveData(httplib::Server* svr, bool match, float vol, bool debug_mode) {
         static int last_kills = -1;
         static bool dead_muted = false;
         static bool wait_for_kill_reset = false;
+        static bool waiting_for_live = false;  
 
-        // 解析 JSON
         json j = json::parse(req.body);
         std::string phase = j["round"]["phase"];
         const auto& state = j["player"]["state"];
@@ -306,72 +306,85 @@ void ReceiveData(httplib::Server* svr, bool match, float vol, bool debug_mode) {
             mvp_flag = true;
         }
 
-        // 阶段变更
+        bool is_deathmatch = (j["map"]["mode"] == "deathmatch");
+
+        // 阶段切换处理
         if (phase != last_phase) {
             if (debug_mode)
                 std::cout << "[PHASE] " << last_phase << " → " << phase << "\n";
 
-            if (phase == "over"|| phase == "gameover") {
-                wait_for_kill_reset = true;  
-                 round_started = false;
-
-                // 播放 mvp 音效
-                if (mvp_flag && mvp_candidate_kills > 3 && !mvp_played) {
-                    std::lock_guard<std::mutex> lock(queue_mutex);
-                    kills_queue.push(-2);  // -2 表示播放 mvp.mp3
-                    mvp_played = true;
-                    if (debug_mode)
-                        std::cout << "[MVP] MVP Achieved with " << mvp_candidate_kills << " kills\n";
-                }
-
+            if (phase != "live") {
+                // 非live阶段，标记等待live（重置等待）
+                waiting_for_live = true;
+                round_started = false;
                 if (debug_mode)
-                    std::cout << "[MARK] round over, waiting for reset\n";
+                    std::cout << "[WAIT] Waiting for next live phase\n";
             }
-            else if (phase == "live" && wait_for_kill_reset) {
-                // 回合重置
+
+            if (phase == "live" && waiting_for_live) {
+                // 进入live阶段，初始化所有状态
+                waiting_for_live = false;
+                wait_for_kill_reset = false;
                 mvp_flag = false;
                 mvp_played = false;
                 mvp_candidate_kills = 0;
                 round_death_occurred = false;
                 dead_muted = false;
-                last_kills = -1;
-                wait_for_kill_reset = false;
+                last_kills = 0;   // 新比赛击杀计数从0开始
                 round_started = true;
+
                 if (debug_mode)
-                    std::cout << "[RESET] new round, re-enable sound\n";
+                    std::cout << "[RESET] New live phase started, reset states\n";
+            }
+
+            // 处理over/gameover阶段
+            if (phase == "over" || phase == "gameover") {
+                wait_for_kill_reset = true;
+                round_started = false;
+
+                // 播放mvp音效
+                if (mvp_flag && mvp_candidate_kills > 3 && !mvp_played) {
+                    std::lock_guard<std::mutex> lock(queue_mutex);
+                    kills_queue.push(-2);  // 播放mvp.mp3
+                    mvp_played = true;
+                    if (debug_mode)
+                        std::cout << "[MVP] MVP achieved with " << mvp_candidate_kills << " kills\n";
+                }
+
+                if (debug_mode)
+                    std::cout << "[MARK] Round over, waiting for reset\n";
             }
 
             last_phase = phase;
         }
 
-        // 非 live 或 over 阶段忽略
+        // 非 live 或 over 阶段直接返回
         if (phase != "live" && phase != "over") {
-            if (debug_mode) std::cout << "[SKIP] not in live/over\n";
+            if (debug_mode)
+                std::cout << "[SKIP] Not in live/over phase\n";
             res.set_content("IGNORED (not live/over)", "text/plain");
             return;
         }
 
-        // 死亡竞赛模式直接处理击杀
-        bool is_deathmatch = (j["map"]["mode"] == "deathmatch");
         if (is_deathmatch) {
+            // 死亡竞赛模式，死亡不静音
             if (round_kills > last_kills) {
                 std::lock_guard<std::mutex> lock(queue_mutex);
-                kills_queue.push(-1); // -1 = extra.mp3
+                kills_queue.push(-1); // 播放extra.mp3
                 last_kills = round_kills;
                 if (debug_mode)
-                    std::cout << "[DM-KILL] pushed extra.mp3 for kill #" << round_kills << "\n";
+                    std::cout << "[DM-KILL] Pushed extra.mp3 for kill #" << round_kills << "\n";
             }
         }
         else {
-            // 普通模式死亡处理
+            // 玩家死亡时静音
             if (health <= 0) {
                 dead_muted = true;
                 round_death_occurred = true;
                 if (debug_mode)
                     std::cout << "[MUTED] Player is dead\n";
             }
-
-            // 记录击杀（如果未死亡）
+            // 未静音时，检测击杀数递增
             if (!dead_muted && round_kills > last_kills) {
                 {
                     std::lock_guard<std::mutex> lock(queue_mutex);
@@ -385,12 +398,13 @@ void ReceiveData(httplib::Server* svr, bool match, float vol, bool debug_mode) {
                 last_kills = round_kills;
 
                 if (debug_mode)
-                    std::cout << "[KILL] pushed " << round_kills << "\n";
+                    std::cout << "[KILL] Pushed kill count " << round_kills << "\n";
             }
         }
 
         res.set_content("OK", "text/plain");
         });
+
 
     svr->listen("127.0.0.1", 1009);
 }

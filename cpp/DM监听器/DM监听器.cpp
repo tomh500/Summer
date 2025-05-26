@@ -3,6 +3,9 @@
 //#define SDL_STATIC 
 #define SDL_MAIN_HANDLED
 #define _WIN32_WINNT 0x0600
+
+
+#define _HAS_STD_BYTE 0
 #include "framework.h"
 #include "DM监听器.h"
 #include <thread>
@@ -20,23 +23,33 @@
 #include <SDL_mixer.h>
 #include <curl/curl.h>
 #include "UpdateChecker.h"
-//#include "GSI.h"
 #include <shellapi.h>
 #pragma comment(lib, "shlwapi.lib")
+#include <uxtheme.h>
+#pragma comment(lib, "uxtheme.lib")
 
 #include "MusicPlayer.h"
 #define MAX_LOADSTRING 100
 
+#include <objidl.h>
+#include <gdiplus.h>
+#pragma comment(lib, "gdiplus.lib")
+
 int debug = 0;
-int LocalVersion = 14500;  // 你的当前版本号
+//int LocalVersion = 14500;  // 你的当前版本号
 
 // 全局变量:
 HINSTANCE hInst;
-WCHAR szTitle[MAX_LOADSTRING];                  // 标题栏文本
-WCHAR szWindowClass[MAX_LOADSTRING];            // 主窗口类名
-HANDLE hMutex = NULL;//互斥体
-HWND g_hOutputEdit = nullptr;
-OutputRedirector* g_outputRedirector = nullptr;
+ULONG_PTR gdiplusToken;
+ULONG_PTR g_diplusToken;
+HBITMAP   g_hBackgroundBitmap = nullptr;
+HDC       g_hdcBackgroundMem = nullptr;
+WNDPROC   g_OldEditProc = nullptr;
+
+WCHAR szTitle[MAX_LOADSTRING];
+WCHAR szWindowClass[MAX_LOADSTRING];
+HANDLE hMutex = NULL;
+
 
 LRESULT CALLBACK MusicPlayerWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
@@ -47,9 +60,58 @@ LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK MusicPlayerWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
+
+LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK EditProc(HWND, UINT, WPARAM, LPARAM);
+
+LRESULT CALLBACK EditProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
+    switch (msg) {
+    case WM_ERASEBKGND:
+        return 1;  // 阻止系统背景擦除
+    case WM_PAINT: {
+        PAINTSTRUCT ps;
+        HDC hdc = BeginPaint(hWnd, &ps);
+        RECT rc; GetClientRect(hWnd, &rc);
+        // 计算相对父窗口位置
+        POINT pt = { 0,0 };
+        MapWindowPoints(hWnd, GetParent(hWnd), &pt, 1);
+        // 背景图贴图
+        if (g_hdcBackgroundMem) {
+            BitBlt(hdc, 0, 0, rc.right, rc.bottom, g_hdcBackgroundMem, pt.x, pt.y, SRCCOPY);
+        }
+        else {
+            FillRect(hdc, &rc, (HBRUSH)(COLOR_WINDOW + 1));
+        }
+        // GDI+ 半透明背景 + 边框
+        Gdiplus::Graphics g(hdc);
+        Gdiplus::SolidBrush brush(Gdiplus::Color(120, 50, 50, 50));
+        g.FillRectangle(&brush, 0, 0, rc.right, rc.bottom);
+        Gdiplus::Pen pen(Gdiplus::Color(255, 255, 255));
+        g.DrawRectangle(&pen, 0.5f, 0.5f, rc.right - 1.0f, rc.bottom - 1.0f);
+        EndPaint(hWnd, &ps);
+        return 0;
+    }
+
+
+    default:
+        if (g_OldEditProc)
+            return CallWindowProc(g_OldEditProc, hWnd, msg, wParam, lParam);
+        else
+            return DefWindowProc(hWnd, msg, wParam, lParam);
+    
+    }
+}
+
+
+
+
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPWSTR lpCmdLine, _In_ int nCmdShow)
 {
-   
+    ULONG_PTR gdiplusToken;
+    Gdiplus::GdiplusStartupInput gdiplusStartupInput;
+    Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, nullptr);
+
+
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
   //SetWorkingDirectory(L"..\\..\\..");
@@ -160,6 +222,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 //
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
+
     hInst = hInstance; // 将实例句柄存储在全局变量中
 
     // 计算屏幕分辨率
@@ -168,8 +231,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
     // 创建窗口
     HWND hWnd = CreateWindowW(szWindowClass, szTitle,
-        WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX,
-        CW_USEDEFAULT, CW_USEDEFAULT, 400, 350,  // 默认大小
+        WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_CLIPCHILDREN,
+        CW_USEDEFAULT, CW_USEDEFAULT, 400, 350,
         nullptr, nullptr, hInstance, nullptr);
     if (!hWnd) {
         return FALSE;  // 如果窗口创建失败，返回 FALSE
@@ -201,52 +264,54 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     int buttonHeight = 60;
     int buttonY = rcClient.bottom - buttonHeight - 50;
 
-    CreateWindowW(L"BUTTON", L"启用击杀音效替换", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
+    CreateWindowW(L"BUTTON", L"启用击杀音效替换",
+        WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | BS_OWNERDRAW,
         30, buttonY, 150, buttonHeight, hWnd, (HMENU)IDC_ENABLE_KILL_SOUND, hInstance, nullptr);
 
-    CreateWindowW(L"BUTTON", L"启动 CS2", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
+    CreateWindowW(L"BUTTON", L"启动 CS2",
+        WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON | BS_OWNERDRAW,
         200, buttonY, 150, buttonHeight, hWnd, (HMENU)IDC_TOGGLE_CS2, hInstance, nullptr);
+
+    LONG_PTR style = GetWindowLongPtr(hWnd, GWL_STYLE);
+    SetWindowLongPtr(hWnd, GWL_STYLE, style | WS_CLIPCHILDREN);
 
 
     // 输入框位置调整为按钮上方
     int inputY = buttonY - 40;
     HWND hEdit = CreateWindowW(L"EDIT", L"",
-        WS_CHILD | WS_VISIBLE | WS_BORDER | ES_LEFT | ES_AUTOHSCROLL,
+        WS_CHILD | WS_VISIBLE | ES_LEFT | ES_AUTOHSCROLL,
         20, inputY, 250, 25, hWnd, (HMENU)1002, hInstance, nullptr);
+    SetWindowTheme(hEdit, L"", L"");  // 禁用主题，防止背景重绘
 
-    SendMessage(hEdit, EM_SETCUEBANNER, TRUE, (LPARAM)L"请输入你的 Steam ID");
     CheckForUpdate(hWnd);
-    //StartUpdateCheck(hWnd);
-
-    /*
-    std::wifstream inFile(L"userspace/gsi/steamid.txt");
-    if (inFile) {
-        std::wstring steamID;
-        std::getline(inFile, steamID);
-        if (!steamID.empty()) {
-            PostMessage(hEdit, WM_SETTEXT, 0, (LPARAM)steamID.c_str());
-
-        }
-        inFile.close();
-
-        HWND hListBox = CreateWindowEx(0, L"LISTBOX", NULL, WS_CHILD | WS_VISIBLE | WS_BORDER | LBS_STANDARD,
-            10, 10, 300, 300, hWnd, (HMENU)IDC_LISTBOX, GetModuleHandle(NULL), NULL);
-
-    }
-    */
 
 
+
+    // 添加运行命令按钮，放在调试复选框右边
+    CreateWindowW(L"BUTTON", L"运行命令",
+        WS_CHILD | WS_VISIBLE | BS_OWNERDRAW,
+        280, inputY, 100, 25, hWnd, (HMENU)IDC_RUN_COMMAND_BUTTON, hInstance, nullptr);
 
     // 添加调试模式复选框，放在输入框右侧
     HWND hCheck = CreateWindowW(L"BUTTON", L"调试模式",
-        WS_CHILD | WS_VISIBLE | BS_AUTOCHECKBOX,
+        WS_CHILD | BS_AUTOCHECKBOX,  // 去掉 WS_VISIBLE
         280, inputY, 100, 25, hWnd, (HMENU)IDC_DEBUG_CHECKBOX, hInstance, nullptr);
+
+
     if (debug == 1) {
         SendMessage(hCheck, BM_SETCHECK, BST_CHECKED, 0);
     }
     else {
         SendMessage(hCheck, BM_SETCHECK, BST_UNCHECKED, 0);
     }
+    extern WNDPROC g_OldEditProc; // 声明全局原窗口过程指针
+    g_OldEditProc = (WNDPROC)SetWindowLongPtr(hEdit, GWLP_WNDPROC, (LONG_PTR)EditProc);
+
+    if (CheckLcfgExecuted() !=0)
+    {
+        DisableSmartActiveCmdFiles();
+    }
+    CleanLockFiles();
 
     std::thread([=]() {
         while (true) {
@@ -275,8 +340,103 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //主窗口
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+
     switch (message)
     {
+    case WM_DRAWITEM:
+    {
+        LPDRAWITEMSTRUCT dis = (LPDRAWITEMSTRUCT)lParam;
+        if (dis->CtlType == ODT_BUTTON)
+        {
+            int w = dis->rcItem.right - dis->rcItem.left;
+            int h = dis->rcItem.bottom - dis->rcItem.top;
+            HDC hdcBtn = dis->hDC;
+
+            // ————— 1. 计算按钮在主窗口客户区的位置 —————
+            // dis->rcItem 是相对于按钮父窗口的坐标，先取左上角
+            POINT pt = { dis->rcItem.left, dis->rcItem.top };
+            // 将这个点从按钮父窗口(client)坐标系，映射到主窗口(client)坐标系
+            MapWindowPoints(dis->hwndItem, hWnd, &pt, 1);
+
+            // ————— 2. 从全局背景位图 DC 中截取子图 —————
+            if (g_hdcBackgroundMem)
+            {
+                BitBlt(
+                    hdcBtn,         // 目标：按钮 DC
+                    0, 0, w, h,     // 目标区域：按钮大小
+                    g_hdcBackgroundMem, // 源：全局背景 DC
+                    pt.x, pt.y,     // 源点：映射后的按钮左上角
+                    SRCCOPY
+                );
+            }
+            else
+            {
+                // 如未成功创建全局背景 DC，再退回拷贝父窗口背景
+                HWND hwndParent = GetParent(dis->hwndItem);
+                HDC  hdcParent = GetDC(hwndParent);
+                POINT pt2 = { dis->rcItem.left, dis->rcItem.top };
+                MapWindowPoints(dis->hwndItem, hwndParent, &pt2, 1);
+                BitBlt(hdcBtn, 0, 0, w, h, hdcParent, pt2.x, pt2.y, SRCCOPY);
+                ReleaseDC(hwndParent, hdcParent);
+            }
+
+            // ————— 3. 半透明叠加 —————
+            Gdiplus::Graphics graphics(hdcBtn);
+            Gdiplus::Color overlay(120, 0, 0, 139);
+            if (dis->itemState & ODS_SELECTED)
+                overlay = Gdiplus::Color(120, 169, 169, 169);
+            else if (dis->itemState & ODS_DISABLED)
+                overlay = Gdiplus::Color(120, 169, 169, 169);
+            // Hotlight 同样需要你在 WM_MOUSEMOVE/WM_MOUSELEAVE 中设置状态并 Invalidate
+
+            if (overlay.GetA() > 0)
+            {
+                Gdiplus::SolidBrush b(overlay);
+                graphics.FillRectangle(&b, 0, 0, w, h);
+            }
+
+            // ————— 4. 边框 —————
+            Gdiplus::Pen pen(Gdiplus::Color(255, 0, 0, 0));
+            graphics.DrawRectangle(&pen, 0.5f, 0.5f, w - 1.0f, h - 1.0f);
+
+            // ————— 5. 文本 —————
+// ————— 5. 文本 —————
+            WCHAR textBuffer[256] = { 0 };
+            GetWindowText(dis->hwndItem, textBuffer, 256);
+            const wchar_t* text = textBuffer;
+
+            // 构造 GDI+ Font，失败时回退
+            Gdiplus::Font* pFont = nullptr;
+            {
+                Gdiplus::FontFamily ff(L"Segoe UI");
+                pFont = new Gdiplus::Font(&ff, 16, Gdiplus::FontStyleBold, Gdiplus::UnitPixel);
+                if (pFont->GetLastStatus() != Gdiplus::Ok) {
+                    delete pFont;
+                    Gdiplus::FontFamily fb(L"Arial");
+                    pFont = new Gdiplus::Font(&fb, 16, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
+                }
+            }
+            if (pFont && pFont->GetLastStatus() == Gdiplus::Ok)
+            {
+                Gdiplus::SolidBrush txtBrush(Gdiplus::Color(255, 255, 182, 193));
+                Gdiplus::RectF layout(0, 0, (Gdiplus::REAL)w, (Gdiplus::REAL)h);
+                Gdiplus::StringFormat fmt;
+                fmt.SetAlignment(Gdiplus::StringAlignmentCenter);
+                fmt.SetLineAlignment(Gdiplus::StringAlignmentCenter);
+                graphics.SetTextRenderingHint(Gdiplus::TextRenderingHintAntiAlias);
+                graphics.DrawString(text, -1, pFont, layout, &fmt, &txtBrush);
+            }
+            delete pFont;
+
+
+            return TRUE;
+        }
+        break;
+    }
+
+
+
+
     case WM_COMMAND:
     {
         int wmId = LOWORD(wParam);
@@ -284,14 +444,124 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         // 分析菜单选择和按钮点击
         switch (wmId)
         {
+        case WM_CTLCOLOREDIT: {
+            HDC hdc = (HDC)wParam;
+            HWND hEdit = (HWND)lParam;
+
+            // 设置透明背景 + 白色文字
+            SetBkMode(hdc, TRANSPARENT);
+            SetTextColor(hdc, RGB(255, 255, 255));
+
+            return (LRESULT)GetStockObject(NULL_BRUSH);
+        }
+        case IDC_RUN_COMMAND_BUTTON:
+        {
+            WCHAR cmdBuffer[512] = { 0 };
+            HWND hEdit = GetDlgItem(hWnd, 1002);
+            GetWindowTextW(hEdit, cmdBuffer, 512);
+
+            std::wstring cmdStr(cmdBuffer);
+
+            if (cmdStr.empty())
+            {
+                MessageBoxW(hWnd, L"命令不能为空。", L"运行失败", MB_OK | MB_ICONERROR);
+                break;
+            }
+
+            // 判断是否是 /debug 命令
+            if (cmdStr.find(L"/debug") == 0)
+            {
+                if (cmdStr.length() < 8) {
+                    MessageBoxW(hWnd, L"无效的 /debug 命令。格式：/debug 0 或 /debug 1", L"错误", MB_OK | MB_ICONERROR);
+                    break;
+                }
+
+                WCHAR arg = cmdStr[7]; // 取第8个字符
+
+                if (arg == L'1')
+                {
+                    // 开启 debug 需检测文件是否存在
+                    fs::path keyPath = RootPath.parent_path() / L"MoClient_development.key";
+                    if (fs::exists(keyPath))
+                    {
+                        debug = 1;
+                        MessageBoxW(hWnd, L"开发者权限已启用。", L"成功", MB_OK | MB_ICONINFORMATION);
+                    }
+                    else
+                    {
+                        MessageBoxW(hWnd, L"没有开发者权限，无法启用。", L"权限不足", MB_OK | MB_ICONERROR);
+                    }
+                }
+                else if (arg == L'0')
+                {
+                    debug = 0;
+                    MessageBoxW(hWnd, L"开发者权限已禁用。", L"成功", MB_OK | MB_ICONINFORMATION);
+                }
+                else
+                {
+                    MessageBoxW(hWnd, L"无效的 /debug 参数，只能是0或1。", L"错误", MB_OK | MB_ICONERROR);
+                }
+                break;
+            }
+
+            // 执行 /dos 命令，必须以 /dos 开头且 debug == 1
+            if (cmdStr.find(L"/dos ") == 0)
+            {
+                if (debug != 1)
+                {
+                    MessageBoxW(hWnd, L"无开发者权限，无法执行该命令。", L"权限不足", MB_OK | MB_ICONERROR);
+                    break;
+                }
+
+                std::wstring realCmd = cmdStr.substr(5); // 去除 "/dos "
+                if (realCmd.empty())
+                {
+                    MessageBoxW(hWnd, L"命令不能为空。", L"运行失败", MB_OK | MB_ICONERROR);
+                    break;
+                }
+
+                std::wstring fullCmd = L"cmd.exe /C \"" + realCmd + L"\"";
+
+                STARTUPINFOW si = { sizeof(si) };
+                PROCESS_INFORMATION pi;
+                std::wstring workingDir = RootPath.wstring();
+                WCHAR cmdLine[600];
+                wcscpy_s(cmdLine, fullCmd.c_str());
+
+                BOOL result = CreateProcessW(
+                    nullptr, cmdLine, nullptr, nullptr, FALSE,
+                    CREATE_NO_WINDOW, nullptr,
+                    workingDir.c_str(), &si, &pi
+                );
+
+                if (!result)
+                {
+                    DWORD err = GetLastError();
+                    std::wstring errMsg = L"启动失败，错误代码：" + std::to_wstring(err);
+                    MessageBoxW(hWnd, errMsg.c_str(), L"运行失败", MB_OK | MB_ICONERROR);
+                }
+                else
+                {
+                    CloseHandle(pi.hProcess);
+                    CloseHandle(pi.hThread);
+                    MessageBoxW(hWnd, L"命令已执行。", L"成功", MB_OK | MB_ICONINFORMATION);
+                }
+            }
+            else
+            {
+                MessageBoxW(hWnd, L"无效命令，必须以 /dos 开头或 /debug 开头。", L"错误", MB_OK | MB_ICONERROR);
+            }
+            break;
+        }
         case WM_CHECK_FOR_UPDATE: {// 处理更新检查请求
             CheckForUpdate(hWnd);
             return 0;
         }
         case IDM_OPEN_MOD_MARKET:  // 用户点击了“模组市场”菜单项
         {
-            // 使用 ShellExecute 打开模组市场.lnk
-            ShellExecuteW(hWnd, L"open", L"..\\..\\..\\模组市场.lnk", nullptr, nullptr, SW_SHOWNORMAL);
+            StartAppsNew(RootPath / "src" / "main" / "Lib" / "ModsMarket.exe", L"", true);
+
+
             break;
         }
         case IDM_USERSPACE_FOLDER:
@@ -448,6 +718,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         HDC hdc = BeginPaint(hWnd, &ps);
         // TODO: 在此处添加使用 hdc 的任何绘图代码...
         // 从资源加载位图
+
         HBITMAP hBitmap = LoadBitmap(hInst, MAKEINTRESOURCE(IDB_BACKGROUND));
         if (hBitmap)
         {
@@ -459,6 +730,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
             // 绘制背景图像
             BitBlt(hdc, 0, 0, bmp.bmWidth, bmp.bmHeight, hdcMem, 0, 0, SRCCOPY);
+            g_hBackgroundBitmap = (HBITMAP)LoadBitmap(hInst, MAKEINTRESOURCE(IDB_BACKGROUND));
+            if (g_hBackgroundBitmap) {
+                HDC hdc = GetDC(hWnd);
+                g_hdcBackgroundMem = CreateCompatibleDC(hdc);
+                SelectObject(g_hdcBackgroundMem, g_hBackgroundBitmap);
+                ReleaseDC(hWnd, hdc);
+            }
 
             // 清理资源
             SelectObject(hdcMem, hOldBitmap);
@@ -470,6 +748,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     break;
 
     case WM_DESTROY:
+        if (g_hdcBackgroundMem) DeleteDC(g_hdcBackgroundMem);
+        if (g_hBackgroundBitmap) DeleteObject(g_hBackgroundBitmap);
         PostQuitMessage(0);
         break;
 
@@ -502,4 +782,25 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     }
     return (INT_PTR)FALSE;
+}
+
+void quitDM(HWND hWnd)
+{
+
+
+    //  int result = MessageBox(hWnd, L"确定要退出吗？请确保游戏已经保存！", L"确认退出", MB_YESNO | MB_ICONQUESTION);
+
+   //   if (result == IDYES) {
+
+       //   KillProcess(L"cs2.exe");
+    CloseKillSound(hWnd);
+    const wchar_t* filePath = L"..\\..\\..\\src\\.listener.lty";
+    if (fs::exists(filePath)) {
+        fs::remove(filePath);
+    }
+    Gdiplus::GdiplusShutdown(gdiplusToken);  // 在程序退出前调用
+    exit(0);
+    // }
+
+
 }

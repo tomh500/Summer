@@ -139,6 +139,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ResourceCompile>
+      <Culture>0x0004</Culture>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="DM监听器.h" />
