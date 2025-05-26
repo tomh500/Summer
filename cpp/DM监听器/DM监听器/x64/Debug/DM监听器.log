@@ -1,6 +1,0 @@
-﻿  DM监听器.cpp
-C:\Users\tomh5\source\repos\DM监听器\DM监听器.cpp(14,9): warning C4005: “IDC_ENABLE_KILL_SOUND”: 宏重定义
-      C:\Users\tomh5\source\repos\DM监听器\resource.h(16,9):
-      参见“IDC_ENABLE_KILL_SOUND”的前一个定义
-  
-  DM监听器.vcxproj -> C:\Users\tomh5\source\repos\DM监听器\x64\Debug\DM监听器.exe
