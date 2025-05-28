@@ -4,8 +4,9 @@ lockMouse()
 wasdCancel()
 
 slot3()
-setAngle(2.340800,-47.500000)
 
+setAngle(2.340800,-47.500000)
+src("setpos -1711.968750 -761.032104 -167.128754")
 back()
 left()
 

@@ -4,8 +4,9 @@ src("/fps_low")
 lockMouse()
 wasdCancel()
 setAngle(24.470583,91.478119)
-
+src("setpos -1120.031860 -967.470154 -166.128754")
 slot3()
+
 right()
 back()
 
