@@ -4,6 +4,7 @@ src/.listener.lty
 src/legacy/4items/actions/dust2/ExampleItems.cfg
 **/lua54.dll
 **/lcfg.exe
+**/scfg.obj
 **/.vs/
 **/
 src/main/Features/Modules/SmartActive/mirage
@@ -13,3 +14,6 @@ src/main/Features/Modules/SmartActive/mirage/**
 
 src/main/Features/Modules/SmartActive/ancient/**
 !src/main/Features/Modules/SmartActive/ancient/*.lua
+
+cpp/
+UpdateVersion.py

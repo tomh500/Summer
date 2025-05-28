@@ -126,7 +126,7 @@
 	"CFG_SETTING_PLATFORM_EEEEE"							"5E平台\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FK4_DZ"								"小镇1号位匪口烟\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FKQD4_DZ"							"小镇1号位匪口前端烟\n \n \n \n"
-	"Ignore_Broadcast_Messages"								"D​‎e‎ar‎M​omen​ts-Delt​a公​​‎测 ‎ 1‎.‎5.‎1​ 免​‎费‎​发​‎布"
+	"Ignore_Broadcast_Messages"								"D​‎e‎ar‎M​omen​ts-Delt​a公​​‎测 ‎ 1‎.‎5.‎2​ 免​‎费‎​发​‎布"
 	"Ignore_Broadcast_Team_Messages"						" 作​者​B​站​ ‎S‎a​ng‎a​t‎s​u_​P"
 	"Accept_All_Messages"									""
 	"SMART_UI"	"身法轮盘"
