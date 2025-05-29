@@ -1,0 +1,6 @@
+DEFINEPATH Square/src/main/cfg/cn/luotiany1/SquareNextgen/Utilities/Actions/Mutil
+SETBEGIN
+LOCKMOUSE
+SLEEP 11
+UNLOCKMOUSE
+END

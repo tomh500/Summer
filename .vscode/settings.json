@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.mo": "cs2 cfg",
+        "fstream": "cpp"
+    }
+}
