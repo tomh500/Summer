@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg\Square\src\main\cpp\GetCPUInfo\GetCpuInfo\runtime\SDL2\include;D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg\Square\src\main\cpp\GetCPUInfo\GetCpuInfo\runtime\SDL2_mixer\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg\Square\src\main\cpp\GetCPUInfo\GetCpuInfo\runtime\SDL2_mixer\lib\x64;D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg\Square\src\main\cpp\GetCPUInfo\GetCpuInfo\runtime\SDL2\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg\DearMoments\src\main\cpp\GetCPUInfo\GetCpuInfo\runtime\SDL2\include;D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg\DearMoments\src\main\cpp\GetCPUInfo\GetCpuInfo\runtime\SDL2_mixer\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg\DearMoments\src\main\cpp\GetCPUInfo\GetCpuInfo\runtime\SDL2_mixer\lib\x64;D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg\DearMoments\src\main\cpp\GetCPUInfo\GetCpuInfo\runtime\SDL2\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

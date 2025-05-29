@@ -34,10 +34,21 @@ bool CopyFileOptimized(const std::string& src, const std::string& dest) {
     try {
         fs::path srcPath(src);
         fs::path destPath(dest);
+
+        // 打印调试信息
+        cout << "源文件路径（绝对）: " << fs::absolute(srcPath) << endl;
+        cout << "目标文件路径（绝对）: " << fs::absolute(destPath) << endl;
+
+        if (!fs::exists(srcPath)) {
+            cerr << "源文件不存在: " << srcPath << endl;
+            return false;
+        }
+
         fs::path destDir = destPath.parent_path();
         if (!fs::exists(destDir)) {
             fs::create_directories(destDir);
         }
+
         fs::copy_file(srcPath, destPath, fs::copy_options::overwrite_existing);
         return true;
     }
@@ -46,6 +57,7 @@ bool CopyFileOptimized(const std::string& src, const std::string& dest) {
         return false;
     }
 }
+
 
 //------------------------
 // 辅助函数：添加启动项到 autoexec.cfg
@@ -359,13 +371,13 @@ void ShowRegionMessage(int regionCode) {
     wstring message;
     switch (regionCode) {
     case 1:
-        message = L"本CFG保证不卖，仅供受信人员有限使用，您的地区：中国大陆";
+        message = L"Square-Legacy 免费发布，本CFG已经终止支持！，您的地区：中国大陆";
         break;
     case 2:
-        message = L"本CFG保证不卖，仅供受信人员有限使用，您的地区：台湾地区";
+        message = L"Square-Legacy 免费发布，本CFG已经终止支持！，您的地区：台湾地区";
         break;
     case 3:
-        message = L"本CFG保证不卖，仅供受信人员有限使用，您的地区：日本";
+        message = L"Square-Legacy 免费发布，本CFG已经终止支持！，您的地区：日本";
         break;
     default:
         message = L"非中国、日本地区，可能不适配您的语言信息，本CFG完全免费！";
@@ -472,8 +484,9 @@ int main() {
     system("@echo off");
     system("chcp 65001");
     fs::path current_path = fs::current_path();
-    fs::path target_path = L"Counter-Strike Global Offensive\\game\\csgo\\cfg\\Square";
-    if (current_path.filename() != target_path.filename()) {
+    fs::path target_pathA = L"Counter-Strike Global Offensive\\game\\csgo\\cfg\\Square";
+    fs::path target_pathB = L"Counter-Strike Global Offensive\\game\\csgo\\cfg\\DearMoments";
+    if (current_path.filename() != target_pathA.filename() && current_path.filename() != target_pathB.filename()) {
         MessageBoxW(NULL, L"运行目录不正确，请仔细观看教程", L"错误", MB_OK | MB_ICONERROR);
     }
     else {
@@ -576,7 +589,7 @@ int main() {
         CopyFileOptimized("src\\main\\resources\\sounds\\disable_a.vsnd_c", "..\\..\\sounds\\disable_a.vsnd_c");
         CopyFileOptimized("src\\main\\resources\\sounds\\enable_a.vsnd_c", "..\\..\\sounds\\enable_a.vsnd_c");
         CopyFileOptimized("src\\main\\resources\\keybindings_schinese.txt", "..\\..\\resource\\keybindings_schinese.txt");
-        CopyFileOptimized("src\\main\\resources\\Square_Installed.cfg", "..\\..\\..\\cfg\\Square_Installed.cfg");
+        CopyFileOptimized("src\\main\\resources\\Sqaure_Installed.cfg", "..\\..\\..\\cfg\\Square_Installed.cfg");
 
         cout << "所有文件均复制完成！\n";
 
