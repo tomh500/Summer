@@ -1,3 +1,7 @@
 {
-    "search.useIgnoreFiles": false
+    "search.useIgnoreFiles": false,
+    "files.associations": {
+        "*.mo": "cs2 cfg",
+        "utility": "cpp"
+    }
 }
