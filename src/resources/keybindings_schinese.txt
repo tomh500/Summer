@@ -138,4 +138,6 @@
 	"CFG_SMA_MIRAGE_ct_spawn01_to_ladder" 	"[荒漠迷城]CT第一出生位->黑屋"
 	"CFG_SMA_MIRAGE_ct_spawn01_to_short" 	"[荒漠迷城]CT第一出生位->B小"
 	"CFG_SMA_ANCIENT_vip_to_b1"				"[远古遗迹]ct中路->B小"
+"注释" "以下内容是自定义道具"
+"DUST2_DEMO_SMOKE_1" "中路烟 Middle Smoke"
 }
