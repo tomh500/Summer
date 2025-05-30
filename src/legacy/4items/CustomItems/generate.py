@@ -173,13 +173,18 @@ for item_id, props in data.items():
 
     display_mappings.append((map_l.upper(), item_l.upper(), displayname))
 
-    if command_name and page and slot:
+if page or slot:
+    display_mappings.append((map_l.upper(), item_l.upper(), displayname))
+
+    # 如果 page 和 slot 都填了，再写入 UI 圆盘文件
+    if page and slot:
         page_idx = abs(int(page) - 3)
         slot_idx = int(slot) + 2
         cmd_line = f'cl_radial_radio_tab_{page_idx}_text_{slot_idx} cmd";items_{item_l}_set;'
         text_line = f'cl_radial_radio_tab_{page_idx}_text_{slot_idx} #{map_l.upper()}_{item_l.upper()};'
         interface_cmd_lines.setdefault(map_l, []).append(cmd_line)
         interface_text_lines.setdefault(map_l, []).append(text_line)
+
 
 overlay_path.write_text("\n".join(overlay_lines + bind_lines), encoding="utf-8")
 
