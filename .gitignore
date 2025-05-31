@@ -19,3 +19,4 @@ cpp/
 UpdateVersion.py
 updateVer.txt
 src/legacy/Custom.yml
+UpdateVersion.bat
