@@ -17,5 +17,5 @@ src/main/Features/Modules/SmartActive/ancient/**
 
 cpp/
 UpdateVersion.py
-updateVer.txt
+
 src/legacy/Custom.yml
