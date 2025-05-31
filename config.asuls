@@ -1,6 +1,7 @@
-[INI] DearMoments 1.6.1 Sangatsu_P 一个整合的CFG，相当实用
+[INI] DearMoments 1.6.1 Sangatsu_P 全新T0级别MoClient下放版本
 [DIR] DearMoments
-[EXE] /src/main/lib/AsulInstallTips.exe
+[EXE] /src/main/lib/InstallerWithAsul.exe
+[PNG] /src/resources/icon/Square.png
 /src/AsulProject/UserKeyBinds /Userspace/
 /src/AsulProject/UserSetting /Userspace/
 /src/AsulProject/UserValue /Userspace/

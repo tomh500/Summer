@@ -1,4 +1,5 @@
-﻿#include <windows.h>
+﻿//用于检查是否存在注入情况
+#include <windows.h>
 #include <tlhelp32.h>
 #include <string>
 #include <iostream>
@@ -22,7 +23,6 @@ DWORD GetProcessIdByName(const wchar_t* procName) {
     return pid;
 }
 
-// 检测是否有线程是由listenerPid发起远程线程注入
 void CheckRemoteThreads(DWORD listenerPid) {
     HANDLE hThreadSnap = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
     if (hThreadSnap == INVALID_HANDLE_VALUE) {
@@ -34,10 +34,7 @@ void CheckRemoteThreads(DWORD listenerPid) {
     if (Thread32First(hThreadSnap, &te)) {
         do {
             if (te.th32OwnerProcessID != listenerPid) {
-                // 打开线程句柄查询创建者信息（需要权限，且普通进程无法获取“线程创建者PID”，但我们可以尝试用NtQueryInformationThread）
-                // 这里简单示例：只监控非listenerPid的线程
 
-                // 简单思路：判断线程是否为远程线程（复杂，需要驱动支持）
             }
         } while (Thread32Next(hThreadSnap, &te));
     }
@@ -58,10 +55,7 @@ int wmain() {
                 std::wcout << L"找到 Listener.exe，PID=" << listenerPid << std::endl;
             }
         } else {
-            // TODO: 这里放检测listenerPid是否创建远程线程的逻辑
             CheckRemoteThreads(listenerPid);
-
-            // 检查进程是否还存在
             HANDLE hProc = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, FALSE, listenerPid);
             if (!hProc) {
                 std::wcout << L"Listener.exe 进程结束，重置PID" << std::endl;
