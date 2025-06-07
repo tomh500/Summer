@@ -115,7 +115,7 @@ text "//Momot_autostop_mode_21      21急停档位"
 text "//Momot_autostop_mode_22      22急停档位"
 text "//Momot_autostop_mode_23      23急停档位"
 text "//Momot_autostop_mode_24      24急停档位"
-func "单键急停 档位选择" "当启用了任意方向单键急停时，选择急停档位" "Momot_autostop_mode_0" 24
+func "单键急停 档位选择" "当启用了任意方向单键急停时，选择急停档位" "Momot_autostop_mode_0" 25
     "Momot_autostop_mode_0" "不使用单键急停"
     "Momot_autostop_mode_1" "1 急停档位"
     "Momot_autostop_mode_2" "2 急停档位"

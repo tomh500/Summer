@@ -9,6 +9,8 @@ src/legacy/4items/actions/dust2/ExampleItems.cfg
 .vscode/
 
 
+
+
 src/main/Features/Modules/SmartActive/mirage/**
 !src/main/Features/Modules/SmartActive/mirage/*.lua
 

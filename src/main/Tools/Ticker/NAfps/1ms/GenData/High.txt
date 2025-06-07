@@ -1,0 +1,6 @@
+sq
+30
+1009
+250000
+0
+DearMoments/src/main/Tools/Ticker/540fps/1ms
