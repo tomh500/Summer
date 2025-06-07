@@ -3,4 +3,4 @@ S7
 1009
 77777
 66
-DearMoments/src/main/Tools/Ticker/540fps/66ms
+DearMoments/src/main/Tools/Ticker/NAfps/66ms

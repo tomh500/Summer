@@ -3,4 +3,4 @@ sq
 540
 250000
 0
-DearMoments/src/main/Tools/Ticker/540fps/1ms
+DearMoments/src/main/Tools/Ticker/NAfps/1ms

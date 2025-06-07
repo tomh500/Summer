@@ -61,9 +61,14 @@ text "//是否智能开关自动手枪功能"
 text ""
 text "//DearMoments_Rapidfire_Smart      智能开关自动手枪"
 text "//DearMoments_Rapidfire_Switch     仅通过绑定按键开关自动手枪"
-func "自动手枪功能" "是否智能开关自动手枪功能" "DearMoments_Rapidfire_Smart" 2
-    "DearMoments_Rapidfire_Smart" "智能开关自动手枪"
-    "DearMoments_Rapidfire_Switch" "仅通过绑定按键开关自动手枪"
+func "自动手枪开关" "是否智能开关自动手枪功能" "DearMoments_Rapidfire_Smart" 2
+    "DearMoments_Rapidfire_Smart" "智能开关"
+    "DearMoments_Rapidfire_Switch" "仅绑定开关"
+
+func "自动手枪速率" "选择符合你的说明" "DearMoments_Rapidfire_Smart" 3
+    "DearMoments_Rapidfire_Low" "低帧率玩家"
+    "DearMoments_Rapidfire_Mid" "一般帧率玩家"
+    "DearMoments_Rapidfire_High" "高帧率玩家"
 
 text "//------------------------------------------------------------------------"
 text "//--------------------------------单键急停功能-----------------------------"
@@ -115,7 +120,7 @@ text "//Momot_autostop_mode_21      21急停档位"
 text "//Momot_autostop_mode_22      22急停档位"
 text "//Momot_autostop_mode_23      23急停档位"
 text "//Momot_autostop_mode_24      24急停档位"
-func "单键急停 档位选择" "当启用了任意方向单键急停时，选择急停档位" "Momot_autostop_mode_0" 25
+func "单键急停 档位选择" "当启用了任意方向单键急停时，选择急停档位" "Momot_autostop_mode_0" 27
     "Momot_autostop_mode_0" "不使用单键急停"
     "Momot_autostop_mode_1" "1 急停档位"
     "Momot_autostop_mode_2" "2 急停档位"
@@ -141,6 +146,10 @@ func "单键急停 档位选择" "当启用了任意方向单键急停时，选�
     "Momot_autostop_mode_22" "22 急停档位"
     "Momot_autostop_mode_23" "23 急停档位"
     "Momot_autostop_mode_24" "24 急停档位"
+    "Momot_autostop_mode_25" "25 急停档位"
+    "Momot_autostop_mode_26" "26 急停档位"
+
+
 
 
 text ""
@@ -150,7 +159,7 @@ text "//如果开启智能模式，当你静步、切刀、下蹲的情况下会
 text "//DearMoments_Autostop_Smart        智能关闭急停功能"
 text "//DearMoments_Autostop_Single       任何情况都不自动关闭急停"
 func "单键急停 智能模式" "选择单键急停是否智能关闭" "DearMoments_Autostop_Smart" 2
-    "DearMoments_Autostop_Smart" "智能关闭急停功能（在静步、切刀、下蹲时会临时禁用）"
+    "DearMoments_Autostop_Smart" "智能关闭急停功能（如静步）"
     "DearMoments_Autostop_Single" "任何情况都不自动关闭急停"
 
 text "//------------------------------------------------------------------------"
@@ -167,12 +176,10 @@ text "//前后移动方式"
 text "//MoMot_fb_Normal       正常移动"
 text "//MoMot_fb_SOCD         后覆盖移动（Snaptap）"
 text "//MoMot_fb_NullBind     单次后覆盖移动（Nullbind）"
-text "//MoMot_fb_HalfStop     双键急停"
-func "前后移动方式" "选择前后方向的移动模式" "MoMot_fb_Normal" 4
+func "前后移动方式" "选择前后方向的移动模式" "MoMot_fb_Normal" 3
     "MoMot_fb_Normal" "正常移动"
     "MoMot_fb_SOCD" "后覆盖移动（Snaptap）"
     "MoMot_fb_NullBind" "单次后覆盖移动（Nullbind）"
-    "MoMot_fb_HalfStop" "双键急停"
 
 text ""
 text "//左右移动方式"
