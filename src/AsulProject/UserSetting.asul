@@ -303,3 +303,18 @@ text "//DearMoments_CrosshairRecoil_Disable      默认关闭准星跟随"
 func "准星跟随" "开启或关闭准星跟随" "DearMoments_CrosshairRecoil_Disable" 2
     "DearMoments_CrosshairRecoil_Enable" "默认开启准星跟随"
     "DearMoments_CrosshairRecoil_Disable" "默认关闭准星跟随"
+    
+text ""
+func "HUD颜色" "设置HUD颜色" "DM_Value_HudColor_team" 12
+    "DM_Value_HudColor_team"  "队伍颜色"
+    "DM_Value_HudColor_white" "白色"
+    "DM_Value_HudColor_lightwhit" "亮白色"
+    "DM_Value_HudColor_lightblue" "淡蓝色"
+    "DM_Value_HudColor_blue" "蓝色"
+    "DM_Value_HudColor_purple" "紫色"
+    "DM_Value_HudColor_red" "红色"
+    "DM_Value_HudColor_orange" "橙色"
+    "DM_Value_HudColor_yellow" "黄色"
+    "DM_Value_HudColor_green" "绿色"
+    "DM_Value_HudColor_cyan" "青色"
+    "DM_Value_HudColor_sakura" "樱花粉"
