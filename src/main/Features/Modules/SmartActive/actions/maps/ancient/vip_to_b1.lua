@@ -1,4 +1,4 @@
-setExecPath("DearMoments/src/main/Features/Modules/SmartActive/ancient/vip_to_b1")
+setExecPath("DearMoments/src/main/Features/Modules/SmartActive/actions/maps/ancient/vip_to_b1")
 
 src("/fps_low")
 lockMouse()

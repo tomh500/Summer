@@ -1,4 +1,4 @@
-setExecPath("DearMoments/src/main/Features/Modules/SmartActive/mirage/ct_spawn01_to_ladder")
+setExecPath("DearMoments/src/main/Features/Modules/SmartActive/actions/maps/mirage/ct_spawn01_to_ladder")
 src("/fps_low")
 wasdCancel()
 slot3()

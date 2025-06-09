@@ -143,5 +143,7 @@
 	"CFG_SMA_MIRAGE_jungle_to_b1"			"[Mirage] Jungle -> B Short"
 	"CFG_SMA_MIRAGE_ct_spawn01_to_ladder"	"[Mirage] CT Spawn Pos 1 -> Ladder"
 	"CFG_SMA_MIRAGE_ct_spawn01_to_short"	"[Mirage] CT Spawn Pos 1 -> B Short"
+	"CFG_SMA_MIRAGE_Hide_C4_T" 				"[Mirage]Hide C4(匪口)"
+	"CFG_SMA_MIRAGE_Hide_C4_A2" 		 	"[Mirage]Hide C4(A2楼)"
 	"CFG_SMA_ANCIENT_vip_to_b1"				"[Ancient] CT Mid -> B Short"
 }

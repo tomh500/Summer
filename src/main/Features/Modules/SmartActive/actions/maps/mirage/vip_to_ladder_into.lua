@@ -1,4 +1,4 @@
-setExecPath("DearMoments/src/main/Features/Modules/SmartActive/mirage/vip_to_ladder_into")
+setExecPath("DearMoments/src/main/Features/Modules/SmartActive/actions/maps/mirage/vip_to_ladder_into")
 src("/fps_low")
 
 lockMouse()

@@ -1,4 +1,4 @@
-setExecPath("DearMoments/src/main/Features/Modules/SmartActive/mirage/market_to_vip")
+setExecPath("DearMoments/src/main/Features/Modules/SmartActive/actions/maps/mirage/market_to_vip")
 src("/fps_low")
 lockMouse()
 wasdCancel()

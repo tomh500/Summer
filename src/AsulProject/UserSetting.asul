@@ -170,6 +170,14 @@ text "//------------------------------------------------------------------------
 text "//"
 text "//------------------------------------------------------------------------"
 text ""
+
+text "//移动Api"
+text "//Momot_InputMode_key   键盘Api"
+text "//Momot_InputMode_Joy   摇杆Api(测试)"
+func "移动Api" "选择你的移动Api" "Momot_InputMode_key" 2
+    "Momot_InputMode_key" "键盘"
+    "Momot_InputMode_joy" "摇杆"
+text ""
 text "//你可以轻松选择移动方式，随心所欲辅助你的急停"
 text ""
 text "//前后移动方式"

@@ -12,12 +12,16 @@ src/legacy/4items/actions/dust2/ExampleItems.cfg
 /src/main/Tools/Ticker/NAfps/66ms/*.cfg
 
 
+src/main/Features/Modules/SmartActive/actions/utilities/bhop/_init_.cfg
 
-src/main/Features/Modules/SmartActive/mirage/**
-!src/main/Features/Modules/SmartActive/mirage/*.lua
+src/main/Features/Modules/SmartActive/actions/maps/mirage/**
+!src/main/Features/Modules/SmartActive/actions/maps/mirage/*.lua
 
-src/main/Features/Modules/SmartActive/ancient/**
-!src/main/Features/Modules/SmartActive/ancient/*.lua
+src/main/Features/Modules/SmartActive/actions/maps/ancient/**
+!src/main/Features/Modules/SmartActive/actions/maps/ancient/*.lua
+
+src/main/Features/Modules/SmartActive/actions/maps/others/**
+!src/main/Features/Modules/SmartActive/actions/maps/others/*.lua
 
 cpp/
 UpdateVersion.py

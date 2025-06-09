@@ -1,5 +1,6 @@
-setExecPath("DearMoments/src/main/Features/Modules/SmartActive/mirage/ct_spawn01_to_short")
+setExecPath("DearMoments/src/main/Features/Modules/SmartActive/actions/maps/mirage/ct_spawn01_to_short")
 src("/fps_low")
+wasdCancel()
 slot3()
 lockMouse()
 setAngle(13.493720, 40.000000)
