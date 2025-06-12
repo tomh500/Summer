@@ -4,11 +4,12 @@ DearMoments-Delta 2.1
 [本次更新日志]
 [+]监听器常规更新
 [+]尝试新的跨平台支持
+[+]新增：添加对CS1.6的支持
 [+]新增：移动Api选择
 [+]新增：智能取消使用
 [+]新增：两个自动身法lua文件
 [+]新增：静步时缩放小地图
-[+]新增：D模式滚轮跳
+[+]新增：JumpBug模式滚轮跳
 [+]移除：Nullbind移动模式
 [+]优化：调整了项目结构
 [+]优化：现在SMA模式自动连跳需要使用lcfg构建
@@ -17,6 +18,11 @@ DearMoments-Delta 2.1
 [+]修复：修复了部分CFG存在BOM导致无法正常执行的错误
 [+]修复：未能在监听器启动的时候检查更新
 
+
+[关于半条命与CS1.6]
+用户空间为DearMoments/src/half-life/Userspace.cfg
+启动项为+exec DearMoments/Setup_HL.cfg
+请注意，这是CS1.6的启动项，如果你玩CS2，请继续阅读本文档
 
 [关于Linux用户]
 在2.1的开发版本中，加入了跨平台支持（测试），安装器二进制文件为CFG_Installer_Linux
