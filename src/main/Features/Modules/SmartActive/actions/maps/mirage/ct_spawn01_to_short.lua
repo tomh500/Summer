@@ -56,11 +56,10 @@ duck()
 jump()
 forward(-1)
 boostRight(120)
-slot2()
-slot1()
+
 
 sleep(21)
 boostStop()
 duck(-1)
-
+slot1()
 unlockMouse()

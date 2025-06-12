@@ -183,33 +183,31 @@ text ""
 text "//前后移动方式"
 text "//MoMot_fb_Normal       正常移动"
 text "//MoMot_fb_SOCD         后覆盖移动（Snaptap）"
-text "//MoMot_fb_NullBind     单次后覆盖移动（Nullbind）"
-func "前后移动方式" "选择前后方向的移动模式" "MoMot_fb_Normal" 3
+func "前后移动方式" "选择前后方向的移动模式" "MoMot_fb_Normal" 2
     "MoMot_fb_Normal" "正常移动"
     "MoMot_fb_SOCD" "后覆盖移动（Snaptap）"
-    "MoMot_fb_NullBind" "单次后覆盖移动（Nullbind）"
 
 text ""
 text "//左右移动方式"
 text "//MoMot_rl_Normal       正常移动"
 text "//MoMot_rl_SOCD         后覆盖移动（Snaptap）"
-text "//MoMot_rl_NullBind     单次后覆盖移动（Nullbind）"
-text "//MoMot_rl_HalfStop     双键急停"
-func "左右移动方式" "选择左右方向的移动模式" "MoMot_rl_Normal" 4
+func "左右移动方式" "选择左右方向的移动模式" "MoMot_rl_Normal" 2
     "MoMot_rl_Normal" "正常移动"
     "MoMot_rl_SOCD" "后覆盖移动（Snaptap）"
-    "MoMot_rl_NullBind" "单次后覆盖移动（Nullbind）"
-    "MoMot_rl_HalfStop" "双键急停"
+
 
 text ""
 text "//"
 text "//MoMot_MW_A        正常滚轮跳"
 text "//MoMot_MW_B        Desubtick滚轮跳"
 text "//MoMot_MW_C        MouseXY滚轮跳"
-func "滚轮跳方式" "选择滚轮跳模式" "MoMot_MW_A" 3
+text "//MoMot_MW_D        JumpBug滚轮跳"
+func "滚轮跳方式" "选择滚轮跳模式" "MoMot_MW_A" 4
     "MoMot_MW_A" "正常滚轮跳"
     "MoMot_MW_B" "Desubtick 滚轮跳"
     "MoMot_MW_C" "MouseXY 滚轮跳"
+    "MoMot_MW_D" "JumpBug 滚轮跳"
+
 
 text ""
 text "//自动连跳功能可以让你轻松上手KZ模式，你可以按需选择，当你开启连跳增强，在按下空格跳的时候，将被锁定在64帧"
@@ -326,3 +324,13 @@ func "HUD颜色" "设置HUD颜色" "DM_Value_HudColor_team" 12
     "DM_Value_HudColor_green" "绿色"
     "DM_Value_HudColor_cyan" "青色"
     "DM_Value_HudColor_sakura" "樱花粉"
+
+text ""
+text "//是否启用静步状态下放大小地图"
+text "//DearMoments_MiniMap_SprintEnlarge_Enable          启用"
+text "//DearMoments_MiniMap_SprintEnlarge_Disable         禁用"
+func "是否启用静步状态下放大小地图" "静步状态下将放大" "DearMoments_MiniMap_SprintEnlarge_Enable" 2
+    "DearMoments_MiniMap_SprintEnlarge_Enable"  "启用"
+    "DearMoments_MiniMap_SprintEnlarge_Disable" "禁用"
+    
+text ""
