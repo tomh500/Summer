@@ -1,0 +1,3 @@
+alias DMListenerBoot
+alias DMListenerRunning
+exec DearMoments/src/main/Tools/define_mousexy;
