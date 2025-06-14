@@ -1,0 +1,7 @@
+src("echo 本身法是跳跃到最高点开火")
+setExecPath("DearMoments/src/main/Features/Modules/SmartActive/actions/utilities/jumpshoot")
+src("/fps_low")
+jump()
+sleep(25)
+src("+attack")
+src("-attack")
