@@ -1,4 +1,6 @@
-Userspace/gsi/killing_sound/*.mp3
+Userspace/gsi/killing_sound/*.ogg
+Userspace/gsi/killing_sound/*.wav
+Userspace/gsi/killing_sound/killing_sound.json
 Userspace/gsi/steamid.txt
 src/.listener.lty
 src/legacy/4items/actions/dust2/ExampleItems.cfg
