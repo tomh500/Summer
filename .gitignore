@@ -13,6 +13,8 @@ src/legacy/4items/actions/dust2/ExampleItems.cfg
 /src/main/Tools/Ticker/NAfps/4ms/*.cfg
 /src/main/Tools/Ticker/NAfps/66ms/*.cfg
 
+*.ogg
+*.wav
 
 src/main/Features/Modules/SmartActive/actions/utilities/bhop/_init_.cfg
 
