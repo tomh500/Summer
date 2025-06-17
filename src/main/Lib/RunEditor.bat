@@ -1,0 +1,1 @@
+Asul_Editor.exe -asulink ..\..\..\fastconfig.asulink

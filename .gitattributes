@@ -1,0 +1,5 @@
+# 其他文本文件统一用 LF 结尾
+* text=auto eol=lf
+
+# .bat 文件使用 CRLF 结尾（Windows 批处理文件要求 CRLF）
+*.bat text eol=crlf
