@@ -1,0 +1,6 @@
+sq
+30
+1009
+250000
+0
+DearMoments/src/CS2/main/DM/Tools/Ticker/NAfps/1ms

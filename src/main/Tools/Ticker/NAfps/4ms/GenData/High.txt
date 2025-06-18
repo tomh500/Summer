@@ -1,6 +1,0 @@
-mo
-24
-1009
-80000
-4
-DearMoments/src/main/Tools/Ticker/NAfps/4ms

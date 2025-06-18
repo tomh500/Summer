@@ -1,2 +1,2 @@
-cd src\main\Lib
+cd src\CS2\lib
 start Listener.exe

@@ -1,34 +1,36 @@
-Userspace/gsi/killing_sound/*.ogg
-Userspace/gsi/killing_sound/*.wav
-Userspace/gsi/killing_sound/killing_sound.json
-Userspace/gsi/steamid.txt
+Userspace/CS2/gsi/killing_sound/*.ogg
+Userspace/CS2/gsi/killing_sound/*.wav
+Userspace/CS2/gsi/killing_sound/killing_sound.json
+Userspace/CS2/gsi/steamid.txt
 src/.listener.lty
-src/legacy/4items/actions/dust2/ExampleItems.cfg
+src/CS2/main/SQ/4items/actions/dust2/ExampleItems.cfg
 **/lua54.dll
 **/lcfg.exe
 **/scfg.obj
 **/.vs/
 .vscode/
-/src/main/Tools/Ticker/NAfps/1ms/*.cfg
-/src/main/Tools/Ticker/NAfps/4ms/*.cfg
-/src/main/Tools/Ticker/NAfps/66ms/*.cfg
+/src/CS2/main/DM/Tools/Ticker/NAfps/1ms/*.cfg
+/src/CS2/main/DM/Tools/Ticker/NAfps/4ms/*.cfg
+/src/CS2/main/DM/Tools/Ticker/NAfps/66ms/*.cfg
 
 *.ogg
 *.wav
 
-src/main/Features/Modules/SmartActive/actions/utilities/bhop/_init_.cfg
+src/CS2/main/DM/Features/Modules/SmartActive/actions/utilities/bhop/_init_.cfg
 
-src/main/Features/Modules/SmartActive/actions/maps/mirage/**
-!src/main/Features/Modules/SmartActive/actions/maps/mirage/*.lua
+src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/mirage/**
+!src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/mirage/*.lua
 
-src/main/Features/Modules/SmartActive/actions/maps/ancient/**
-!src/main/Features/Modules/SmartActive/actions/maps/ancient/*.lua
+src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/ancient/**
+!src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/ancient/*.lua
 
-src/main/Features/Modules/SmartActive/actions/maps/others/**
-!src/main/Features/Modules/SmartActive/actions/maps/others/*.lua
+src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/others/**
+!src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/others/*.lua
 
 cpp/
 UpdateVersion.py
 updateVer.txt
-src/legacy/Custom.yml
+src/CS2/main/SQ/Custom.yml
 UpdateVersion.bat
+
+src/CS2/AsulProject/backup/
