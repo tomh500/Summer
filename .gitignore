@@ -28,6 +28,10 @@ src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/others/**
 !src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/others/*.lua
 
 cpp/
+!cpp/mdreader.cpp
+!cpp/Ticker_Gen.cpp
+
+
 UpdateVersion.py
 updateVer.txt
 src/CS2/main/SQ/Custom.yml

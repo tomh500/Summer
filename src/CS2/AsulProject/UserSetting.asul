@@ -42,13 +42,13 @@ text "//------------------------------------------------------------------------
 text ""
 text "//------------------------------------------------------------------------"
 text ""
-text "//CS2引入了全新的subtick系统，让你的操作能被精确地被服务器记录，如果你不知道这是什么，请保持禁用"
+text "//如果你不知道这是什么，请保持禁用"
 text ""
 text "//DearMoments_Desubtick_Enable     全局启用Desubtick，使得手感更像CSGO"
 text "//DearMoments_Desubtick_Disable    全局禁用Desubtick，CS2原汁原味手感"
 func "Desubtick 系统" "消除掉subtick的时序错误，如果你不知道这是什么，请保持禁用" "DearMoments_Desubtick_Enable" 2
-    "DearMoments_Desubtick_Enable" "全局启用 Desubtick，"
-    "DearMoments_Desubtick_Disable" "全局禁用 Desubtick"
+    "DearMoments_Desubtick_Enable" "启用 Desubtick，"
+    "DearMoments_Desubtick_Disable" "禁用 Desubtick"
 
 text "//------------------------------------------------------------------------"
 text "//-------------------------------战斗修改内容------------------------------"
