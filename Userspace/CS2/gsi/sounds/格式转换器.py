@@ -48,35 +48,26 @@ def d4():
         for c7 in c6:
             if any(c7.lower().endswith(c) for c in c11):
                 c8 = os.path.join(c5, c7)
+                wav_path = os.path.join(c5, os.path.splitext(c7)[0] + '.wav')
 
-                c12 = os.path.join(c5, c7[:-len(os.path.splitext(c7)[1])] + '.mp3')
-                c13 = os.path.join(c5, c7[:-len(os.path.splitext(c7)[1])] + '.wav')
-
-                if os.path.exists(c13):
-                    print(f"[跳过] 目标已存在: {c13}")
+                if os.path.exists(wav_path):
+                    print(f"[跳过] 目标已存在: {wav_path}")
                     continue
 
                 try:
                     subprocess.run([
                         'ffmpeg', '-y',
                         '-i', c8,
-                        c12
+                        wav_path
                     ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                    print(f"[完成] {c8} → {c12}")
+                    print(f"[完成] {c8} → {wav_path}")
 
-                    subprocess.run([
-                        'ffmpeg', '-y',
-                        '-i', c12,
-                        c13
-                    ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                    print(f"[完成] {c12} → {c13}")
-
+                    # 删除原文件
                     os.remove(c8)
-                    os.rename(c13, c8)
-                    os.remove(c12)
 
                 except subprocess.CalledProcessError:
                     print(f"[错误] 转换失败: {c8}")
+
 
 if __name__ == "__main__":
     c1, c2 = b2()
