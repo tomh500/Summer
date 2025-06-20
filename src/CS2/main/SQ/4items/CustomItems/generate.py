@@ -12,7 +12,7 @@ def construct_mapping(loader, node, deep=False):
     for key_node, value_node in node.value:
         key = loader.construct_object(key_node, deep=deep)
         if key in mapping:
-            raise ValueError(f"重复的道具唯一标识符（item_id）: '{key}'，请检查 Custom.yml")
+            raise ValueError(f"重复的道具唯一标识符（item_id）: '{key}'，请检查 custom.yml")
         value = loader.construct_object(value_node, deep=deep)
         mapping[key] = value
     return mapping
@@ -23,7 +23,7 @@ UniqueKeyLoader.add_constructor(
 )
 
 script_dir = Path(__file__).resolve().parent
-config_path = script_dir / "Custom.yml"
+config_path = script_dir / "custom.yml"
 
 output_root = script_dir.parent
 actions_root = output_root / "actions"
@@ -90,6 +90,8 @@ if not data:
     resource_dir.mkdir(exist_ok=True)
     shutil.copy(output_root / "base/base_keybindings_schinese.txt", resource_dir / "keybindings_schinese.txt")
     shutil.copy(output_root / "base/base_keybindings_english.txt", resource_dir / "keybindings_english.txt")
+    shutil.copy(output_root / "base/base_keybindings_russian.txt", resource_dir / "keybindings_russian.txt")
+    shutil.copy(output_root / "base/base_keybindings_japanese.txt", resource_dir / "keybindings_japanese.txt")
     exit(0)
 
 overlay_lines = []
@@ -207,7 +209,9 @@ def update_keybinding_file(base_path, output_path, mappings):
         content = content[:-1].rstrip() + "\n" + "\n".join(insert) + "\n}"
     Path(output_path).write_text(content, encoding="utf-8")
 
-resources_dir = output_root.parent / "resources"
+resources_dir = output_root.parent.parent.parent / "resources"
 resources_dir.mkdir(exist_ok=True)
 update_keybinding_file(output_root / "base/base_keybindings_schinese.txt", resources_dir / "keybindings_schinese.txt", display_mappings)
 update_keybinding_file(output_root / "base/base_keybindings_english.txt", resources_dir / "keybindings_english.txt", display_mappings)
+update_keybinding_file(output_root / "base/base_keybindings_russian.txt", resources_dir / "keybindings_russian.txt", display_mappings)
+update_keybinding_file(output_root / "base/base_keybindings_japanese.txt", resources_dir / "keybindings_japanese.txt", display_mappings)

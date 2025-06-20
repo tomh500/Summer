@@ -19,8 +19,11 @@ IF %ERRORLEVEL% NEQ 0 (
 
 echo 正在执行 generate.py 脚本...
 python generate.py
-xcopy /Y /Q "..\..\..\..\resources\keybindings_schinese.txt" "..\..\..\..\..\..\..\resource\"
-xcopy /Y /Q "..\..\..\..\resources\keybindings_english.txt" "..\..\..\..\..\..\..\resource\"
+xcopy /Y /Q "..\..\..\..\resources\keybindings_schinese.txt" "..\..\..\..\..\..\..\..\resource\"
+xcopy /Y /Q "..\..\..\..\resources\keybindings_english.txt" "..\..\..\..\..\..\..\..\resource\"
+xcopy /Y /Q "..\..\..\..\resources\keybindings_russian.txt" "..\..\..\..\..\..\..\..\resource\"
+xcopy /Y /Q "..\..\..\..\resources\keybindings_japanese.txt" "..\..\..\..\..\..\..\..\resource\"
+
 
 echo 脚本执行完毕。
 pause

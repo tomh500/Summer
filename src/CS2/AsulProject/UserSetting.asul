@@ -5,7 +5,7 @@ text "//如果你需要反馈问题，请打开选择Debug模式，然后复现�
 text "//"
 text "//DearMoments_User     正常情况下选用此选项"
 text "//DearMoments_Debug    只有开发者会感兴趣"
-func "开发者选项" "选择是否启用开发者模式" "DearMoments_Debug" 2
+func "开发者选项" "选择是否启用开发者模式" "DearMoments_User" 2
     "DearMoments_User" "用户模式"
     "DearMoments_Debug" "开发者模式"
 
@@ -19,7 +19,7 @@ text "//DearMoments_TextOutput_Team      输出到队伍"
 text "//DearMoments_TextOutput_All       输出到全体"
 text "//DearMoments_TextOutput_Echo      输出到控制台"
 text "//DearMoments_TextOutput_Null      不输出"
-func "输出文本位置" "选择信息输出的位置" "DearMoments_TextOutput_Echo" 4
+func "输出文本位置" "选择信息输出的位置" "DearMoments_TextOutput_Team" 4
     "DearMoments_TextOutput_Team" "输出到队伍"
     "DearMoments_TextOutput_All" "输出到全体"
     "DearMoments_TextOutput_Echo" "输出到控制台"
@@ -46,7 +46,7 @@ text "//如果你不知道这是什么，请保持禁用"
 text ""
 text "//DearMoments_Desubtick_Enable     全局启用Desubtick，使得手感更像CSGO"
 text "//DearMoments_Desubtick_Disable    全局禁用Desubtick，CS2原汁原味手感"
-func "Desubtick 系统" "消除掉subtick的时序错误，如果你不知道这是什么，请保持禁用" "DearMoments_Desubtick_Enable" 2
+func "Desubtick 系统" "消除掉subtick的时序错误，如果你不知道这是什么，请保持禁用" "DearMoments_Desubtick_Disable" 2
     "DearMoments_Desubtick_Enable" "启用 Desubtick，"
     "DearMoments_Desubtick_Disable" "禁用 Desubtick"
 
@@ -192,7 +192,7 @@ text ""
 text "//前后移动方式"
 text "//MoMot_fb_Normal       正常移动"
 text "//MoMot_fb_SOCD         后覆盖移动（Snaptap）"
-func "前后移动方式" "选择前后方向的移动模式" "MoMot_fb_SOCD" 4
+func "前后移动方式" "选择前后方向的移动模式" "MoMot_fb_Normal" 4
     "MoMot_fb_Normal" "正常移动"
     "MoMot_fb_SOCD" "后覆盖移动（Snaptap）"
     "MoMot_fb_NullBind" "单次后覆盖移动（Nullbind）"
@@ -202,7 +202,7 @@ text ""
 text "//左右移动方式"
 text "//MoMot_rl_Normal       正常移动"
 text "//MoMot_rl_SOCD         后覆盖移动（Snaptap）"
-func "左右移动方式" "选择左右方向的移动模式" "MoMot_rl_SOCD" 4
+func "左右移动方式" "选择左右方向的移动模式" "MoMot_rl_Normal" 4
     "MoMot_rl_Normal" "正常移动"
     "MoMot_rl_SOCD" "后覆盖移动（Snaptap）"
     "MoMot_rl_NullBind" "单次后覆盖移动（Nullbind）"
@@ -215,7 +215,7 @@ text "//MoMot_MW_A        正常滚轮跳"
 text "//MoMot_MW_B        Desubtick滚轮跳"
 text "//MoMot_MW_C        MouseXY滚轮跳"
 text "//MoMot_MW_D        JumpBug滚轮跳"
-func "滚轮跳方式" "选择滚轮跳模式" "MoMot_MW_B" 4
+func "滚轮跳方式" "选择滚轮跳模式" "MoMot_MW_A" 4
     "MoMot_MW_A" "正常滚轮跳"
     "MoMot_MW_B" "Desubtick 滚轮跳"
     "MoMot_MW_C" "MouseXY 滚轮跳"
@@ -227,7 +227,7 @@ text "//自动连跳功能可以让你轻松上手KZ模式，你可以按需选�
 text ""
 text "//DearMoments_BetterBhop_Enable        开启连跳增强"
 text "//DearMoments_BetterBhop_Disable       关闭连跳增强"
-func "连跳增强" "开启或关闭连跳增强功能" "DearMoments_BetterBhop_Enable" 2
+func "连跳增强" "开启或关闭连跳增强功能" "DearMoments_BetterBhop_Disable" 2
     "DearMoments_BetterBhop_Enable" "开启连跳增强（按下空格时锁定在 64 帧）"
     "DearMoments_BetterBhop_Disable" "关闭连跳增强"
 

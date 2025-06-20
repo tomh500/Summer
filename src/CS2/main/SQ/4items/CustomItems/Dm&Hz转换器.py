@@ -30,7 +30,7 @@ def backup_file_if_exists(filepath: Path):
 
 def json_to_yaml(input_file: Path, output_file: Path):
     """
-    将 list.json 转换为 Custom.yml
+    将 list.json 转换为 custom.yml
     """
     if not input_file.exists():
         print(f"输入文件不存在: {input_file}")
@@ -94,7 +94,7 @@ def json_to_yaml(input_file: Path, output_file: Path):
 
 def yaml_to_json(input_file: Path, output_file: Path):
     """
-    将 Custom.yml 转换为 list.json
+    将 custom.yml 转换为 list.json
     """
     if not input_file.exists():
         print(f"输入文件不存在: {input_file}")
@@ -146,15 +146,15 @@ def yaml_to_json(input_file: Path, output_file: Path):
 
 
 def main():
-    print('1: Custom.yml → list.json')
-    print('2: list.json → Custom.yml')
+    print('1: custom.yml → list.json')
+    print('2: list.json → custom.yml')
     choice = input('请选择 (1/2): ').strip()
 
     base = Path('.')
     if choice == '1':
-        yaml_to_json(base / 'Custom.yml', base / 'list.json')
+        yaml_to_json(base / 'custom.yml', base / 'list.json')
     elif choice == '2':
-        json_to_yaml(base / 'list.json', base / 'Custom.yml')
+        json_to_yaml(base / 'list.json', base / 'custom.yml')
     else:
         print('无效选择')
 
