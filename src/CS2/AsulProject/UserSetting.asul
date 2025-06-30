@@ -191,12 +191,12 @@ func "移动Api" "选择你的移动Api" "MoMot_InputMode_key" 5
     "MoMot_InputMode_joySensitivitySOCD" "含有SOCD能力的摇杆灵敏度"
 
 text ""
-func "混合Api发送" "测试功能，混合摇杆和键盘API" "Momot_ApiSend_SingleApi" 2
-    "Momot_ApiSend_SingleApi"
-    "Momot_ApiSend_MutilApi"
-
+text "//Api发送方式，仅当使用摇杆系列Api才能使用混合Api发送，否则不仅无效，还可能出现BUG"
+func "混合Api发送" "测试功能，混合摇杆和键盘API" "MoMot_ApiSend_Single" 2
+    "MoMot_ApiSend_Single"  "单调发送"
+    "MoMot_ApiSend_Mutil"   "混合发送"
+    
 text ""
-
     
 text ""
 text "//你可以轻松选择移动方式，随心所欲辅助你的急停"
