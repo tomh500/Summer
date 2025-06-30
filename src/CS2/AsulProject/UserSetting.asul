@@ -19,7 +19,7 @@ text "//DearMoments_TextOutput_Team      输出到队伍"
 text "//DearMoments_TextOutput_All       输出到全体"
 text "//DearMoments_TextOutput_Echo      输出到控制台"
 text "//DearMoments_TextOutput_Null      不输出"
-func "输出文本位置" "选择信息输出的位置" "DearMoments_TextOutput_Team" 4
+func "输出文本位置" "选择信息输出的位置" "DearMoments_TextOutput_Null" 4
     "DearMoments_TextOutput_Team" "输出到队伍"
     "DearMoments_TextOutput_All" "输出到全体"
     "DearMoments_TextOutput_Echo" "输出到控制台"
@@ -60,7 +60,7 @@ text "//是否智能开关自动手枪功能"
 text ""
 text "//DearMoments_RapidFire_Smart      智能开关自动手枪"
 text "//DearMoments_RapidFire_Switch     仅通过绑定按键开关自动手枪"
-func "自动手枪开关" "是否智能开关自动手枪功能" "DearMoments_RapidFire_Smart" 2
+func "自动手枪开关" "是否智能开关自动手枪功能" "DearMoments_RapidFire_Switch" 2
     "DearMoments_RapidFire_Smart" "智能开关"
     "DearMoments_RapidFire_Switch" "仅绑定开关"
 
@@ -74,7 +74,7 @@ text "//当开火时自动取消使用，可用于开火自动取消拆包"
 text ""
 func "自动取消使用" "当开火时自动取消使用，可用于开火自动取消拆包" "DearMoments_AutoCancelUse_Enable" 2
     "DearMoments_AutoCancelUse_Enable" "启用"
-    "DearMoments_AutoCancelUse_Enable" "禁用"
+    "DearMoments_AutoCancelUse_Disable" "禁用"
 
 text ""
 text "//------------------------------------------------------------------------"
@@ -86,14 +86,14 @@ text "//为你的急停提供神一样的主力，引入瓦罗兰特风格移动
 text ""
 text "//DearMoments_Autostop_fb_pass       禁用前后方向的单键急停"
 text "//DearMoments_Autostop_fb_load       启用前后方向的单键急停"
-func "单键急停（前后方向）" "启用或禁用前后方向的单键急停" "DearMoments_Autostop_fb_pass" 2
+func "单键急停（前后方向）" "启用或禁用前后方向的单键急停" "DearMoments_Autostop_fb_load" 2
     "DearMoments_Autostop_fb_load" "启用前后方向的单键急停"
     "DearMoments_Autostop_fb_pass" "禁用前后方向的单键急停"
 
 text "//"
 text "//DearMoments_Autostop_rl_pass       禁用左右方向的单键急停"
 text "//DearMoments_Autostop_rl_load       启用左右方向的单键急停"
-func "单键急停（左右方向）" "启用或禁用左右方向的单键急停" "DearMoments_Autostop_rl_pass" 2
+func "单键急停（左右方向）" "启用或禁用左右方向的单键急停" "DearMoments_Autostop_rl_load" 2
     "DearMoments_Autostop_rl_load" "启用左右方向的单键急停"
     "DearMoments_Autostop_rl_pass" "禁用左右方向的单键急停"
 
@@ -129,7 +129,7 @@ text "//MoMot_autostop_mode_21      21急停档位"
 text "//MoMot_autostop_mode_22      22急停档位"
 text "//MoMot_autostop_mode_23      23急停档位"
 text "//MoMot_autostop_mode_24      24急停档位"
-func "单键急停 档位选择" "当启用了任意方向单键急停时，选择急停档位" "MoMot_autostop_mode_0" 27
+func "单键急停 档位选择" "当启用了任意方向单键急停时，选择急停档位" "MoMot_autostop_mode_9" 27
     "MoMot_autostop_mode_0" "不使用单键急停"
     "MoMot_autostop_mode_1" "1 急停档位"
     "MoMot_autostop_mode_2" "2 急停档位"
