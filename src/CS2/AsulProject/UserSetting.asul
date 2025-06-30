@@ -55,15 +55,15 @@ text "//------------------------------------------------------------------------
 text ""
 text "//------------------------------------------------------------------------"
 text ""
-text "//是否智能开关自动手枪功能"
+text "//是否智能开关虚拟撞火枪托功能"
 text ""
-text "//DearMoments_RapidFire_Smart      智能开关自动手枪"
-text "//DearMoments_RapidFire_Switch     仅通过绑定按键开关自动手枪"
-func "自动手枪开关" "是否智能开关自动手枪功能" "DearMoments_RapidFire_Switch" 2
+text "//DearMoments_RapidFire_Smart      智能开关虚拟撞火枪托"
+text "//DearMoments_RapidFire_Switch     仅通过绑定按键开关虚拟撞火枪托"
+func "虚拟撞火枪托开关" "是否智能开关虚拟撞火枪托功能" "DearMoments_RapidFire_Switch" 2
     "DearMoments_RapidFire_Smart" "智能开关"
     "DearMoments_RapidFire_Switch" "仅绑定开关"
 
-func "自动手枪速率" "选择符合你的说明" "DearMoments_RapidFire_Mid" 1
+func "虚拟撞火枪托速率" "选择符合你的说明" "DearMoments_RapidFire_Mid" 1
     "DearMoments_RapidFire_Mid" "强制开火时锁帧"
 
 text "//------------------------------------------------------------------------"
@@ -77,31 +77,31 @@ text ""
 text "//------------------------------------------------------------------------"
 
 text "//------------------------------------------------------------------------"
-text "//--------------------------------单键急停功能-----------------------------"
+text "//--------------------------------全自动急停功能-----------------------------"
 text "//------------------------------------------------------------------------"
 text "//为你的急停提供神一样的主力，引入瓦罗兰特风格移动，让你操作手感邦邦硬，走路像在坐轮椅"
 text ""
-text "//DearMoments_Autostop_fb_pass       禁用前后方向的单键急停"
-text "//DearMoments_Autostop_fb_load       启用前后方向的单键急停"
-func "单键急停（前后方向）" "启用或禁用前后方向的单键急停" "DearMoments_Autostop_fb_load" 2
-    "DearMoments_Autostop_fb_load" "启用前后方向的单键急停"
-    "DearMoments_Autostop_fb_pass" "禁用前后方向的单键急停"
+text "//DearMoments_Autostop_fb_pass       禁用前后方向的全自动急停"
+text "//DearMoments_Autostop_fb_load       启用前后方向的全自动急停"
+func "全自动急停（前后方向）" "启用或禁用前后方向的全自动急停" "DearMoments_Autostop_fb_load" 2
+    "DearMoments_Autostop_fb_load" "启用前后方向的全自动急停"
+    "DearMoments_Autostop_fb_pass" "禁用前后方向的全自动急停"
 
 text "//"
-text "//DearMoments_Autostop_rl_pass       禁用左右方向的单键急停"
-text "//DearMoments_Autostop_rl_load       启用左右方向的单键急停"
-func "单键急停（左右方向）" "启用或禁用左右方向的单键急停" "DearMoments_Autostop_rl_load" 2
-    "DearMoments_Autostop_rl_load" "启用左右方向的单键急停"
-    "DearMoments_Autostop_rl_pass" "禁用左右方向的单键急停"
+text "//DearMoments_Autostop_rl_pass       禁用左右方向的全自动急停"
+text "//DearMoments_Autostop_rl_load       启用左右方向的全自动急停"
+func "全自动急停（左右方向）" "启用或禁用左右方向的全自动急停" "DearMoments_Autostop_rl_load" 2
+    "DearMoments_Autostop_rl_load" "启用左右方向的全自动急停"
+    "DearMoments_Autostop_rl_pass" "禁用左右方向的全自动急停"
 
 text ""
 text "//------------------------------------------------------------------------"
 text ""
-text "//当只有启用了任意方向的单键急停时，以下选项才会生效"
+text "//当只有启用了任意方向的全自动急停时，以下选项才会生效"
 text "//急停档位越高，越快，但是请匹配你的帧率，否则会回拉"
 text "//关于锁帧请看其他的配置文件！"
 text ""
-text "//MoMot_autostop_mode_0       不使用单键急停"
+text "//MoMot_autostop_mode_0       不使用全自动急停"
 text "//MoMot_autostop_mode_1       1急停档位"
 text "//MoMot_autostop_mode_2       2急停档位"
 text "//MoMot_autostop_mode_3       3急停档位"
@@ -126,8 +126,8 @@ text "//MoMot_autostop_mode_21      21急停档位"
 text "//MoMot_autostop_mode_22      22急停档位"
 text "//MoMot_autostop_mode_23      23急停档位"
 text "//MoMot_autostop_mode_24      24急停档位"
-func "单键急停 档位选择" "当启用了任意方向单键急停时，选择急停档位" "MoMot_autostop_mode_9" 27
-    "MoMot_autostop_mode_0" "不使用单键急停"
+func "全自动急停 档位选择" "当启用了任意方向全自动急停时，选择急停档位" "MoMot_autostop_mode_9" 27
+    "MoMot_autostop_mode_0" "不使用全自动急停"
     "MoMot_autostop_mode_1" "1 急停档位"
     "MoMot_autostop_mode_2" "2 急停档位"
     "MoMot_autostop_mode_3" "3 急停档位"
@@ -161,10 +161,10 @@ func "单键急停 档位选择" "当启用了任意方向单键急停时，选�
 text ""
 text "//------------------------------------------------------------------------"
 text ""
-text "//如果开启智能模式，当你静步、切刀、下蹲的情况下会临时禁用单键急停"
+text "//如果开启智能模式，当你静步、切刀、下蹲的情况下会临时禁用全自动急停"
 text "//DearMoments_Autostop_Smart        智能关闭急停功能"
 text "//DearMoments_Autostop_Single       任何情况都不自动关闭急停"
-func "单键急停 智能模式" "选择单键急停是否智能关闭" "DearMoments_Autostop_Smart" 2
+func "全自动急停 智能模式" "选择全自动急停是否智能关闭" "DearMoments_Autostop_Smart" 2
     "DearMoments_Autostop_Smart" "智能关闭急停功能（如静步）"
     "DearMoments_Autostop_Single" "任何情况都不自动关闭急停"
 
@@ -201,24 +201,24 @@ text ""
 text ""
 text "//你可以轻松选择移动方式，随心所欲辅助你的急停"
 text ""
-text "//前后移动方式，在输入Api为摇杆系列，本选项仅修改是否启用双键急停"
+text "//前后移动方式，在输入Api为摇杆系列，本选项仅修改是否启用半自动急停（双键）"
 text "//MoMot_fb_Normal       正常移动"
 text "//MoMot_fb_SOCD         后覆盖移动（Snaptap）"
-func "前后移动方式" "选择前后方向的移动模式，在输入Api为摇杆系列，本选项仅修改是否启用双键急停" "MoMot_fb_Normal" 4
+func "前后移动方式" "选择前后方向的移动模式，在输入Api为摇杆系列，本选项仅修改是否启用半自动急停（双键）" "MoMot_fb_Normal" 4
     "MoMot_fb_Normal" "正常移动"
     "MoMot_fb_SOCD" "后覆盖移动（Snaptap）"
     "MoMot_fb_NullBind" "单次后覆盖移动（Nullbind）"
-    "MoMot_fb_HalfStop" "双键急停"
+    "MoMot_fb_HalfStop" "半自动急停（双键）"
 
 text ""
-text "//左右移动方式，在输入Api为摇杆系列，本选项仅修改是否启用双键急停"
+text "//左右移动方式，在输入Api为摇杆系列，本选项仅修改是否启用半自动急停（双键）"
 text "//MoMot_rl_Normal       正常移动"
 text "//MoMot_rl_SOCD         后覆盖移动（Snaptap）"
-func "左右移动方式" "选择左右方向的移动模式，在输入Api为摇杆系列，本选项仅修改是否启用双键急停" "MoMot_rl_Normal" 4
+func "左右移动方式" "选择左右方向的移动模式，在输入Api为摇杆系列，本选项仅修改是否启用半自动急停（双键）" "MoMot_rl_Normal" 4
     "MoMot_rl_Normal" "正常移动"
     "MoMot_rl_SOCD" "后覆盖移动（Snaptap）"
     "MoMot_rl_NullBind" "单次后覆盖移动（Nullbind）"
-    "MoMot_rl_HalfStop" "双键急停"
+    "MoMot_rl_HalfStop" "半自动急停（双键）"
 
 
 text ""
