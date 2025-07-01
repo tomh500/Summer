@@ -30,8 +30,8 @@ item_1750385763015:
   throwmode: "Normal"
   extra: ["",""]
   select:
-    - page: ""
-    - slot: ""
+    - page: "3"
+    - slot: "1"
     - command: ""
     - bind: "None"
   setpos:

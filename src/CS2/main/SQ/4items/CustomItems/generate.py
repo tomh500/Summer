@@ -25,6 +25,7 @@ UniqueKeyLoader.add_constructor(
 script_dir = Path(__file__).resolve().parent
 config_path = script_dir / "custom.yml"
 
+execute_dir = script_dir
 output_root = script_dir.parent
 actions_root = output_root / "actions"
 overlay_path = output_root / "Overlay.cfg"
@@ -86,7 +87,7 @@ if not data:
                         content = fpath.read_text(encoding="utf-8")
                         content = re.sub(r'//custom define[\s\S]*', '', content, flags=re.MULTILINE)
                         fpath.write_text(content.strip() + "\n", encoding="utf-8")
-    resource_dir = output_root.parent / "resources"
+    resource_dir = execute_dir.parent.parent.parent.parent / "resources"
     resource_dir.mkdir(exist_ok=True)
     shutil.copy(output_root / "base/base_keybindings_schinese.txt", resource_dir / "keybindings_schinese.txt")
     shutil.copy(output_root / "base/base_keybindings_english.txt", resource_dir / "keybindings_english.txt")
@@ -177,7 +178,6 @@ for item_id, props in data.items():
     display_mappings.append((map_l.upper(), item_l.upper(), displayname))
 
 if page or slot:
-    display_mappings.append((map_l.upper(), item_l.upper(), displayname))
 
     # 如果 page 和 slot 都填了，再写入 UI 圆盘文件
     if page and slot:
@@ -209,7 +209,7 @@ def update_keybinding_file(base_path, output_path, mappings):
         content = content[:-1].rstrip() + "\n" + "\n".join(insert) + "\n}"
     Path(output_path).write_text(content, encoding="utf-8")
 
-resources_dir = output_root.parent.parent.parent / "resources"
+resources_dir = execute_dir.parent.parent.parent.parent / "resources"
 resources_dir.mkdir(exist_ok=True)
 update_keybinding_file(output_root / "base/base_keybindings_schinese.txt", resources_dir / "keybindings_schinese.txt", display_mappings)
 update_keybinding_file(output_root / "base/base_keybindings_english.txt", resources_dir / "keybindings_english.txt", display_mappings)
