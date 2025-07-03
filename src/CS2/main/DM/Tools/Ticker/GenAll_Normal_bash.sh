@@ -6,6 +6,12 @@ current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # 定义要执行的子目录
 subdirs=("NAfps/1ms" "NAfps/4ms" "NAfps/66ms")
 
+# 在执行前先赋予 Gen_Normal.sh 可执行权限
+if [ -f ./Gen_Normal.sh ]; then
+    chmod +x ./Gen_Normal.sh
+fi
+
+
 # 循环进入并执行
 for dir in "${subdirs[@]}"; do
     echo "正在执行 $dir/Gen_Normal.sh ..."

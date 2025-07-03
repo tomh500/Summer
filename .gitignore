@@ -26,9 +26,13 @@ src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/ancient/**
 src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/others/**
 !src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/others/*.lua
 
-cpp/
+# 忽略 cpp/ 内除以下列出的文件和目录外的所有内容
+cpp/*
+!cpp/
 !cpp/mdreader.cpp
 !cpp/Ticker_Gen.cpp
+!cpp/Ubuntu_CPP/
+
 
 
 UpdateVersion.py
