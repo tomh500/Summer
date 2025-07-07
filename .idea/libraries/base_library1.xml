@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="base_library1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/cpp/Asul_Editor/build/main/base_library.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

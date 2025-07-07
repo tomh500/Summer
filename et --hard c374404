@@ -1,0 +1,172 @@
+[33mc374404[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m 修复诸多内容
+[33m61fa59c[m 去除加密
+[33m80b1208[m 去除加密
+[33m8b879df[m 更新监听器和加密
+[33m1fb7ca2[m 加密前的备份
+[33md963930[m AsulEditor
+[33m534d9de[m 2.1x
+[33m1081ae6[m 修复customitems
+[33m5efba45[m 修复asul
+[33m4550e92[m 准备
+[33m50ec228[m antihorizon取消
+[33ma6346d4[m 说明readme修改
+[33m4f9a147[m 修复asul
+[33m5c1ba9a[m 更多api
+[33m1b983df[m 修复自动手枪
+[33m8af513b[m 多姿多样的移动api
+[33md25b1a3[m fixed asul project
+[33md398464[m last x release
+[33me8de9fb[m 20250621
+[33mc8c7b78[m 修复GSI“
+[33meedb54c[m 修复内容，并且开源第一批C++代码
+[33mba52a1f[m 修复linux
+[33m38c5ffb[m 大幅更改项目结构
+[33m08594fc[m remove useless python evn
+[33m266eed9[m remove useless python evn
+[33m18512ca[m markdown reader
+[33m4fb6e64[m ignore file update
+[33m8fbf540[m gsi翻新
+[33m3ad6c9e[m ls
+[33mac30269[m 测试
+[33me9449a8[m 回归nullbind和halfstop
+[33me76b681[m 暂存
+[33m0c8932d[m update
+[33m9fb4679[m fix dearmoments to DearMoments
+[33md07178a[m 补充说明
+[33mffc9b5e[m test
+[33m4009722[m support linux
+[33mc2faa17[m removed cpp
+[33ma03660b[m supportUbuntu
+[33m5a8a9bb[m 2.1prev
+[33mf15fc90[m 2.1
+[33m284efc5[m fix
+[33m7ffd539[m 2.0
+[33m3af18d0[m 2.0
+[33mea0323b[m 2.0
+[33m64608d0[m 2.0
+[33m1a12e13[m Merge pull request #4 from tomh500/feat/spinbot
+[33ma93e9ed[m[33m ([m[1;31morigin/feat/spinbot[m[33m, [m[1;32mfeat/spinbot[m[33m)[m addedspinbot
+[33m0e02d00[m 1.7
+[33md990941[m ignoreticker
+[33md6a270c[m 新的ticker
+[33m2c16e7a[m 1610000
+[33m0692ab7[m[33m ([m[1;33mtag: [m[1;33mnextgen[m[33m, [m[1;33mtag: [m[1;33mLite[m[33m)[m 1610000
+[33m5c886b0[m 1610000
+[33m1ad9f0e[m 161000
+[33mf3a31b0[m 1610000
+[33m0c8e3d6[m 1610000
+[33mc26ee5f[m 1.6.1
+[33m9fc2371[m 接入asul
+[33m996bf4b[m removedstg
+[33m6f6989c[m 接入asul
+[33m26b42a1[m fix userspace
+[33mee93038[m 160000v1
+[33m864d0c8[m test
+[33medd9166[m test
+[33m59c0636[m customitems
+[33mc43075a[m 16000
+[33mc8c1bb2[m 更新监听器
+[33mbed37e9[m 正确更新
+[33m8f652bb[m 自动身法文件
+[33ma9a9fe3[m 为1.6做准备
+[33m7d7a29d[m test
+[33mdf6436d[m[33m ([m[1;33mtag: [m[1;33mlegacy[m[33m)[m Delete updateVer.txt
+[33m8f8572b[m Delete UpdateVersion.bat
+[33md251964[m public
+[33mf11a88b[m 更新版本号准备
+[33m8d0dd27[m 自动监视功能
+[33m0550cf7[m 16000临时缓存
+[33mf0966bf[m removed cpp
+[33mcac3951[m ignorefile
+[33m208f07f[m removed lcfg ececute file
+[33m4e1c21c[m 15200
+[33md44562a[m 15100
+[33mc6d3365[m 15100
+[33m48667c1[m 15000v8
+[33m6c5ee96[m 15000v6
+[33m2cfeaf9[m 15000v6
+[33m24c7626[m 15000v5
+[33m43841ea[m 换行符转换工具
+[33m8211fee[m 15000v4
+[33med6692c[m 15000v3
+[33m75b50c4[m Getcpuinfo开源
+[33me3c7684[m 15000
+[33mc67a75a[m 针对15000的修复
+[33meaf02b9[m 15000
+[33mb3222e2[m 1.4.7
+[33m7cb4bef[m 14600
+[33mad0576f[m 1.4.5
+[33m43f4dc8[m 1.4.5
+[33m4aebe16[m 1.4.4
+[33ma429a63[m Delete Userspace/gsi/killing_sound/temp.mp3
+[33m8f07a4d[m Delete Userspace/gsi/killing_sound/extra.mp3
+[33md84f7c6[m Delete Userspace/gsi/killing_sound/5.mp3
+[33m9890a59[m Delete Userspace/gsi/killing_sound/4.mp3
+[33m0063130[m Delete Userspace/gsi/killing_sound/3.mp3
+[33mac43cbe[m Delete Userspace/gsi/killing_sound/2.mp3
+[33m5e4dd1f[m Delete Userspace/gsi/killing_sound/1.mp3
+[33m14091cb[m 1.4.5
+[33m8bc1873[m 1.4.2
+[33mbc9926c[m 大幅优化急停
+[33m1b5bc87[m 1.4
+[33mcde539b[m 1.3.2
+[33mca38090[m 1.3.2
+[33m90d7511[m 1.3
+[33mb7d7ed8[m 1.2.4
+[33m3c1aea0[m 动态灵敏度
+[33m8eee565[m 1.2.2
+[33mdf7d795[m 1.2.2
+[33m4e86aaa[m dearmoments
+[33m83145b6[m 添加音乐模式
+[33m1c10b95[m 修改
+[33md8e5469[m 添加/music 修改/menu为/sma
+[33m70af5ce[m 修复mod市场快捷方式
+[33m6102260[m 添加了kz模式
+[33m5c4a6a1[m Merge pull request #3 from tomh500/fixbug/1.1.2
+[33ma668dbb[m[33m ([m[1;31morigin/fixbug/1.1.2[m[33m)[m 修复BUG
+[33m1e3621f[m 1.1.2
+[33m18acc31[m Merge pull request #2 from tomh500/feat/5eplay
+[33mc4d6f32[m[33m ([m[1;31morigin/feat/5eplay[m[33m)[m 玩5E
+[33mf930d8c[m 添加“玩5E 天天领红包”
+[33mc43ee2b[m 合并public
+[33mb0de7df[m 修改命名等,1.1.1发布
+[33m363039f[m 合并定制分支
+[33m0cb1578[m[33m ([m[1;31morigin/定制/1264148869[m[33m, [m[1;32m定制/1264148869[m[33m)[m 修复大跳跳投增加道具
+[33m84c06ca[m ignore
+[33m65bff0b[m 重归内测版
+[33m9a1b96c[m Merge pull request #1 from tomh500/定制/1264148869
+[33m30b7322[m Merge branch 'main' into 定制/1264148869
+[33mcf20e38[m 更改自动手枪为18ms，新增道具
+[33m0cb8571[m 精简getcpuinfo
+[33m556eaa1[m 修复诸多问题
+[33mff79f7d[m 增加更多急停，修复攻击
+[33ma3ae439[m 暂存
+[33mb6341c3[m 恢复身法代码
+[33mafe6f3e[m 删除自动身法
+[33m8f02c1e[m tips
+[33mde62cdb[m public
+[33me2c3747[m berelease
+[33m98f7b4e[m fix
+[33m667ebe9[m replace .mo
+[33m44420d0[m 修复变量
+[33m1a0401f[m 2.0正式发布！
+[33md7d20a8[m 自动急停添加
+[33m6b8af28[m sf
+[33m0c43db1[m Merge branch 'main' of https://github.com/tomh500/MoClient
+[33mb91fae9[m fix
+[33mb81f827[m Update README.md
+[33mdb70b0c[m fix
+[33m0b0e838[m 调整帧率
+[33mee9bc77[m 修复bug
+[33macd604a[m 添加安装程序
+[33md38610a[m 我他妈会死
+[33m7c6e703[m spinbot
+[33md1caa0b[m 修复输出乱序
+[33m4519afd[m 修复输出乱序
+[33m0707281[m 输出系统增加，彩虹HUD增加，Desubtick增加
+[33m74dfbec[m 初始化smartattack
+[33m3525cb7[m 1.2
+[33m65a0c17[m Update README.md
+[33m2a118bb[m Create README.md
+[33m62ad153[m 增强连跳 自动连跳 独立wsad
+[33m2672827[m created

@@ -126,8 +126,8 @@
 	"CFG_SETTING_PLATFORM_EEEEE"							"5E平台\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FK4_DZ"								"小镇1号位匪口烟\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FKQD4_DZ"							"小镇1号位匪口前端烟\n \n \n \n"
-	"Ignore_Broadcast_Messages"								"‎D‎e‎a‎r‎M‎o‎m‎e‎n‎t‎s‎-‎X‎释‎放‎ ‎2‎.‎1‎ ‎免‎费‎发‎布"
-	"Ignore_Broadcast_Team_Messages"						"‎作‎者‎B‎站‎ ‎L‎u‎o‎t‎i‎a‎n‎y‎1‎_‎M‎a‎r"
+	"Ignore_Broadcast_Messages"								"‎D‎e‎a‎r‎M‎o‎m‎e‎n‎t‎s‎-‎D‎e‎l‎t‎a‎ ‎P‎u‎b‎l‎i‎c‎ ‎T‎e‎s‎t‎ ‎2‎.‎2‎ ‎F‎r‎e‎e‎ ‎R‎e‎l‎e‎a‎s‎e"
+	"Ignore_Broadcast_Team_Messages"						"‎A‎u‎t‎h‎o‎r‎ ‎B‎i‎l‎i‎b‎i‎l‎i‎:‎ ‎L‎u‎o‎t‎i‎a‎n‎y‎1‎_‎M‎a‎r"
 	"Accept_All_Messages"									""
 	"SMART_UI"	"身法轮盘"
 
