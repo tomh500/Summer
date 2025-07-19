@@ -15,9 +15,9 @@
     "mvp": true,
     "vol": 0.88,
     "ogg": false,
-    "custom_musickit": false,
+    "custom_musickit": true,
     "custom_flashbang": false,
-    "low_memory": false,
-    "show_mvp": false
+    "low_memory": true,
+    "show_mvp": true
   }
 }

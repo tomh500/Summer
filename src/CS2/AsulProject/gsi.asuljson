@@ -12,13 +12,13 @@ text "ogg" "音频格式是否使用 .ogg格式，如果不是，则使用wav格
 bool "ogg" "false" "/"
 
 text "custom_musickit" "是否启用自定义音乐包逻辑，请酌情使用本功能，如果你不需要特定的某个音乐文件，那么删除单个文件即可"
-bool "custom_musickit" "false" "/"
+bool "custom_musickit" "true" "/"
 
 text "custom_flashbang" "是否启用闪光叠加页面，如果开启，当玩家因闪光弹失去视野，会覆盖渲染自定义图片到屏幕上层"
 bool "custom_flashbang" "false" "/"
 
 text "low_memory" "是否开启低内存模式，开启此选项会以大量硬盘io为代价，降低内存占用"
-bool "low_memory" "false" "/"
+bool "low_memory" "true" "/"
 
 text "show_mvp" "是否展示MVP信息板"
-bool "show_mvp" "false" "/"
+bool "show_mvp" "true" "/"

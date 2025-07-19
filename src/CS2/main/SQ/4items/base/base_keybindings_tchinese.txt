@@ -141,5 +141,6 @@
 	"CFG_SMA_MIRAGE_Hide_C4_A2" 		 	"[荒漠迷城]藏C4(A2楼)"
 	"CFG_SMA_ANCIENT_vip_to_b1"				"[远古遗迹]ct中路->B小"
 	"CFG_SMA_DUST2_SMA_DUST2_01"			"[炙热沙城]电梯位->A平台"
+	"CFG_SMA_DUST2_t_spawn01_to_rushlong"	"[炙热沙城]T出生位1->A大"
 
 }
