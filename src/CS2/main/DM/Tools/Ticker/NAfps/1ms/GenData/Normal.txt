@@ -1,6 +1,0 @@
-sq
-30
-540
-250000
-0
-DearMoments/src/CS2/main/DM/Tools/Ticker/NAfps/1ms

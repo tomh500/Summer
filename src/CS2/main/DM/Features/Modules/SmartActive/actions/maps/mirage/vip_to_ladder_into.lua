@@ -1,3 +1,4 @@
+LCFG_VERSION(1)
 setExecPath("DearMoments/src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/mirage/vip_to_ladder_into")
 src("/fps_low")
 

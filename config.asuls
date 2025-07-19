@@ -1,7 +1,7 @@
-[INI] DearMoments 2.2 Luotiany1_Mar 全新T0级别MoClient下放版本
+[INI] DearMoments 2.3 Luotiany1_Mar 全新T0级别MoClient下放版本
 [DIR] DearMoments
 [EXE] /src/CS2/lib/InstallerWithAsul.exe
-[PNG] /src/CS2/resources/icon/Square.png
+[PNG] /src/CS2/resources/icon/test.ico
 /src/CS2/AsulProject/UserKeyBinds /Userspace/
 /src/CS2/AsulProject/UserSetting /Userspace/
 /src/CS2/AsulProject/UserValue /Userspace/
