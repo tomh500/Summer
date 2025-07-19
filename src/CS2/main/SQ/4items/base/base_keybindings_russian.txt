@@ -146,5 +146,6 @@
 	"CFG_SMA_MIRAGE_Hide_C4_T" 				"[Mirage]Hide C4(匪口)"
 	"CFG_SMA_MIRAGE_Hide_C4_A2" 		 	"[Mirage]Hide C4(A2楼)"
 	"CFG_SMA_ANCIENT_vip_to_b1"				"[Ancient] CT Mid -> B Short"
+	"CFG_SMA_DUST2_SMA_DUST2_01"			"[炙热沙城]电梯位->A平台"
 
 }

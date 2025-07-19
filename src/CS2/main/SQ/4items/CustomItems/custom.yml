@@ -19,22 +19,3 @@
   #  - z: "坐标2，getpos得到的setpos的第2个参数，也可以留空，它是用于本地服务器传送到指定坐标的"
   #  - y: "坐标3，getpos得到的setpos的第3个参数，也可以留空，它是用于本地服务器传送到指定坐标的"
 
-item_1750385763015:
-  filename: "item_1750385763015.cfg"
-  displayname: "新道具"
-  map: "Dust2"
-  sensitivity: "2.52"
-  yaw: "0"
-  pitch: "0"
-  type: "smoke"
-  throwmode: "Normal"
-  extra: ["",""]
-  select:
-    - page: "3"
-    - slot: "1"
-    - command: ""
-    - bind: "None"
-  setpos:
-    - x: "0"
-    - z: "0"
-    - y: "100"
