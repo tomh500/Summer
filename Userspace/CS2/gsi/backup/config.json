@@ -10,7 +10,7 @@
     "low_memory": "是否开启低内存模式，开启此选项会以大量硬盘io为代价，降低内存占用",
     "show_mvp": "是否展示MVP信息板"
   },
-  "": {
+ 
     "match": true,
     "mvp": true,
     "vol": 0.88,
@@ -19,5 +19,5 @@
     "custom_flashbang": false,
     "low_memory": true,
     "show_mvp": true
-  }
+  
 }
