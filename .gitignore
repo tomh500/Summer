@@ -41,3 +41,8 @@ src/CS2/main/SQ/Custom.yml
 UpdateVersion.bat
 
 src/CS2/AsulProject/backup/
+
+/src/CS2/main/DM/Features/Modules/BetterAim/PressRecoil/**
+!/src/CS2/main/DM/Features/Modules/BetterAim/PressRecoil/RecoilEnable_Control.cfg
+!/src/CS2/main/DM/Features/Modules/BetterAim/PressRecoil/_init_.cfg
+!/src/CS2/main/DM/Features/Modules/BetterAim/PressRecoil/*.lpp

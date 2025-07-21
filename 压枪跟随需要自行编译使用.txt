@@ -1,0 +1,7 @@
+使用lcfg程序的lcpp模式以提供lpp文件的编译支持，更多详情请查看lcfg仓库（阅读自动身法说明获取仓库地址）
+使用方法
+
+lcfg <filename> -lcpp
+
+压枪数据存放于
+DearMoments/src/CS2/main/DM/Features/Modules/BetterAim/PressRecoil

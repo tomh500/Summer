@@ -114,6 +114,14 @@
 	"CFG_ITEMS_OVERPASS_MID"									"T中路过点烟\n \n \n \n"
 	"CFG_ITEMS_OVERPASS_3F"										"天堂烟\n \n \n \n"
 
+	
+	"CFG_SETTING_AUTOL_UI"										"AutoL设置"
+	"CFG_SETTING_AUTOL_CLASSIC"									"传统模式"
+	"CFG_SETTING_AUTOL_TRASHTALK"								"辱骂模式"
+	"CFG_SETTING_AUTOL_ANTITRASH"								"反讽模式"
+	"CFG_SETTING_AUTOL_FAST"									"快速"
+	"CFG_SETTING_AUTOL_LOW"										"慢速"
+	"CFG_SETTING_AUTOL_SW"										"开关"
 
 	"CFG_SETTING_S_UI"										"灵敏度快捷切换"
 	"CFG_SETTING_SUPERLOW_S"										"超低灵敏度"
@@ -126,7 +134,7 @@
 	"CFG_SETTING_PLATFORM_EEEEE"							"5E平台\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FK4_DZ"								"小镇1号位匪口烟\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FKQD4_DZ"							"小镇1号位匪口前端烟\n \n \n \n"
-	"Ignore_Broadcast_Messages"								"‎D‎e‎a‎r‎M‎o‎m‎e‎n‎t‎s‎-‎X‎释‎放‎ ‎2‎.‎3‎ ‎免‎费‎发‎布"
+	"Ignore_Broadcast_Messages"								"‎D‎e‎a‎r‎M‎o‎m‎e‎n‎t‎s‎-‎X‎释‎放‎ ‎2‎.‎4‎ ‎免‎费‎发‎布"
 	"Ignore_Broadcast_Team_Messages"						"‎作‎者‎B‎站‎ ‎L‎u‎o‎t‎i‎a‎n‎y‎1‎_‎M‎a‎r"
 	"Accept_All_Messages"									""
 	"SMART_UI"	"身法轮盘"

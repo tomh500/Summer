@@ -76,6 +76,14 @@ func "自动取消使用" "当开火时自动取消使用，可用于开火自�
     "DearMoments_AutoCancelUse_Disable" "禁用"
 
 text ""
+text "//自动压枪功能默认开关（建议在UserKeyBinds内设置热键而非在此处打开）"
+text "//DearMoments_BetterAim_PressRecoil   启用压枪跟随 [压枪跟随]"
+text "//DearMoments_BetterAim_NeverRecoil   禁用压枪跟随 [%NULL%]"
+func "压枪跟随（自动压枪）" "建议在UserKeyBinds内设置热键而非在此处打开" "DearMoments_BetterAim_NeverRecoil" 2
+    "DearMoments_BetterAim_PressRecoil" "启用"
+    "DearMoments_BetterAim_NeverRecoil" "禁用"
+
+text ""
 text "//------------------------------------------------------------------------"
 
 text "//------------------------------------------------------------------------"

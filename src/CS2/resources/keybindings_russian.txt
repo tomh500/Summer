@@ -131,8 +131,14 @@
 
 	"CFG_ITEMS_INFERNO_FK4_DZ"				"Inferno Pos 1 T Ramp Smoke\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FKQD4_DZ"			"Inferno Pos 1 T Ramp Front Smoke\n \n \n \n"
-
-	"Ignore_Broadcast_Messages"				"‎D‎e‎a‎r‎M‎o‎m‎e‎n‎t‎s‎-‎D‎e‎l‎t‎a‎ ‎P‎u‎b‎l‎i‎c‎ ‎T‎e‎s‎t‎ ‎2‎.‎1‎ ‎F‎r‎e‎e‎ ‎R‎e‎l‎e‎a‎s‎e"
+	"CFG_SETTING_AUTOL_UI"										"AutoL设置"
+	"CFG_SETTING_AUTOL_CLASSIC"									"传统模式"
+	"CFG_SETTING_AUTOL_TRASHTALK"								"辱骂模式"
+	"CFG_SETTING_AUTOL_ANTITRASH"								"反讽模式"
+	"CFG_SETTING_AUTOL_FAST"									"快速"
+	"CFG_SETTING_AUTOL_LOW"										"慢速"
+	"CFG_SETTING_AUTOL_SW"										"开关"
+	"Ignore_Broadcast_Messages"				"‎D‎e‎a‎r‎M‎o‎m‎e‎n‎t‎s‎-‎D‎e‎l‎t‎a‎ ‎P‎u‎b‎l‎i‎c‎ ‎T‎e‎s‎t‎ ‎2‎.‎4‎ ‎F‎r‎e‎e‎ ‎R‎e‎l‎e‎a‎s‎e"
 	"Ignore_Broadcast_Team_Messages"		"‎A‎u‎t‎h‎o‎r‎ ‎B‎i‎l‎i‎b‎i‎l‎i‎:‎ ‎L‎u‎o‎t‎i‎a‎n‎y‎1‎_‎M‎a‎r"
 	"Accept_All_Messages"					""
 
