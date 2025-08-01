@@ -9,9 +9,6 @@ src/CS2/main/SQ/4items/actions/dust2/ExampleItems.cfg
 **/scfg.obj
 **/.vs/
 .vscode/
-/src/CS2/main/DM/Tools/Ticker/NAfps/1ms/*.cfg
-/src/CS2/main/DM/Tools/Ticker/NAfps/4ms/*.cfg
-/src/CS2/main/DM/Tools/Ticker/NAfps/66ms/*.cfg
 *.ogg
 *.wav
 
