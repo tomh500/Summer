@@ -1,5 +1,5 @@
 LCFG_VERSION(1)
-setExecPath("DearMoments/src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/dust2/t_spawn01_to_rushlong")
+setExecPath("Summer/src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/dust2/t_spawn01_to_rushlong")
 function AGR()
   src("turnright 0.22 0 0")
 end

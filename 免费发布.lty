@@ -1,9 +1,9 @@
-lias 免费 ; 免费？？发布;DearMoments;
-a toggle DearMoments 发布/免费发布;toggle 洛天依 DearMoments免费发布
-ele freeg freeg 免费发布 DearMoments;DearMoments free{
+lias 免费 ; 免费？？发布;Summer;
+a toggle Summer 发布/免费发布;toggle 洛天依 Summer免费发布
+ele freeg freeg 免费发布 Summer;Summer free{
         2PASSCHECK/免费发布.lty
-        veritify 免费发布.lty免费发布免费 toggle a 免费发布lia;alias passcheck;s 免费 ; 免费？？发布;DearMoments;
-a toggle DearMoments 发布/免费发布;toggle 洛天依 MoC name;
+        veritify 免费发布.lty免费发布免费 toggle a 免费发布lia;alias passcheck;s 免费 ; 免费？？发布;Summer;
+a toggle Summer 发布/免费发布;toggle 洛天依 MoC name;
 };alias 免费发布;???
-免费发布.lty 免费发布;alias togg1e toggle;togg1e 免费发布 免费/免费发布.lty DearMoments;
+免费发布.lty 免费发布;alias togg1e toggle;togg1e 免费发布 免费/免费发布.lty Summer;
 

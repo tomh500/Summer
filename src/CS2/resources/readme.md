@@ -1,4 +1,4 @@
- # 🎮 DearMoments-X 2.1 使用说明
+ # 🎮 Summer-X 2.1 使用说明
 
  ## ❓ 提问须知  
  在群里提问之前，请确保你已经完整阅读以下文件：  
@@ -41,8 +41,8 @@
  ---
 
  ## 🕹️ 关于半条命与 CS1.6  
- - 用户空间路径：`DearMoments/Userspace/HL/Userspace.cfg`  
- - 启动项设置：`+exec DearMoments/Setup_HL.cfg`  
+ - 用户空间路径：`Summer/Userspace/HL/Userspace.cfg`  
+ - 启动项设置：`+exec Summer/Setup_HL.cfg`  
  ⚠️ 此为 CS1.6 使用方式，CS2 用户请继续阅读下文  
 
  ---
@@ -53,7 +53,7 @@
  ---
 
  ## 💾 安装方式  
- 1. 将项目放入 CS2 的 CFG 文件夹中，文件夹名为 `DearMoments`  
+ 1. 将项目放入 CS2 的 CFG 文件夹中，文件夹名为 `Summer`  
  2. 确保复制的是整个项目文件夹而非内部文件  
  3. 运行 `CFG监听器主程序.bat`  
  4. 点击左上角 → 文件 → 更新并安装 CFG  
@@ -64,7 +64,7 @@
 
  启动项示例：  
  ```bash
- +exec DearMoments/setup
+ +exec Summer/setup
  ```
  或由安装器自动添加到 `autoexec`（注意只能加载一次）
 
@@ -99,8 +99,8 @@
  ---
 
  ## 🗑️ 如何卸载 CFG  
- 1. 删除 `autoexec.cfg` 中的 `exec DearMoments/setup`  
- 2. 删除游戏启动项中的 `+exec DearMoments/setup`  
+ 1. 删除 `autoexec.cfg` 中的 `exec Summer/setup`  
+ 2. 删除游戏启动项中的 `+exec Summer/setup`  
  3. 控制台输入 `binddefaults` 重置绑定  
 
  ---
@@ -167,7 +167,7 @@
 
  ## 🛠️ 自定义 CFG 方法  
 
- 1. 打开 `DearMoments` 文件夹 → `Userspace` 文件夹  
+ 1. 打开 `Summer` 文件夹 → `Userspace` 文件夹  
  2. 编辑以下四个配置文件：  
     - UserKeyBinds  
     - UserKZMode  
@@ -185,12 +185,12 @@
 
  ### 🖥️ 设置输出方式示例（UserSetting）  
  ```cfg
- DearMoments_TextOutput_CW        
- DearMoments_TextOutput_Team      
- DearMoments_TextOutput_All       
- DearMoments_TextOutput_Echo      
- DearMoments_TextOutput_Null      
- DearMoments_TextOutput_CW
+ Summer_TextOutput_CW        
+ Summer_TextOutput_Team      
+ Summer_TextOutput_All       
+ Summer_TextOutput_Echo      
+ Summer_TextOutput_Null      
+ Summer_TextOutput_CW
  ```  
  取消想要的输出方式注释并保存  
 

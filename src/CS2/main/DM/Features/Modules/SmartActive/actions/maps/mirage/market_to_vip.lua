@@ -1,5 +1,5 @@
 LCFG_VERSION(1)
-setExecPath("DearMoments/src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/mirage/market_to_vip")
+setExecPath("Summer/src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/mirage/market_to_vip")
 src("/fps_low")
 lockMouse()
 wasdCancel()

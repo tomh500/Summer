@@ -1,5 +1,5 @@
 LCFG_VERSION(1)
-setExecPath("DearMoments/src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/ancient/vip_to_b1")
+setExecPath("Summer/src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/ancient/vip_to_b1")
 
 src("/fps_low")
 lockMouse()

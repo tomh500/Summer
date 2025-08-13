@@ -19,8 +19,8 @@
 
 
 
-## 💼 DearMoments 介绍
-**DearMoments** 延续了**Square**的功能，对底层完全进行重构，性能++
+## 💼 Summer 介绍
+**Summer** 延续了**Square**的功能，对底层完全进行重构，性能++
 
 ## ✨ 特性
 - 🔥 配置迅速
@@ -48,7 +48,7 @@
 ```
 *\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg
 
-将项目文件夹复制到里面，并更名为 DearMoments
+将项目文件夹复制到里面，并更名为 Summer
 确保项目文件夹为根目录，然后在Userspace文件夹下更改UserKeyBinds、UserSetting、UserValue
 ```
 
@@ -56,13 +56,13 @@
 **方式1**  
 在 Steam 启动项中添加：
 ```
-+exec DearMoments/setup
++exec Summer/setup
 ```
 ---
 **方式2**  
 创建一个名为 `autoexec.cfg` 的文件，在 `Counter-Strike Global Offensive\game\csgo\cfg` 里面，内容应该为：
 ```
-exec DearMoments/setup
+exec Summer/setup
 ```
 
 ## 🗑️ 卸载CFG
@@ -72,7 +72,7 @@ bind mouse_x yaw;bind mouse_y pitch;unbindall;binddefaults;binddefaults;null_res
 
 ## 常见问题
   Q.为什么打开游戏闪退/卡死<br>
-  A.请确保DearMoments文件夹下存在```免费发布.lty```
+  A.请确保Summer文件夹下存在```免费发布.lty```
 
   Q.为什么玩久了无法在游戏内操作<br>
   A.重启游戏就好了，这是所有CFG无法避免的问题

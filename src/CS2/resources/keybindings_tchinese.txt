@@ -140,6 +140,7 @@
 	"CFG_SMA_MIRAGE_Hide_C4_T" 				"[荒漠迷城]藏C4(匪口)"
 	"CFG_SMA_MIRAGE_Hide_C4_A2" 		 	"[荒漠迷城]藏C4(A2楼)"
 	"CFG_SMA_ANCIENT_vip_to_b1"				"[远古遗迹]ct中路->B小"
+		"CFG_SETTING_FASTSPRINT_SW"		"内格夫加速静步开关"
 "注释" "以下内容是自定义道具"
 "DUST2_ITEM_1750385763015" "新道具"
 }

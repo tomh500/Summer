@@ -50,11 +50,11 @@ TYPE_SLOT_MAP = {
 def get_throwmode_exec(mode):
     mode = mode.lower()
     if mode == "jump":
-        return "exec DearMoments/src/CS2/main/SQ/4items/tools/itemthrow;"
+        return "exec Summer/src/CS2/main/SQ/4items/tools/itemthrow;"
     elif mode == "normal":
-        return "exec DearMoments/src/CS2/main/SQ/4items/tools/itemthrow_withoutjump;"
+        return "exec Summer/src/CS2/main/SQ/4items/tools/itemthrow_withoutjump;"
     elif mode == "forwardjump":
-        return "+forward;exec DearMoments/src/CS2/main/SQ/4items/tools/itemthrow;"
+        return "+forward;exec Summer/src/CS2/main/SQ/4items/tools/itemthrow;"
     elif mode == "custom":
         return ""
     else:
@@ -147,7 +147,7 @@ for item_id, props in data.items():
     if throwmode not in VALID_THROWMODES:
         raise ValueError(f"Invalid throwmode: {throwmode}")
 
-    filepath = f"DearMoments/src/CS2/main/SQ/4items/actions/{map_l}/{filename}"
+    filepath = f"Summer/src/CS2/main/SQ/4items/actions/{map_l}/{filename}"
 
     overlay_lines.extend([
         f'alias {item_l} "items_{item_l};alias sq_14"',

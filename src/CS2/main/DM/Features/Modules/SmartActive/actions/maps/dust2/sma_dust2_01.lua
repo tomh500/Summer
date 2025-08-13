@@ -1,5 +1,5 @@
 LCFG_VERSION(1)
-setExecPath("DearMoments/src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/dust2/sma_dust2_01")
+setExecPath("Summer/src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/dust2/sma_dust2_01")
 lockMouse()
 wasdCancel()
 src("setpos 1004.966919 2379.968750 29")

@@ -4,4 +4,4 @@
 lcfg <filename> -lcpp
 
 压枪数据存放于
-DearMoments/src/CS2/main/DM/Features/Modules/BetterAim/PressRecoil
+Summer/src/CS2/main/DM/Features/Modules/BetterAim/PressRecoil

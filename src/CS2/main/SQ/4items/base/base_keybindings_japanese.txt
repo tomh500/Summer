@@ -138,7 +138,7 @@
 	"CFG_ITEMS_INFERNO_FK4_DZ"				"Inferno Pos 1 T Ramp Smoke\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FKQD4_DZ"			"Inferno Pos 1 T Ramp Front Smoke\n \n \n \n"
 
-	"Ignore_Broadcast_Messages"				"‎D‎e‎a‎r‎M‎o‎m‎e‎n‎t‎s‎-‎D‎e‎l‎t‎a‎ ‎P‎u‎b‎l‎i‎c‎ ‎T‎e‎s‎t‎ ‎2‎.‎5‎-‎X‎ ‎F‎r‎e‎e‎ ‎R‎e‎l‎e‎a‎s‎e"
+	"Ignore_Broadcast_Messages"				"‎S‎u‎m‎m‎e‎r‎ ‎P‎u‎b‎l‎i‎c‎ ‎T‎e‎s‎t‎ ‎2‎.‎6‎ ‎F‎r‎e‎e‎ ‎R‎e‎l‎e‎a‎s‎e"
 	"Ignore_Broadcast_Team_Messages"		"‎A‎u‎t‎h‎o‎r‎ ‎B‎i‎l‎i‎b‎i‎l‎i‎:‎ ‎L‎u‎o‎t‎i‎a‎n‎y‎1‎_‎M‎a‎r"
 	"Accept_All_Messages"					""
 
@@ -152,6 +152,7 @@
 	"CFG_SMA_MIRAGE_Hide_C4_T" 				"[Mirage]Hide C4(匪口)"
 	"CFG_SMA_MIRAGE_Hide_C4_A2" 		 	"[Mirage]Hide C4(A2楼)"
 	"CFG_SMA_ANCIENT_vip_to_b1"				"[Ancient] CT Mid -> B Short"
-		"CFG_SMA_DUST2_SMA_DUST2_01"			"[炙热沙城]电梯位->A平台"
-		"CFG_SMA_DUST2_t_spawn01_to_rushlong"	"[Dust2]T Spawn1->Long"
+	"CFG_SMA_DUST2_SMA_DUST2_01"			"[炙热沙城]电梯位->A平台"
+	"CFG_SMA_DUST2_t_spawn01_to_rushlong"	"[Dust2]T Spawn1->Long"
+	"CFG_SETTING_FASTSPRINT_SW"		"	Negev FastSprint Switch"
 }

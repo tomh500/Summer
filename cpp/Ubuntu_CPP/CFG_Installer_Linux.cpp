@@ -67,7 +67,7 @@ bool contains_exec_setup(const fs::path& file) {
     }
     string line;
     while (getline(in, line)) {
-        if (line.find("exec DearMoments/Setup") != string::npos) {
+        if (line.find("exec Summer/Setup") != string::npos) {
             return true;
         }
     }
@@ -104,8 +104,8 @@ void append_exec_setup_if_missing(const fs::path& file) {
         // 空文件，直接写入
         in.close();
         ofstream out(file, ios::app);
-        out << "exec DearMoments/Setup\n";
-        cout << "文件为空，写入 exec DearMoments/Setup" << endl;
+        out << "exec Summer/Setup\n";
+        cout << "文件为空，写入 exec Summer/Setup" << endl;
         return;
     }
     in.seekg(-1, ios::end);
@@ -116,14 +116,14 @@ void append_exec_setup_if_missing(const fs::path& file) {
     bool ends_with_newline = (last_char == '\n');
 
     if (contains_exec_setup(file)) {
-        cout << "autoexec.cfg 已包含 exec DearMoments/Setup，不需要重复添加" << endl;
+        cout << "autoexec.cfg 已包含 exec Summer/Setup，不需要重复添加" << endl;
         return;
     }
 
     ofstream out(file, ios::app);
     if (!ends_with_newline) out << '\n';
-    out << "exec DearMoments/Setup\n";
-    cout << "追加写入 exec DearMoments/Setup 到 autoexec.cfg 文件末尾" << endl;
+    out << "exec Summer/Setup\n";
+    cout << "追加写入 exec Summer/Setup 到 autoexec.cfg 文件末尾" << endl;
 }
 
 int main() {
@@ -141,21 +141,21 @@ int main() {
 
     outfile << "alias DMListenerBoot\n";
     outfile << "alias DMListenerRunning\n";
-    outfile << "exec DearMoments/src/CS2/main/DM/Tools/define_mousexy;\n";
+    outfile << "exec Summer/src/CS2/main/DM/Tools/define_mousexy;\n";
     outfile.close();
 
     cout << "文件写入完成: " << filePath << endl;
 
   try {
-        // 1. src/CS2/resources/DearMoments_Installed.cfg -> ../../../cfg
-        fs::path src1 = "src/CS2/resources/DearMoments_Installed.cfg";
+        // 1. src/CS2/resources/Summer_Installed.cfg -> ../../../cfg
+        fs::path src1 = "src/CS2/resources/Summer_Installed.cfg";
         fs::path dst1 = fs::path("../../../cfg");
         fs::create_directories(dst1);
         fs::copy_file(src1, dst1 / src1.filename(), fs::copy_options::overwrite_existing);
         cout << "复制完成: " << src1 << " -> " << dst1 << endl;
 
-        // 2. src/CS2/resources/gamestate_integration_dearmoments.cfg -> ..
-        fs::path src2 = "src/CS2/resources/gamestate_integration_dearmoments.cfg";
+        // 2. src/CS2/resources/gamestate_integration_Summer.cfg -> ..
+        fs::path src2 = "src/CS2/resources/gamestate_integration_Summer.cfg";
         fs::path dst2 = fs::path("..");
         fs::create_directories(dst2);
         fs::copy_file(src2, dst2 / src2.filename(), fs::copy_options::overwrite_existing);

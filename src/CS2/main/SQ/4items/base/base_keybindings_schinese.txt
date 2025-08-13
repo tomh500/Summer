@@ -134,7 +134,7 @@
 	"CFG_SETTING_PLATFORM_EEEEE"							"5E平台\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FK4_DZ"								"小镇1号位匪口烟\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FKQD4_DZ"							"小镇1号位匪口前端烟\n \n \n \n"
-	"Ignore_Broadcast_Messages"								"‎D‎e‎a‎r‎M‎o‎m‎e‎n‎t‎s‎-‎X‎释‎放‎ ‎2‎.‎5‎-‎X‎ ‎免‎费‎发‎布"
+	"Ignore_Broadcast_Messages"								"‎S‎u‎m‎m‎e‎r‎释‎放‎ ‎2‎.‎6‎ ‎免‎费‎发‎布"
 	"Ignore_Broadcast_Team_Messages"						"‎作‎者‎B‎站‎ ‎L‎u‎o‎t‎i‎a‎n‎y‎1‎_‎M‎a‎r"
 	"Accept_All_Messages"									""
 	"SMART_UI"	"身法轮盘"
@@ -150,6 +150,7 @@
 	"CFG_SMA_ANCIENT_vip_to_b1"				"[远古遗迹]ct中路->B小"
 	"CFG_SMA_DUST2_SMA_DUST2_01"			"[炙热沙城]电梯位->A平台"
 	"CFG_SMA_DUST2_t_spawn01_to_rushlong"	"[炙热沙城]T出生位1->A大"
+	"CFG_SETTING_FASTSPRINT_SW"		"内格夫加速静步开关"
 	
 
 }

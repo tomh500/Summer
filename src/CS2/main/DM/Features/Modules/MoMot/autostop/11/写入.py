@@ -5,10 +5,10 @@ current_dir = os.path.basename(os.path.abspath(os.path.dirname(__file__)))
 
 # 构建四行配置
 lines = [
-    f'alias rec_autostop_F_mode "exec DearMoments/src/CS2/main/DM/Features/Modules/MoMot/autostop/{current_dir}/F.cfg"\n',
-    f'alias rec_autostop_B_mode "exec DearMoments/src/CS2/main/DM/Features/Modules/MoMot/autostop/{current_dir}/B.cfg"\n',
-    f'alias rec_autostop_R_mode "exec DearMoments/src/CS2/main/DM/Features/Modules/MoMot/autostop/{current_dir}/R.cfg"\n',
-    f'alias rec_autostop_L_mode "exec DearMoments/src/CS2/main/DM/Features/Modules/MoMot/autostop/{current_dir}/L.cfg"\n',
+    f'alias rec_autostop_F_mode "exec Summer/src/CS2/main/DM/Features/Modules/MoMot/autostop/{current_dir}/F.cfg"\n',
+    f'alias rec_autostop_B_mode "exec Summer/src/CS2/main/DM/Features/Modules/MoMot/autostop/{current_dir}/B.cfg"\n',
+    f'alias rec_autostop_R_mode "exec Summer/src/CS2/main/DM/Features/Modules/MoMot/autostop/{current_dir}/R.cfg"\n',
+    f'alias rec_autostop_L_mode "exec Summer/src/CS2/main/DM/Features/Modules/MoMot/autostop/{current_dir}/L.cfg"\n',
     '\n'  # 一个空行
 ]
 
