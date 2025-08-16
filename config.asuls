@@ -1,6 +1,6 @@
 [INI] Summer 2.6 Luotiany1_Mar 全新T0级别MoClient下放版本
 [DIR] Summer
-[EXE] /src/CS2/lib/InstallerWithAsul.exe
+[EXE] /src/CS2/lib/Listener.exe
 [PNG] /src/CS2/resources/icon/test.ico
 /src/CS2/AsulProject/UserKeyBinds /Userspace/
 /src/CS2/AsulProject/UserSetting /Userspace/

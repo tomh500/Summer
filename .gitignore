@@ -25,10 +25,7 @@ src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/others/**
 
 # 忽略 cpp/ 内除以下列出的文件和目录外的所有内容
 cpp/*
-!cpp/
-!cpp/mdreader.cpp
-!cpp/Ticker_Gen.cpp
-!cpp/Ubuntu_CPP/
+
 
 
 
