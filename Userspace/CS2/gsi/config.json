@@ -16,6 +16,6 @@
   "ogg": false,
   "custom_musickit": true,
   "custom_flashbang": false,
-  "low_memory": true,
+  "low_memory": false,
   "show_mvp": true
 }

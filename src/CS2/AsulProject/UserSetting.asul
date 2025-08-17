@@ -5,7 +5,7 @@ text "//如果你需要反馈问题，请打开选择Debug模式，然后复现�
 text "//"
 text "//Summer_User     正常情况下选用此选项 [用户模式]"
 text "//Summer_Debug    只有开发者会感兴趣 [开发者模式]"
-func "开发者选项" "选择是否启用开发者模式" "Summer_User" 2
+func "开发者选项" "选择是否启用开发者模式" "Summer_Debug" 2
     "Summer_User" "用户模式"
     "Summer_Debug" "开发者模式"
 
@@ -55,11 +55,11 @@ text "//------------------------------------------------------------------------
 text ""
 text "//------------------------------------------------------------------------"
 text ""
-text "//是否智能开关虚拟撞火枪托功能"
+text "//是否智能开关虚拟撞火枪托功能，可以让单发武器变全自动"
 text ""
 text "//Summer_RapidFire_Smart      智能开关虚拟撞火枪托 [虚拟撞火枪托 *智能*]"
 text "//Summer_RapidFire_Switch     仅通过绑定按键开关虚拟撞火枪托 [虚拟撞火枪托 *手动*]"
-func "虚拟撞火枪托开关" "是否智能开关虚拟撞火枪托功能" "Summer_RapidFire_Smart" 2
+func "虚拟撞火枪托开关" "是否智能开关虚拟撞火枪托功能" "Summer_RapidFire_Switch" 2
     "Summer_RapidFire_Smart" "智能开关"
     "Summer_RapidFire_Switch" "仅绑定开关"
 
@@ -76,7 +76,6 @@ func "自动取消使用" "当开火时自动取消使用，可用于开火自�
     "Summer_AutoCancelUse_Disable" "禁用"
 
 
-
 text ""
 text "//------------------------------------------------------------------------"
 
@@ -87,14 +86,14 @@ text "//为你的急停提供神一样的主力，引入瓦罗兰特风格移动
 text ""
 text "//Summer_Autostop_fb_pass       禁用前后方向的全自动急停 [%extern Z轴正常移动%]"
 text "//Summer_Autostop_fb_load       启用前后方向的全自动急停 [%extern Z轴自动急停%]"
-func "全自动急停（前后方向）" "启用或禁用前后方向的全自动急停" "Summer_Autostop_fb_pass" 2
+func "全自动急停（前后方向）" "启用或禁用前后方向的全自动急停" "Summer_Autostop_fb_load" 2
     "Summer_Autostop_fb_load" "启用前后方向的全自动急停"
     "Summer_Autostop_fb_pass" "禁用前后方向的全自动急停"
 
 text "//"
 text "//Summer_Autostop_rl_pass       禁用左右方向的全自动急停[%extern X轴正常移动%]"
 text "//Summer_Autostop_rl_load       启用左右方向的全自动急停[%extern X轴自动急停%]"
-func "全自动急停（左右方向）" "启用或禁用左右方向的全自动急停" "Summer_Autostop_rl_pass" 2
+func "全自动急停（左右方向）" "启用或禁用左右方向的全自动急停" "Summer_Autostop_rl_load" 2
     "Summer_Autostop_rl_load" "启用左右方向的全自动急停"
     "Summer_Autostop_rl_pass" "禁用左右方向的全自动急停"
 
@@ -130,7 +129,7 @@ text "//MoMot_autostop_mode_21      [21急停档位]"
 text "//MoMot_autostop_mode_22      [22急停档位]"
 text "//MoMot_autostop_mode_23      [23急停档位]"
 text "//MoMot_autostop_mode_24      [24急停档位]"
-func "全自动急停 档位选择" "当启用了任意方向全自动急停时，选择急停档位" "MoMot_autostop_mode_0" 27
+func "全自动急停 档位选择" "当启用了任意方向全自动急停时，选择急停档位" "MoMot_autostop_mode_8" 27
     "MoMot_autostop_mode_0" "不使用全自动急停"
     "MoMot_autostop_mode_1" "1 急停档位"
     "MoMot_autostop_mode_2" "2 急停档位"
@@ -167,6 +166,7 @@ text "//------------------------------------------------------------------------
 text ""
 text "//如果开启智能模式，当你静步、切刀、下蹲的情况下会临时禁用全自动急停"
 text "//Summer_Autostop_Smart        智能关闭急停功能 [急停模式 *智能*]"
+text "//Summer_Autostop_Slient       仅当静步下蹲关闭急停功能 [急停模式 *部分*]"
 text "//Summer_Autostop_Single       任何情况都不自动关闭急停 [急停模式 *强制*]"
 func "全自动急停 智能模式" "选择全自动急停是否智能关闭，可用于防弹墙" "Summer_Autostop_Smart" 3
     "Summer_Autostop_Smart" "智能关闭急停功能"
@@ -214,7 +214,7 @@ text "//MoMot_fb_SOCD         后覆盖移动 [%extern X轴SOCD%]"
 text "//MoMot_fb_Nullbind     单次后覆盖 [%extern X轴Nullbind%]"
 text "//MoMot_fb_Halfstop     半自动急停（双键）[%extern X轴半自动急停%]"
 
-func "前后移动方式" "选择前后方向的移动模式，在输入Api为摇杆系列，本选项仅修改是否启用半自动急停（双键）" "MoMot_fb_Normal" 4
+func "前后移动方式" "选择前后方向的移动模式，在输入Api为摇杆系列，本选项仅修改是否启用半自动急停（双键）" "MoMot_fb_HalfStop" 4
     "MoMot_fb_Normal" "正常移动[%NULL%]"
     "MoMot_fb_SOCD" "后覆盖移动（Snaptap）"
     "MoMot_fb_NullBind" "单次后覆盖移动（Nullbind）"
@@ -227,7 +227,7 @@ text "//MoMot_rl_SOCD         后覆盖移动 [%extern Z轴SOCD%]"
 text "//MoMot_rl_Nullbind     单次后覆盖 [%extern Z轴Nullbind%]"
 text "//MoMot_rl_Halfstop     半自动急停（双键）[%extern Z轴半自动急停%]"
 
-func "左右移动方式" "选择左右方向的移动模式，在输入Api为摇杆系列，本选项仅修改是否启用半自动急停（双键）" "MoMot_rl_Normal" 4
+func "左右移动方式" "选择左右方向的移动模式，在输入Api为摇杆系列，本选项仅修改是否启用半自动急停（双键）" "MoMot_rl_HalfStop" 4
     "MoMot_rl_Normal" "正常移动"
     "MoMot_rl_SOCD" "后覆盖移动（Snaptap）"
     "MoMot_rl_NullBind" "单次后覆盖移动（Nullbind）"
@@ -309,7 +309,7 @@ text "//Summer_RP_KnifeSnd_4            替换切刀声音为锯齿 [切刀音�
 text "//Summer_RP_KnifeSnd_5            替换切刀声音为折叠 [切刀音效替换 *折叠刀*]"
 text "//Summer_RP_KnifeSnd_6            替换切刀声音为博伊 [切刀音效替换 *博伊刀*]"
 text "//Summer_RP_KnifeSnd_7            替换切刀声音为蝴蝶 [切刀音效替换 *蝴蝶刀*]"
-func "切刀声音替换" "这玩意虽然不要钱，但请酌情使用，否则会很喧闹" "Summer_RP_KnifeSnd_0" 8
+func "切刀声音替换" "这玩意虽然不要钱，但请酌情使用，否则会很喧闹" "Summer_RP_KnifeSnd_1" 8
     "Summer_RP_KnifeSnd_0" "不替换切刀声音"
     "Summer_RP_KnifeSnd_1" "替换切刀声音为短剑"
     "Summer_RP_KnifeSnd_2" "替换切刀声音为折刀"

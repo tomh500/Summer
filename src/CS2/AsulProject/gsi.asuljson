@@ -18,7 +18,7 @@ text "custom_flashbang" "是否启用闪光叠加页面，如果开启，当玩�
 bool "custom_flashbang" "false" "/"
 
 text "low_memory" "是否开启低内存模式，开启此选项会以大量硬盘io为代价，降低内存占用"
-bool "low_memory" "true" "/"
+bool "low_memory" "false" "/"
 
 text "show_mvp" "是否展示MVP信息板"
 bool "show_mvp" "true" "/"
