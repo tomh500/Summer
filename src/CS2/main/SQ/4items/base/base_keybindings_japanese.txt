@@ -138,7 +138,7 @@
 	"CFG_ITEMS_INFERNO_FK4_DZ"				"Inferno Pos 1 T Ramp Smoke\n \n \n \n"
 	"CFG_ITEMS_INFERNO_FKQD4_DZ"			"Inferno Pos 1 T Ramp Front Smoke\n \n \n \n"
 
-	"Ignore_Broadcast_Messages"				"‎S‎u‎m‎m‎e‎r‎ ‎P‎u‎b‎l‎i‎c‎ ‎T‎e‎s‎t‎ ‎2‎.‎6‎.‎1‎ ‎F‎r‎e‎e‎ ‎R‎e‎l‎e‎a‎s‎e"
+	"Ignore_Broadcast_Messages"				"‎S‎u‎m‎m‎e‎r‎ ‎P‎u‎b‎l‎i‎c‎ ‎T‎e‎s‎t‎ ‎2‎.‎6‎.‎2‎ ‎F‎r‎e‎e‎ ‎R‎e‎l‎e‎a‎s‎e"
 	"Ignore_Broadcast_Team_Messages"		"‎A‎u‎t‎h‎o‎r‎ ‎B‎i‎l‎i‎b‎i‎l‎i‎:‎ ‎L‎u‎o‎t‎i‎a‎n‎y‎1‎_‎M‎a‎r"
 	"Accept_All_Messages"					""
 
