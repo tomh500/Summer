@@ -229,20 +229,17 @@ func "Enhanced Auto-Bhop" "Enable or disable enhanced auto-bhop" "Summer_BetterB
     "Summer_BetterBhop_Enable" "Enable Enhanced Auto-bhop (locked at 64 frames when pressing space)"
     "Summer_BetterBhop_Disable" "Disable Enhanced Auto-bhop"
 
-text ""
-text "//Summer_AutoBhop_Enable          Enable Auto-bhop [Auto-bhop *%jump->Summer_AutoBhop_Normal%*]"
-text "//Summer_AutoBhop_Disable         Disable Auto-bhop [%NULL%]"
-func "Auto-Bhop" "Enable or disable auto-bhop feature" "Summer_AutoBhop_Enable" 2
-    "Summer_AutoBhop_Enable" "Enable Auto-bhop"
-    "Summer_AutoBhop_Disable" "Disable Auto-bhop"
+
 
 text ""
 text "//Modes for Auto-bhop, also bindable in UserKeyBinds for SmartActive mode"
 text "//Summer_AutoBhop_Normal          Normal mode [%extern Normal%]"
 text "//Summer_AutoBhop_SMA             SmartActive mode [%extern Movement%]"
+text "//Summer_AutoBhop_None          Disable AutoBhop"
 func "Auto-bhop Mode" "Mode for enabling auto-bhop" "Summer_AutoBhop_Normal" 2
     "Summer_AutoBhop_Normal" "Normal Mode"
     "Summer_AutoBhop_SMA" "SmartActive Mode"
+    "Summer_AutoBhop_None" "Disable Autobhop"
 
 text ""
 text "//--------------------------------------------------------------------------"

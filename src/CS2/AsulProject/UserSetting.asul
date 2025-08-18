@@ -59,7 +59,7 @@ text "//是否智能开关虚拟撞火枪托功能，可以让单发武器变全
 text ""
 text "//Summer_RapidFire_Smart      智能开关虚拟撞火枪托 [虚拟撞火枪托 *智能*]"
 text "//Summer_RapidFire_Switch     仅通过绑定按键开关虚拟撞火枪托 [虚拟撞火枪托 *手动*]"
-func "虚拟撞火枪托开关" "是否智能开关虚拟撞火枪托功能" "Summer_RapidFire_Smart" 2
+func "虚拟撞火枪托开关" "是否智能开关虚拟撞火枪托功能" "Summer_RapidFire_Switch" 2
     "Summer_RapidFire_Smart" "智能开关"
     "Summer_RapidFire_Switch" "仅绑定开关"
 
@@ -86,14 +86,14 @@ text "//为你的急停提供神一样的主力，引入瓦罗兰特风格移动
 text ""
 text "//Summer_Autostop_fb_pass       禁用前后方向的全自动急停 [%extern Z轴正常移动%]"
 text "//Summer_Autostop_fb_load       启用前后方向的全自动急停 [%extern Z轴自动急停%]"
-func "全自动急停（前后方向）" "启用或禁用前后方向的全自动急停" "Summer_Autostop_fb_load" 2
+func "全自动急停（前后方向）" "启用或禁用前后方向的全自动急停" "Summer_Autostop_fb_pass" 2
     "Summer_Autostop_fb_load" "启用前后方向的全自动急停"
     "Summer_Autostop_fb_pass" "禁用前后方向的全自动急停"
 
 text "//"
 text "//Summer_Autostop_rl_pass       禁用左右方向的全自动急停[%extern X轴正常移动%]"
 text "//Summer_Autostop_rl_load       启用左右方向的全自动急停[%extern X轴自动急停%]"
-func "全自动急停（左右方向）" "启用或禁用左右方向的全自动急停" "Summer_Autostop_rl_load" 2
+func "全自动急停（左右方向）" "启用或禁用左右方向的全自动急停" "Summer_Autostop_rl_pass" 2
     "Summer_Autostop_rl_load" "启用左右方向的全自动急停"
     "Summer_Autostop_rl_pass" "禁用左右方向的全自动急停"
 
@@ -129,7 +129,7 @@ text "//MoMot_autostop_mode_21      [21急停档位]"
 text "//MoMot_autostop_mode_22      [22急停档位]"
 text "//MoMot_autostop_mode_23      [23急停档位]"
 text "//MoMot_autostop_mode_24      [24急停档位]"
-func "全自动急停 档位选择" "当启用了任意方向全自动急停时，选择急停档位" "MoMot_autostop_mode_7" 27
+func "全自动急停 档位选择" "当启用了任意方向全自动急停时，选择急停档位" "MoMot_autostop_mode_0" 27
     "MoMot_autostop_mode_0" "不使用全自动急停"
     "MoMot_autostop_mode_1" "1 急停档位"
     "MoMot_autostop_mode_2" "2 急停档位"
@@ -240,7 +240,7 @@ text "//MoMot_MW_A        正常滚轮跳 [%extern A模式%]"
 text "//MoMot_MW_B        Desubtick滚轮跳 [%extern B模式%]"
 text "//MoMot_MW_C        MouseXY滚轮跳 [%extern C模式%]"
 text "//MoMot_MW_D        JumpBug滚轮跳 [%extern D模式%]"
-func "滚轮跳方式" "选择滚轮跳模式" "MoMot_MW_A" 4
+func "滚轮跳方式" "选择滚轮跳模式" "MoMot_MW_B" 4
     "MoMot_MW_A" "正常滚轮跳"
     "MoMot_MW_B" "Desubtick 滚轮跳"
     "MoMot_MW_C" "MouseXY 滚轮跳"
@@ -262,7 +262,7 @@ text "//为自动连跳启用的模式，也可以在UserKeyBinds额外对SmartA
 text "//Summer_AutoBhop_Normal          正常模式 [%extern 常规%]"
 text "//Summer_AutoBhop_SMA             SmartActive模式 [%extern 身法%]"
 text "//Summer_AutoBhop_None            不开启自动连跳"
-func "自动连跳 模式" "为自动连跳启用的模式" "Summer_AutoBhop_None" 3
+func "自动连跳 模式" "为自动连跳启用的模式" "Summer_AutoBhop_Normal" 3
     "Summer_AutoBhop_Normal" "正常模式"
     "Summer_AutoBhop_SMA" "SmartActive 模式"
     "Summer_AutoBhop_None" "不开启自动连跳"
