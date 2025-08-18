@@ -14,7 +14,7 @@
   "mvp": true,
   "vol": 0.88,
   "ogg": false,
-  "custom_musickit": true,
+  "custom_musickit": false,
   "custom_flashbang": false,
   "low_memory": false,
   "show_mvp": true

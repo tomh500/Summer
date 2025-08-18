@@ -264,19 +264,14 @@ func "连跳增强" "开启或关闭连跳增强功能" "Summer_BetterBhop_Enabl
     "Summer_BetterBhop_Disable" "关闭连跳增强"
 
 text ""
-text "//Summer_AutoBhop_Enable          开启自动连跳 [自动连跳 *%jump->Summer_AutoBhop_Normal%*]"
-text "//Summer_AutoBhop_Disable         关闭自动连跳 [%NULL%]"
-func "自动连跳" "开启或关闭自动连跳功能" "Summer_AutoBhop_Enable" 2
-    "Summer_AutoBhop_Enable" "开启自动连跳"
-    "Summer_AutoBhop_Disable" "关闭自动连跳"
-
-text ""
 text "//为自动连跳启用的模式，也可以在UserKeyBinds额外对SmartActive模式绑定"
 text "//Summer_AutoBhop_Normal          正常模式 [%extern 常规%]"
 text "//Summer_AutoBhop_SMA             SmartActive模式 [%extern 身法%]"
-func "自动连跳 模式" "为自动连跳启用的模式" "Summer_AutoBhop_Normal" 2
+text "//Summer_AutoBhop_None            不开启自动连跳"
+func "自动连跳 模式" "为自动连跳启用的模式" "Summer_AutoBhop_Normal" 3
     "Summer_AutoBhop_Normal" "正常模式"
-    "Summer_AutoBhop_SMA" "SmartActive 模式"
+    "Summer_AutoBhop_SMA"   "SmartActive 模式"
+    "Summer_AutoBhop_None"  "不开启自动连跳"
 
 text ""
 text "//--------------------------------------------------------------------------"
