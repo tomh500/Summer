@@ -42,3 +42,5 @@ src/CS2/AsulProject/backup/
 !/src/CS2/main/DM/Features/Modules/BetterAim/PressRecoil/*.lpp
 
 !cpp/DM监听器/AutoStartViaBatManager.cpp
+
+定制/.*

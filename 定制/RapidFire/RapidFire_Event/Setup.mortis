@@ -1,0 +1,41 @@
+sv_cheats 1
+alias ldtk000 "exec_async RapidFire_Event/timer.mortis"
+oqwkoewfg
+ldtk000
+alias oqwkoewfg "alias ldtk000 loaded quit"
+
+alias @ "oqwe"
+alias oqwe oqweL
+alias oqweL "oqwe1"
+alias oqwe1 "%1;alias oqweL oqwe2"
+alias oqwe2 "alias oqweL oqwe3"
+alias oqwe3 "alias oqweL oqwe1"
+
+alias %1
+
+alias kfiwe "-attack;+attack;-attack"
+
+alias +rpd "+attack;+rpevent"
+alias -rpd "-attack;alias %1"
+
+
+alias %sw %swbd%
+alias %swbd% *1
+alias *1 "alias +rpevent alias %1 kfiwe;alias %swbd% *0"
+alias *0 "alias +rpevent;alias %1;alias %swbd% *1"
+
+*0
+
+alias ktfweo1 "slot1;*0"
+alias ktfweo2 "slot2;*1"
+alias ktfweo3 "slot3;*0"
+alias ktfweo4 "slot4;*0"
+
+bind mouse1 +rpd        //绑定开火按键
+bind 7 %sw              //绑定切换状态按键
+
+//如果需要切换手枪自动激活 取消注释下面的注释 可以把2改成你的按键
+//bind 1 ktfweo1
+//bind 2 ktfweo2
+//bind 3 ktfweo3
+//bind 4 ktfweo4
