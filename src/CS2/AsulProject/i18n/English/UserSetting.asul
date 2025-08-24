@@ -116,6 +116,8 @@ text "//MoMot_autostop_mode_21      [21 Stop Level]"
 text "//MoMot_autostop_mode_22      [22 Stop Level]"
 text "//MoMot_autostop_mode_23      [23 Stop Level]"
 text "//MoMot_autostop_mode_24      [24 Stop Level]"
+text "//MoMot_autostop_mode_25      [25 Stop Level]"
+text "//MoMot_autostop_mode_26      [26 Stop Level]"
 func "Full Auto Stop Stop Level" "When full auto stop in any direction is enabled, choose stop level" "MoMot_autostop_mode_8" 27
     "MoMot_autostop_mode_0" "Do not use Full Auto Stop"
     "MoMot_autostop_mode_1" "Stop Level 1"
@@ -149,8 +151,9 @@ func "Full Auto Stop Stop Level" "When full auto stop in any direction is enable
 // If the intelligent mode is enabled, auto stop will temporarily disable when crouching or switching weapons.
 text "//Summer_Autostop_Smart        Smart Auto Stop [Auto Stop Mode *Smart*]"
 text "//Summer_Autostop_Slient       Only disable auto stop while crouching [Auto Stop Mode *Partial*]"
+text "//Summer_Autostop_Slot         Only disable auto stop while switch weapons [Auto Stop Mode *Partial*]"
 text "//Summer_Autostop_Single       Never disable auto stop [Auto Stop Mode *Force*]"
-func "Auto Stop Intelligent Mode" "Choose whether to intelligently disable auto stop, useful for wallbanging" "Summer_Autostop_Smart" 3
+func "Auto Stop Intelligent Mode" "Choose whether to intelligently disable auto stop, useful for wallbanging" "Summer_Autostop_Smart" 4
     "Summer_Autostop_Smart" "Smart Disable Auto Stop"
     "Summer_Autostop_Slient" "Only disable while crouching"
     "Summer_Autostop_Slot"   "Only disable while switch items"
