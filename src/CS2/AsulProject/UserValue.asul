@@ -1,5 +1,5 @@
 text "//建议设置为你的显示器帧率，防止画面撕裂"
-line "最大帧率" "设置你的最大帧率，最大值取1009" "alias /fps_recovery fps_max %1" "266"
+line "最大帧率" "设置你的最大帧率，最大值取1009" "alias fps_recovery_cvar fps_max %1" "266"
 text ""
 text "//设置你的初始灵敏度和旋转数值，旋转数值可以用项目内的计算器进行计算"
 text ""

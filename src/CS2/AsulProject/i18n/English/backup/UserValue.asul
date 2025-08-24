@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
 // Suggest setting to your monitor's refresh rate to prevent screen tearing
-line "Max Frame Rate" "Set your max frame rate, the maximum value is 1009" "alias /fps_recovery fps_max %1" "266"
+line "Max Frame Rate" "Set your max frame rate, the maximum value is 1009" "alias fps_recovery_cvar fps_max %1" "266"
 text ""
 text "// Set your initial sensitivity and rotation values. You can calculate the rotation value using the calculator in the project."
 text ""
