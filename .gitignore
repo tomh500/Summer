@@ -44,3 +44,4 @@ src/CS2/AsulProject/backup/
 !cpp/DM监听器/AutoStartViaBatManager.cpp
 
 定制/.*
+src/CS2/lib/qq_ids.json
