@@ -3,7 +3,7 @@
  **📂 配置文件路径**：  
  `<你的安装目录>\Userspace\CS2\rtss_config.yml`
  
- > ⚠️ 注意：如果你使用了程序，它会自动创建符号链接到程序目录下的 `cfg/Summer/src/CS2/lib/rtss_config.yml`，请直接修改 **用户空间下的文件**。
+ > ⚠️ 注意：如果你使用了程序，它会自动创建符号链接到程序目录下的 `cfg/Summer/src/CS2/lib/rtss_config.yml`，请直接修改 **用户空间下的文件**。**当且仅当你正确安装了RTSS且正常运行本产品才有效**
  
  ---
  
