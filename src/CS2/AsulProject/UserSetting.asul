@@ -86,14 +86,14 @@ text "//为你的急停提供神一样的主力，引入瓦罗兰特风格移动
 text ""
 text "//Summer_Autostop_fb_pass       禁用前后方向的全自动急停 [%extern Z轴正常移动%]"
 text "//Summer_Autostop_fb_load       启用前后方向的全自动急停 [%extern Z轴自动急停%]"
-func "全自动急停（前后方向）" "启用或禁用前后方向的全自动急停" "Summer_Autostop_fb_load" 2
+func "全自动急停（前后方向）" "启用或禁用前后方向的全自动急停" "Summer_Autostop_fb_pass" 2
     "Summer_Autostop_fb_load" "启用前后方向的全自动急停"
     "Summer_Autostop_fb_pass" "禁用前后方向的全自动急停"
 
 text "//"
 text "//Summer_Autostop_rl_pass       禁用左右方向的全自动急停[%extern X轴正常移动%]"
 text "//Summer_Autostop_rl_load       启用左右方向的全自动急停[%extern X轴自动急停%]"
-func "全自动急停（左右方向）" "启用或禁用左右方向的全自动急停" "Summer_Autostop_rl_load" 2
+func "全自动急停（左右方向）" "启用或禁用左右方向的全自动急停" "Summer_Autostop_rl_pass" 2
     "Summer_Autostop_rl_load" "启用左右方向的全自动急停"
     "Summer_Autostop_rl_pass" "禁用左右方向的全自动急停"
 
@@ -131,7 +131,7 @@ text "//MoMot_autostop_mode_23      [23急停档位]"
 text "//MoMot_autostop_mode_24      [24急停档位]"
 text "//MoMot_autostop_mode_25      [25急停档位]"
 text "//MoMot_autostop_mode_26      [26急停档位]"
-func "自动急停 档位选择" "当启用了任意方向全/半自动急停时，选择急停档位" "MoMot_autostop_mode_9" 27
+func "自动急停 档位选择" "当启用了任意方向全/半自动急停时，选择急停档位" "MoMot_autostop_mode_0" 27
     "MoMot_autostop_mode_0" "不使用全自动急停"
     "MoMot_autostop_mode_1" "1 急停档位"
     "MoMot_autostop_mode_2" "2 急停档位"
