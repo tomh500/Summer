@@ -1,6 +1,7 @@
 LCFG_VERSION(1)
 setExecPath("Summer/src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/mirage/ct_spawn01_to_ladder")
 src("/fps_low")
+sleep(80)
 wasdCancel()
 slot3()
 lockMouse()

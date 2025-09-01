@@ -1,7 +1,7 @@
 LCFG_VERSION(1)
 setExecPath("Summer/src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/mirage/vip_to_ladder_into")
 src("/fps_low")
-
+sleep(80)
 lockMouse()
 wasdCancel()
 setAngle(24.470583,91.478119)

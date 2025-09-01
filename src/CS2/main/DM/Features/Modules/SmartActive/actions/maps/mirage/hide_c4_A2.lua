@@ -1,6 +1,7 @@
 LCFG_VERSION(1)
 setExecPath("Summer/src/CS2/main/DM/Features/Modules/SmartActive/actions/maps/mirage/hide_c4_A2")
 src("/fps_low")
+sleep(80)
 lockMouse()
 wasdCancel()
 setAngle(0.39,-86.35)
