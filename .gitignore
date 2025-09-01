@@ -45,3 +45,20 @@ src/CS2/AsulProject/backup/
 
 定制/.*
 src/CS2/lib/qq_ids.json
+
+
+src/.*
+docs/.*
+Userspace/.*
+CFG监听器主程序.bat
+config.asuls
+fastconfig.asulink
+fastconfig_EN.asulink
+README.md
+Setup.cfg
+Setup_HL.cfg
+updateVer.txt
+UpdateVersion.bat
+UpdateVersion.py
+压枪跟随需要自行编译使用（已失效）.txt
+自动身法需要自行编译使用（已失效）.txt
