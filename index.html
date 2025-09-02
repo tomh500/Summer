@@ -19,7 +19,14 @@
     </div>
 
     <div class="nav-actions">
-      <button class="hamburger" id="menuToggle" aria-expanded="false" aria-controls="toolsMenu" title="工具与设置">
+      
+
+<button class="action-button" id="aboutBtn" aria-expanded="false" aria-controls="aboutModalOverlay" title="关于">
+        ?
+      </button>
+      
+
+<button class="action-button" id="menuToggle" aria-expanded="false" aria-controls="toolsMenu" title="工具与设置">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
             stroke-linejoin="round" />
@@ -64,7 +71,7 @@
     <a href="https://horizoncfg.top/scfgGen" target="_blank"
       rel="noopener noreferrer">自动身法 Lua 在线可视化编程（scfgGen）</a>
     <a href="https://github.com/tomh500/Summer/releases" target="_blank"
-      rel="noopener noreferrer">项目发布页（GitHub Releases）</a>
+      rel="noopener noreferrer">项目发布页</a>
     <div class="section-title" style="margin-top:10px">设置</div>
     <div class="setting-row">
       <div class="small">播放左下音乐</div>
@@ -162,31 +169,31 @@
           <thead>
             <tr>
               <th>对比项</th>
-              <th class="highlight">Summer 客户端</th>
+              <th class="highlight">夏日客户端</th>
               <th>视野客户端</th>
               <th>FanpaiHelper</th>
-              <th>ForeverRise</th>
+              <th>永远上升(ForeverRise)</th>
               <th>AIRISU 系列</th>
-              <th>DreamWind</th>
+              <th>梦风(DreamWind)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>模块数量</td>
               <td class="highlight"><strong>20+</strong></td>
-              <td>≈11</td>
+              <td>11</td>
               <td>主要 GSI 功能</td>
               <td>功能够用</td>
-              <td>较少</td>
+              <td>垃圾</td>
               <td>较少</td>
             </tr>
             <tr>
               <td>性能速度</td>
               <td class="highlight">高性能</td>
               <td>轻量，配置较难读</td>
-              <td>存在性能问题</td>
+              <td>奇慢无比</td>
               <td>一般</td>
-              <td>差</td>
+              <td>垃圾</td>
               <td>一般</td>
             </tr>
             <tr>
@@ -195,7 +202,7 @@
               <td>不支持</td>
               <td>支持（功能杂）</td>
               <td>不支持</td>
-              <td>不支持</td>
+              <td>垃圾</td>
               <td>不支持</td>
             </tr>
             <tr>
@@ -204,7 +211,7 @@
               <td>是</td>
               <td>理论上是（性能受限）</td>
               <td>是</td>
-              <td>是</td>
+              <td>垃圾</td>
               <td>是</td>
             </tr>
             <tr>
@@ -213,7 +220,7 @@
               <td>优秀</td>
               <td>差</td>
               <td>难以扩展</td>
-              <td>差</td>
+              <td>垃圾</td>
               <td>已停更</td>
             </tr>
           </tbody>
@@ -225,7 +232,7 @@
       <h2 id="downloadTitle" class="section-title">准备好提升您的游戏体验了吗？</h2>
       <div style="display:inline-flex;gap:12px;align-items:center;justify-content:center">
         <a class="cta" href="https://github.com/tomh500/Summer/releases" target="_blank"
-          rel="noopener noreferrer">下载 Summer（GitHub Releases）</a>
+          rel="noopener noreferrer">下载 Summer</a>
         <a class="cta secondary" href="https://discord.gg/rcAGYqnX4x" target="_blank" rel="noopener noreferrer">加入社区</a>
       </div>
     </section>
@@ -259,9 +266,22 @@
   </div>
 
   <audio id="bgm" preload="metadata">
-    <source src="bgm.mp3" type="audio/mpeg">
+    
+
+<source src="snd/bgm_1.mp3" type="audio/mpeg">
     您的浏览器不支持 audio 元素。
   </audio>
+
+  
+
+<div id="aboutModalOverlay" class="about-modal-overlay" aria-hidden="true">
+    <div class="about-modal" role="dialog" aria-labelledby="aboutModalTitle">
+      <h3 id="aboutModalTitle">关于</h3>
+      <p>Summer客户端</p>
+      <p>暂无更多信息</p>
+      <button class="close-button" id="closeAboutModal">关闭</button>
+    </div>
+  </div>
 
   <script src="main.js"></script>
 </body>

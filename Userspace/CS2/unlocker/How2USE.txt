@@ -1,6 +1,0 @@
-将需要的解锁器放入你的CFG文件夹！是CFG文件夹，而不是项目的文件夹！
-Put Unlocker to your CFG path.
-
-关于解锁器的说明
-[DisableAntiHorizon.DMUnlocker]
-	旨在取消加载AntiHorizon模块，以便部分高级用户可以将本项目与Horizon同时加载
