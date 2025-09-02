@@ -1,189 +1,16 @@
 <!doctype html>
 <html lang="zh-CN">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="description" content="Summer 客户端 — 为 CS2 竞技优化的高品质 CFG；功能清单、对比表与下载链接。" />
-<title>Summer 客户端 - 专为 CS2 竞技而生</title>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --primary-color:#007bff;
-    --bg:#0f172a;
-    --card:#111827a8; /* 半透明卡片基色 */
-    --card-plain:#1e293b;
-    --muted:#9aa6bf;
-    --text:#e2e8f0;
-    --accent:#28a745;
-    --border:#334155;
-    --glass: rgba(255,255,255,0.04);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{
-    font-family:'Poppins','Microsoft YaHei',sans-serif;
-    background: linear-gradient(180deg,#071024 0%, #0f172a 60%);
-    color:var(--text);
-    line-height:1.7;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    transition:background .25s ease;
-  }
-  .container{max-width:1200px;margin:0 auto;padding:24px}
-  /* header / nav */
-  header.hero{
-    background:
-      linear-gradient(rgba(7,16,36,.72), rgba(7,16,36,.9)),
-      url('https://images.unsplash.com/photo-1582738412147-383a836b6b78?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-    padding:64px 20px 48px;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-  }
-  .topbar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    max-width:1200px;
-    margin:12px auto 0;
-    padding:0 24px;
-  }
-  .brand{display:flex;align-items:center;gap:12px}
-  .logo{
-    width:44px;height:44px;border-radius:10px;
-    background:linear-gradient(135deg,var(--primary-color),#5cc0ff);
-    display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;
-    box-shadow:0 6px 24px rgba(2,6,23,.5);
-  }
-  .brand h3{font-size:1.05rem;margin:0}
-  .nav-actions{display:flex;gap:10px;align-items:center}
-  /* hamburger */
-  .hamburger{
-    display:inline-grid;place-items:center;width:44px;height:44px;border-radius:10px;background:var(--glass);
-    border:1px solid var(--border);cursor:pointer;
-    transition:transform .18s ease,box-shadow .18s ease;
-    backdrop-filter: blur(6px);
-  }
-  .hamburger:hover{transform:scale(1.04);box-shadow:0 8px 22px rgba(0,0,0,.45)}
-  .hamburger svg{width:22px;height:22px;fill:var(--text)}
-  /* hero main */
-  .hero-inner{max-width:980px;margin:8px auto 0}
-  .hero h1{font-size:2.6rem;margin-bottom:8px;text-shadow:0 6px 30px rgba(0,0,0,.6)}
-  .hero p{color:var(--muted);margin-bottom:18px}
-  .cta-group{display:inline-flex;gap:12px;align-items:center}
-  .cta{
-    display:inline-flex;align-items:center;gap:10px;
-    background:var(--primary-color);color:#fff;padding:12px 20px;border-radius:999px;
-    text-decoration:none;font-weight:700;box-shadow:0 8px 30px rgba(0,123,255,.14);
-    transition:transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s;
-    transform-origin:center;
-  }
-  .cta:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 18px 40px rgba(0,123,255,.2)}
-  .cta svg{width:18px;height:18px}
-  .cta.secondary{
-    background:linear-gradient(90deg,var(--accent),#50d26a);
-    box-shadow:0 8px 30px rgba(40,167,69,.12);
-  }
-  /* cards & features */
-  .section{padding:56px 0}
-  .section-title{text-align:center;font-size:1.9rem;margin-bottom:8px}
-  .section-desc{text-align:center;color:var(--muted);max-width:900px;margin:0 auto 36px}
-  .features-grid{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;
-  }
-  .card{
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
-    border-radius:12px;padding:18px;border:1px solid var(--border);
-    box-shadow:0 6px 18px rgba(2,6,23,.45);
-    transition:transform .22s cubic-bezier(.2,.9,.2,1),box-shadow .22s,backdrop-filter .22s;
-    transform-origin:center;
-    backdrop-filter: blur(6px) saturate(120%);
-  }
-  /* hover 放大 + 云母 (mica) 光泽边 */
-  .card:hover{
-    transform:translateY(-8px) scale(1.03);
-    box-shadow:0 24px 56px rgba(2,6,23,.6);
-  }
-  .card h3{margin-bottom:8px}
-  .card p{color:var(--muted);font-size:.95rem}
-  .full-list{
-    background:linear-gradient(90deg,rgba(255,255,255,.02),transparent);
-    padding:18px;border-radius:12px;border:1px solid var(--border);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,0.02);
-  }
-  .full-list ul{list-style:disc;padding-left:20px}
-  .full-list li{margin:8px 0;color:var(--muted)}
-  .comparison{overflow:auto}
-  table{width:100%;border-collapse:collapse;min-width:760px}
-  th,td{padding:12px 14px;border:1px solid var(--border);text-align:center}
-  thead th{background:#07102a;color:var(--text)}
-  td:first-child{text-align:left;font-weight:600}
-  .highlight{background:linear-gradient(90deg, rgba(0,123,255,0.05), transparent);border-left:3px solid var(--primary-color);border-right:3px solid var(--primary-color)}
-  footer{padding:28px 0;text-align:center;background:transparent;color:var(--muted);margin-top:40px}
-  /* settings panel in dropdown */
-  .menu{
-    position:fixed;left:12px;top:64px;z-index:2000;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
-    border-radius:12px;padding:12px;border:1px solid var(--border);min-width:260px;
-    box-shadow:0 14px 44px rgba(2,6,23,.6);backdrop-filter: blur(8px);
-    transform-origin:left top;display:none;
-  }
-  .menu a{display:block;color:var(--text);padding:8px;border-radius:8px;text-decoration:none}
-  .menu a:hover{background:rgba(255,255,255,0.02)}
-  .menu .section-title{font-size:1rem;margin:6px 0 8px}
-  .menu .setting-row{display:flex;align-items:center;justify-content:space-between;padding:8px 6px;color:var(--muted)}
-  /* floating music player (左下角) */
-  .music-player{
-    position:fixed;left:16px;bottom:16px;width:84px;height:84px;border-radius:999px;
-    display:flex;align-items:center;justify-content:center;z-index:3000;
-    background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border:1px solid var(--border);backdrop-filter: blur(8px) saturate(120%);
-    box-shadow:0 12px 40px rgba(0,0,0,.55);cursor:pointer;
-  }
-  .disc{
-    width:64px;height:64px;border-radius:50%;overflow:hidden;display:grid;place-items:center;
-    background:linear-gradient(180deg,#0b1220,#1b2a3a);position:relative;
-    transition:transform .3s;
-  }
-  .disc img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
-  .disc::after{
-    content:'';position:absolute;inset:0;border-radius:50%;
-    background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
-    mix-blend-mode:overlay;
-  }
-  .needle{position:absolute;left:84px;top:-20px;width:40px;height:40px;opacity:0.95;transform-origin:6px 6px;transition:transform .35s}
-  .needle svg{width:100%;height:100%}
-  /* rotating when playing */
-  @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-  .disc.playing{animation:spin 4.6s linear infinite}
-  .player-controls{position:fixed;left:16px;bottom:110px;background:var(--card-plain);border-radius:12px;padding:10px;border:1px solid var(--border);box-shadow:0 18px 56px rgba(0,0,0,.6);display:none;z-index:3001}
-  .player-controls button{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--text);padding:8px;border-radius:8px;margin-right:8px;cursor:pointer}
-  .player-controls .progress{width:220px;height:6px;background:rgba(255,255,255,0.04);border-radius:6px;overflow:hidden;display:inline-block;vertical-align:middle}
-  .player-controls .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--primary-color),#5cc0ff);width:0%}
-  /* responsive adjustments & mobile */
-  @media (max-width:840px){
-    .hero{padding:46px 12px 28px}
-    .topbar{padding:0 12px}
-    .hero h1{font-size:1.8rem}
-    .hero-inner{padding:0 8px}
-    table{min-width:600px}
-    .menu{left:8px;top:56px}
-    .player-controls{left:8px;bottom:104px}
-    .music-player{left:12px;bottom:12px}
-  }
-  /* prefers reduced motion */
-  @media (prefers-reduced-motion: reduce){
-    .card,.cta,.hamburger,.disc{transition:none !important;animation:none !important}
-  }
-  /* mobile special - make hero compact and stack CTA */
-  body.mobile .hero{padding:34px 12px 20px}
-  body.mobile .cta-group{flex-direction:column}
-  body.mobile .cta{padding:12px 16px;width:200px;justify-content:center}
-  /* small helper */
-  .small{font-size:.9rem;color:var(--muted)}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Summer 客户端 — 为 CS2 竞技优化的高品质 CFG；功能清单、对比表与下载链接。" />
+  <title>Summer 客户端 - 专为 CS2 竞技而生</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="topbar" role="navigation" aria-label="主导航">
     <div class="brand">
@@ -193,8 +20,10 @@
 
     <div class="nav-actions">
       <button class="hamburger" id="menuToggle" aria-expanded="false" aria-controls="toolsMenu" title="工具与设置">
-        <!-- simple menu icon -->
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
       </button>
     </div>
   </div>
@@ -204,28 +33,38 @@
       <h1>Summer 客户端</h1>
       <p class="small">为 CS2 竞技而生 — 合法、稳定、面向竞技的高品质 CFG（避免 VAC 风险）。</p>
       <div style="margin-top:16px" class="cta-group" role="region" aria-label="下载与社区链接">
-        <a class="cta" id="downloadBtn" href="https://github.com/tomh500/Summer/releases" target="_blank" rel="noopener noreferrer">
-          <!-- download icon -->
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <a class="cta" id="downloadBtn" href="https://github.com/tomh500/Summer/releases" target="_blank"
+          rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" fill="none" />
+          </svg>
           下载 Summer
         </a>
 
-        <!-- 社区按钮（绿色） -->
-        <a class="cta secondary" id="communityBtn" href="https://discord.gg/rcAGYqnX4x" target="_blank" rel="noopener noreferrer" title="加入社区 Discord">
-          <!-- discord-like icon (simple) -->
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm10 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" fill="#fff"/><path d="M21 5s-1.2-1.8-3.6-2.8C15.6 1 12 1 12 1s-3.6 0-5.4 1.2C4.2 3.2 3 5 3 5S1.2 10 1 15.2c0 0 1.3 1.9 5 3 0 0 .5-.8.9-1.4-2.6-.7-3.6-1.9-3.6-1.9 0-4 1-7.3 1-7.3s1.6-1.3 5.7-1.3c4.1 0 5.6 1.3 5.6 1.3s1 3.3 1 7.3c0 0-1 1.2-3.6 1.9.4.6.9 1.4.9 1.4 3.7-1.1 5-3 5-3C22.8 10 21 5 21 5z" fill="rgba(255,255,255,0.06)"/></svg>
+        <a class="cta secondary" id="communityBtn" href="https://discord.gg/rcAGYqnX4x" target="_blank"
+          rel="noopener noreferrer" title="加入社区 Discord">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 10.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM17 10.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"
+              fill="#fff" />
+            <path
+              d="M21 5s-1.2-1.8-3.6-2.8C15.6 1 12 1 12 1s-3.6 0-5.4 1.2C4.2 3.2 3 5 3 5S1.2 10 1 15.2c0 0 1.3 1.9 5 3 0 0 .5-.8.9-1.4-2.6-.7-3.6-1.9-3.6-1.9 0-4 1-7.3 1-7.3s1.6-1.3 5.7-1.3c4.1 0 5.6 1.3 5.6 1.3s1 3.3 1 7.3c0 0-1 1.2-3.6 1.9.4.6.9 1.4.9 1.4 3.7-1.1 5-3 5-3C22.8 10 21 5 21 5z"
+              fill="rgba(255,255,255,0.06)" />
+          </svg>
           加入社区
         </a>
       </div>
     </div>
   </header>
 
-  <!-- floating tools menu (hidden by default) -->
   <nav id="toolsMenu" class="menu" aria-hidden="true">
     <div class="section-title">工具与在线编辑</div>
-    <a href="https://tomh500.github.io/Square-Web/tools/CustomItems.html" target="_blank" rel="noopener noreferrer">自动道具 YML 在线编辑（CustomItems）</a>
-    <a href="https://horizoncfg.top/scfgGen" target="_blank" rel="noopener noreferrer">自动身法 Lua 在线可视化编程（scfgGen）</a>
-    <a href="https://github.com/tomh500/Summer/releases" target="_blank" rel="noopener noreferrer">项目发布页（GitHub Releases）</a>
+    <a href="https://tomh500.github.io/Square-Web/tools/CustomItems.html" target="_blank"
+      rel="noopener noreferrer">自动道具 YML 在线编辑（CustomItems）</a>
+    <a href="https://horizoncfg.top/scfgGen" target="_blank"
+      rel="noopener noreferrer">自动身法 Lua 在线可视化编程（scfgGen）</a>
+    <a href="https://github.com/tomh500/Summer/releases" target="_blank"
+      rel="noopener noreferrer">项目发布页（GitHub Releases）</a>
     <div class="section-title" style="margin-top:10px">设置</div>
     <div class="setting-row">
       <div class="small">播放左下音乐</div>
@@ -240,7 +79,8 @@
       </label>
     </div>
     <div style="margin-top:8px;text-align:right">
-      <button id="saveSettings" style="background:var(--primary-color);border:none;color:#fff;padding:8px 10px;border-radius:8px;cursor:pointer">保存</button>
+      <button id="saveSettings"
+        style="background:var(--primary-color);border:none;color:#fff;padding:8px 10px;border-radius:8px;cursor:pointer">保存</button>
     </div>
   </nav>
 
@@ -331,11 +171,51 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>模块数量</td><td class="highlight"><strong>20+</strong></td><td>≈11</td><td>主要 GSI 功能</td><td>功能够用</td><td>较少</td><td>较少</td></tr>
-            <tr><td>性能速度</td><td class="highlight">高性能</td><td>轻量，配置较难读</td><td>存在性能问题</td><td>一般</td><td>差</td><td>一般</td></tr>
-            <tr><td>GSI 支持</td><td class="highlight">良好</td><td>不支持</td><td>支持（功能杂）</td><td>不支持</td><td>不支持</td><td>不支持</td></tr>
-            <tr><td>跨平台</td><td class="highlight">是</td><td>是</td><td>理论上是（性能受限）</td><td>是</td><td>是</td><td>是</td></tr>
-            <tr><td>扩展性</td><td class="highlight">良好</td><td>优秀</td><td>差</td><td>难以扩展</td><td>差</td><td>已停更</td></tr>
+            <tr>
+              <td>模块数量</td>
+              <td class="highlight"><strong>20+</strong></td>
+              <td>≈11</td>
+              <td>主要 GSI 功能</td>
+              <td>功能够用</td>
+              <td>较少</td>
+              <td>较少</td>
+            </tr>
+            <tr>
+              <td>性能速度</td>
+              <td class="highlight">高性能</td>
+              <td>轻量，配置较难读</td>
+              <td>存在性能问题</td>
+              <td>一般</td>
+              <td>差</td>
+              <td>一般</td>
+            </tr>
+            <tr>
+              <td>GSI 支持</td>
+              <td class="highlight">良好</td>
+              <td>不支持</td>
+              <td>支持（功能杂）</td>
+              <td>不支持</td>
+              <td>不支持</td>
+              <td>不支持</td>
+            </tr>
+            <tr>
+              <td>跨平台</td>
+              <td class="highlight">是</td>
+              <td>是</td>
+              <td>理论上是（性能受限）</td>
+              <td>是</td>
+              <td>是</td>
+              <td>是</td>
+            </tr>
+            <tr>
+              <td>扩展性</td>
+              <td class="highlight">良好</td>
+              <td>优秀</td>
+              <td>差</td>
+              <td>难以扩展</td>
+              <td>差</td>
+              <td>已停更</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -344,7 +224,8 @@
     <section id="download" class="section" style="text-align:center" aria-labelledby="downloadTitle">
       <h2 id="downloadTitle" class="section-title">准备好提升您的游戏体验了吗？</h2>
       <div style="display:inline-flex;gap:12px;align-items:center;justify-content:center">
-        <a class="cta" href="https://github.com/tomh500/Summer/releases" target="_blank" rel="noopener noreferrer">下载 Summer（GitHub Releases）</a>
+        <a class="cta" href="https://github.com/tomh500/Summer/releases" target="_blank"
+          rel="noopener noreferrer">下载 Summer（GitHub Releases）</a>
         <a class="cta secondary" href="https://discord.gg/rcAGYqnX4x" target="_blank" rel="noopener noreferrer">加入社区</a>
       </div>
     </section>
@@ -356,15 +237,14 @@
     </div>
   </footer>
 
-  <!-- 音乐播放器（左下角） -->
   <div class="music-player" id="musicPlayer" title="点击显示播放器">
     <div class="disc" id="disc">
-      <!-- 封面可替换为专辑图 -->
       <img id="discCover" src="bgm-cover.jpg" alt="唱片封面" onerror="this.style.display='none'">
     </div>
     <div class="needle" aria-hidden="true">
-      <!-- 装饰性针头 -->
-      <svg viewBox="0 0 24 24" fill="none"><path d="M3 3l8 8" stroke="rgba(255,255,255,0.8)" stroke-width="1.2" stroke-linecap="round"/></svg>
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M3 3l8 8" stroke="rgba(255,255,255,0.8)" stroke-width="1.2" stroke-linecap="round" />
+      </svg>
     </div>
   </div>
 
@@ -378,209 +258,12 @@
     </div>
   </div>
 
-  <!-- 隐藏的 audio 元素 -->
   <audio id="bgm" preload="metadata">
     <source src="bgm.mp3" type="audio/mpeg">
     您的浏览器不支持 audio 元素。
   </audio>
 
-<script>
-(function(){
-  // helpers
-  const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 840;
-  if(isMobile) document.body.classList.add('mobile');
-
-  // elements
-  const menuToggle = document.getElementById('menuToggle');
-  const toolsMenu = document.getElementById('toolsMenu');
-  const settingPlayer = document.getElementById('setting_player');
-  const settingReduce = document.getElementById('setting_reduce');
-  const saveSettings = document.getElementById('saveSettings');
-
-  // music elements
-  const musicPlayer = document.getElementById('musicPlayer');
-  const disc = document.getElementById('disc');
-  const playerControls = document.getElementById('playerControls');
-  const playPauseBtn = document.getElementById('playPauseBtn');
-  const bgm = document.getElementById('bgm');
-  const progressBar = document.getElementById('progressBar');
-  const timeLabel = document.getElementById('timeLabel');
-
-  const SETTINGS_KEY = 'summer_settings_v1';
-  const defaultSettings = {player:true, reducedMotion:false};
-
-  function loadSettings(){
-    try{
-      const raw = localStorage.getItem(SETTINGS_KEY);
-      const parsed = raw ? JSON.parse(raw) : defaultSettings;
-      // merge defaults
-      const settings = Object.assign({}, defaultSettings, parsed);
-      settingPlayer.checked = !!settings.player;
-      settingReduce.checked = !!settings.reducedMotion;
-      applySettings(settings);
-      return settings;
-    }catch(e){
-      console.warn('读取设置失败', e);
-      settingPlayer.checked = defaultSettings.player;
-      settingReduce.checked = defaultSettings.reducedMotion;
-      applySettings(defaultSettings);
-      return defaultSettings;
-    }
-  }
-
-  function saveSettingsToStorage(settings){
-    try{
-      localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
-    }catch(e){
-      console.warn('保存设置失败', e);
-    }
-  }
-
-  function applySettings(settings){
-    // show/hide player
-    if(settings.player) musicPlayer.style.display = '';
-    else { musicPlayer.style.display = 'none'; playerControls.style.display='none'; }
-
-    // reduced motion
-    if(settings.reducedMotion){
-      document.documentElement.style.setProperty('--reduce-motion','1');
-      document.querySelectorAll('.card, .cta, .hamburger, .disc').forEach((el)=>el.style.transition='none');
-      document.documentElement.classList.add('reduced-motion');
-    } else {
-      document.documentElement.style.removeProperty('--reduce-motion');
-      document.querySelectorAll('.card, .cta, .hamburger, .disc').forEach((el)=>el.style.transition='');
-      document.documentElement.classList.remove('reduced-motion');
-    }
-  }
-
-  // init
-  const currentSettings = loadSettings();
-
-  saveSettings.addEventListener('click', ()=>{
-    const newS = {player: !!settingPlayer.checked, reducedMotion: !!settingReduce.checked};
-    applySettings(newS);
-    saveSettingsToStorage(newS);
-    // small feedback
-    saveSettings.textContent = '已保存';
-    setTimeout(()=>saveSettings.textContent='保存',900);
-  });
-
-  // menu toggle
-  menuToggle.addEventListener('click', ()=>{
-    const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-    menuToggle.setAttribute('aria-expanded', String(!expanded));
-    if(expanded){
-      toolsMenu.style.display = 'none';
-      toolsMenu.setAttribute('aria-hidden','true');
-    } else {
-      toolsMenu.style.display = 'block';
-      toolsMenu.setAttribute('aria-hidden','false');
-    }
-  });
-
-  // close menu when clicking outside
-  document.addEventListener('click', (e)=>{
-    if(!toolsMenu.contains(e.target) && !menuToggle.contains(e.target)){
-      toolsMenu.style.display = 'none';
-      toolsMenu.setAttribute('aria-hidden','true');
-      menuToggle.setAttribute('aria-expanded','false');
-    }
-  });
-
-  // music player interaction
-  let controlsVisible = false;
-  musicPlayer.addEventListener('click', (e)=>{
-    controlsVisible = !controlsVisible;
-    playerControls.style.display = controlsVisible ? 'block' : 'none';
-    playerControls.setAttribute('aria-hidden', String(!controlsVisible));
-  });
-
-  // play/pause logic
-  function setPlayingState(isPlaying){
-    if(isPlaying){
-      disc.classList.add('playing');
-      playPauseBtn.textContent = '⏸';
-      playPauseBtn.setAttribute('aria-pressed','true');
-    } else {
-      disc.classList.remove('playing');
-      playPauseBtn.textContent = '▶️';
-      playPauseBtn.setAttribute('aria-pressed','false');
-    }
-  }
-
-  // restore playback state if any
-  try{
-    const st = localStorage.getItem('summer_player_state');
-    if(st && JSON.parse(st).playing){
-      bgm.play().catch(()=>{/* autoplay blocked */});
-    }
-  }catch(e){}
-
-  playPauseBtn.addEventListener('click', ()=>{
-    if(bgm.paused){
-      bgm.play();
-    } else {
-      bgm.pause();
-    }
-  });
-
-  bgm.addEventListener('play', ()=>{
-    setPlayingState(true);
-    try{ localStorage.setItem('summer_player_state', JSON.stringify({playing:true})); }catch(e){}
-  });
-  bgm.addEventListener('pause', ()=>{
-    setPlayingState(false);
-    try{ localStorage.setItem('summer_player_state', JSON.stringify({playing:false})); }catch(e){}
-  });
-  bgm.addEventListener('timeupdate', ()=>{
-    if(!bgm.duration || isNaN(bgm.duration)) return;
-    const pct = Math.max(0, Math.min(100, (bgm.currentTime / bgm.duration) * 100));
-    progressBar.style.width = pct + '%';
-    const mm = Math.floor(bgm.currentTime/60), ss=Math.floor(bgm.currentTime%60);
-    timeLabel.textContent = mm+':'+(ss<10?'0'+ss:ss);
-  });
-
-  // click progress to seek
-  playerControls.querySelector('.progress').addEventListener('click', (e)=>{
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const pct = x / rect.width;
-    if(bgm.duration) bgm.currentTime = Math.max(0, Math.min(bgm.duration, pct * bgm.duration));
-  });
-
-  // toggle disc play by double click
-  disc.addEventListener('dblclick', ()=>{ if(bgm.paused) bgm.play(); else bgm.pause(); });
-
-  // keyboard shortcuts: space toggles player when focused
-  document.addEventListener('keydown', (e)=>{
-    if(e.code === 'Space' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA'){
-      e.preventDefault();
-      if(bgm.paused) bgm.play(); else bgm.pause();
-    }
-  });
-
-  // Accessibility: focus trapping for menu when open (simple)
-  toolsMenu.addEventListener('keydown', (e)=>{
-    if(e.key === 'Escape'){
-      toolsMenu.style.display = 'none';
-      menuToggle.setAttribute('aria-expanded','false');
-    }
-  });
-
-  // ensure player visibility obeys settings on resize too (mobile detection)
-  window.addEventListener('resize', ()=>{
-    const mobileNow = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 840;
-    if(mobileNow) document.body.classList.add('mobile'); else document.body.classList.remove('mobile');
-  });
-
-  // On first load, if player disabled by settings hide it
-  if(!currentSettings.player){
-    musicPlayer.style.display='none';
-  }
-
-  // Set initial state for disc rotation (if audio already playing)
-  if(!bgm.paused && !bgm.ended) setPlayingState(true);
-})();
-</script>
+  <script src="main.js"></script>
 </body>
+
 </html>

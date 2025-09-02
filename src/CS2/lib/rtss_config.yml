@@ -1,4 +1,4 @@
-ReadConsole: true
+ReadConsole: false
 cs2.exe:
   binds:
     - key: SPACE
