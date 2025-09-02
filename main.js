@@ -19,12 +19,19 @@
   const disc = document.getElementById('disc');
   const playerControls = document.getElementById('playerControls');
   const playPauseBtn = document.getElementById('playPauseBtn');
+  const nextTrackBtn = document.getElementById('nextTrackBtn'); // 新增：下一首按钮
+  const volumeSlider = document.getElementById('volumeSlider'); // 新增：音量滑块
   const bgm = document.getElementById('bgm');
   const progressBar = document.getElementById('progressBar');
   const timeLabel = document.getElementById('timeLabel');
 
+  // New autoplay modal elements
+  const autoplayModalOverlay = document.getElementById('autoplayModalOverlay');
+  const closeAutoplayModalBtn = document.getElementById('closeAutoplayModalBtn');
+
   const SETTINGS_KEY = 'summer_settings_v1';
-  const MUSIC_STATE_KEY = 'summer_player_state'; // 用于保存播放状态和当前歌曲索引
+  const MUSIC_STATE_KEY = 'summer_player_state_v2'; // 更新版本号以避免冲突
+  const AUTOPLAY_KEY = 'summer_autoplay_enabled';
 
   const defaultSettings = {
     player: true,
@@ -43,13 +50,12 @@
     'snd/bgm_9.mp3',
   ];
 
-  let currentTrackIndex = 0; // 当前播放歌曲的索引
+  let currentTrackIndex = -1; // 初始化为-1，表示未选择任何歌曲
 
   function loadSettings() {
     try {
       const raw = localStorage.getItem(SETTINGS_KEY);
       const parsed = raw ? JSON.parse(raw) : defaultSettings;
-      // merge defaults
       const settings = Object.assign({}, defaultSettings, parsed);
       settingPlayer.checked = !!settings.player;
       settingReduce.checked = !!settings.reducedMotion;
@@ -73,30 +79,27 @@
   }
 
   function applySettings(settings) {
-    // show/hide player
     if (settings.player) musicPlayer.style.display = '';
     else {
       musicPlayer.style.display = 'none';
       playerControls.style.display = 'none';
     }
 
-    // reduced motion
     const animatedElements = document.querySelectorAll('.card, .cta, .action-button, .disc');
     if (settings.reducedMotion) {
-      document.documentElement.classList.add('reduced-motion'); // 添加class，可以通过CSS控制
-      // 禁用所有相关元素的CSS transition和animation
+      document.documentElement.classList.add('reduced-motion');
       animatedElements.forEach((el) => {
         el.style.transition = 'none';
         el.style.animation = 'none';
       });
-      disc.classList.remove('playing'); // 停止碟片旋转动画
+      disc.classList.remove('playing');
     } else {
       document.documentElement.classList.remove('reduced-motion');
       animatedElements.forEach((el) => {
-        el.style.transition = ''; // 恢复默认transition
-        el.style.animation = ''; // 恢复默认animation
+        el.style.transition = '';
+        el.style.animation = '';
       });
-      if (!bgm.paused) { // 如果音乐正在播放，恢复碟片旋转
+      if (!bgm.paused) {
         disc.classList.add('playing');
       }
     }
@@ -107,7 +110,7 @@
     let newIndex;
     do {
       newIndex = Math.floor(Math.random() * musicTracks.length);
-    } while (newIndex === excludeIndex && musicTracks.length > 1); // 确保不是同一首，除非只有一首
+    } while (newIndex === excludeIndex && musicTracks.length > 1);
     return newIndex;
   }
 
@@ -122,29 +125,33 @@
   function loadMusicState() {
     try {
       const raw = localStorage.getItem(MUSIC_STATE_KEY);
-      if (raw) {
-        const state = JSON.parse(raw);
-        if (state.currentTrackIndex !== undefined && state.currentTrackIndex < musicTracks.length) {
-          currentTrackIndex = state.currentTrackIndex;
-        }
-        bgm.src = musicTracks[currentTrackIndex]; // 加载上次播放的歌曲
-        if (state.currentTime) {
-          bgm.currentTime = state.currentTime;
-        }
-        if (state.playing) {
-          // 如果上次是播放状态，尝试自动播放
-          bgm.play().catch(() => { /* autoplay blocked */ });
-        }
+      const state = raw ? JSON.parse(raw) : {};
+
+      if (state.currentTrackIndex !== undefined && state.currentTrackIndex < musicTracks.length) {
+        currentTrackIndex = state.currentTrackIndex;
       } else {
-        // 第一次加载或没有保存状态，随机播放一首
-        currentTrackIndex = getRandomTrackIndex(-1); // -1确保第一次随机
-        bgm.src = musicTracks[currentTrackIndex];
+        currentTrackIndex = getRandomTrackIndex(-1);
       }
+
+      bgm.src = musicTracks[currentTrackIndex];
+      bgm.volume = state.volume !== undefined ? state.volume : 0.5;
+      volumeSlider.value = bgm.volume;
+
+      if (state.currentTime) {
+        bgm.currentTime = state.currentTime;
+      }
+
+      const currentSettings = loadSettings();
+      // Only try to play if user settings allow it and a past state exists
+      if (currentSettings.player && state.playing) {
+          bgm.play().catch(() => { /* autoplay blocked or failed, do nothing */ });
+      }
+
     } catch (e) {
       console.warn('读取音乐状态失败', e);
-      // 失败时也随机一首
       currentTrackIndex = getRandomTrackIndex(-1);
       bgm.src = musicTracks[currentTrackIndex];
+      volumeSlider.value = 0.5;
     }
   }
 
@@ -153,16 +160,36 @@
       localStorage.setItem(MUSIC_STATE_KEY, JSON.stringify({
         playing: !bgm.paused,
         currentTime: bgm.currentTime,
-        currentTrackIndex: currentTrackIndex
+        currentTrackIndex: currentTrackIndex,
+        volume: bgm.volume
       }));
     } catch (e) {
       console.warn('保存音乐状态失败', e);
     }
   }
 
-  // init
-  const currentSettings = loadSettings();
-  loadMusicState(); // 加载音乐状态
+  // init - check for autoplay state
+  const autoplayEnabled = localStorage.getItem(AUTOPLAY_KEY);
+
+  if (autoplayEnabled) {
+    autoplayModalOverlay.style.display = 'none';
+    loadMusicState();
+  } else {
+    // Show modal and wait for user interaction
+    autoplayModalOverlay.style.display = 'flex';
+    // Load music state but don't play yet
+    loadMusicState();
+  }
+
+  closeAutoplayModalBtn.addEventListener('click', () => {
+      // Hide modal
+      autoplayModalOverlay.style.display = 'none';
+      // Save state to avoid showing it again
+      localStorage.setItem(AUTOPLAY_KEY, 'true');
+      // Attempt to play music after user interaction
+      bgm.play().catch(e => console.warn('自动播放失败', e));
+  });
+
 
   saveSettings.addEventListener('click', () => {
     const newS = {
@@ -171,7 +198,6 @@
     };
     applySettings(newS);
     saveSettingsToStorage(newS);
-    // small feedback
     saveSettings.textContent = '已保存';
     setTimeout(() => (saveSettings.textContent = '保存'), 900);
   });
@@ -189,37 +215,41 @@
     }
   });
 
-  // close menu when clicking outside
+  // close menus and modals when clicking outside
   document.addEventListener('click', (e) => {
-    // 检查点击是否发生在设置菜单或其触发按钮之外
+    // Hide settings menu if click is outside it and its toggle button
     if (!toolsMenu.contains(e.target) && !menuToggle.contains(e.target)) {
       toolsMenu.style.display = 'none';
       toolsMenu.setAttribute('aria-hidden', 'true');
       menuToggle.setAttribute('aria-expanded', 'false');
     }
-    // 检查点击是否发生在关于浮窗或其触发按钮之外
+    // Hide about modal if click is outside it and its toggle button
     if (aboutModalOverlay.classList.contains('active') && !aboutModalOverlay.contains(e.target) && !aboutBtn.contains(e.target)) {
       aboutModalOverlay.classList.remove('active');
       aboutBtn.setAttribute('aria-expanded', 'false');
     }
+    // Hide player controls if click is outside them and the music player button
+    if (playerControls.style.display === 'flex' && !playerControls.contains(e.target) && !musicPlayer.contains(e.target)) {
+      playerControls.style.display = 'none';
+      playerControls.setAttribute('aria-hidden', 'true');
+    }
   });
 
   // music player interaction
-  let controlsVisible = false;
   musicPlayer.addEventListener('click', (e) => {
-    controlsVisible = !controlsVisible;
-    playerControls.style.display = controlsVisible ? 'flex' : 'none'; // 使用flex以便内部元素对齐
+    const controlsVisible = playerControls.style.display === 'flex';
+    playerControls.style.display = controlsVisible ? 'none' : 'flex';
     playerControls.setAttribute('aria-hidden', String(!controlsVisible));
   });
 
   // play/pause logic
   function setPlayingState(isPlaying) {
     if (isPlaying) {
-      // 只有在没有减少动画的情况下才添加旋转类
+      const currentSettings = loadSettings();
       if (!currentSettings.reducedMotion) {
         disc.classList.add('playing');
       }
-      playPauseBtn.textContent = '⏸';
+      playPauseBtn.textContent = '⏸️';
       playPauseBtn.setAttribute('aria-pressed', 'true');
     } else {
       disc.classList.remove('playing');
@@ -237,6 +267,15 @@
     }
   });
 
+  // 新增：下一首功能
+  nextTrackBtn.addEventListener('click', playNextRandomTrack);
+
+  // 新增：音量控制
+  volumeSlider.addEventListener('input', () => {
+    bgm.volume = volumeSlider.value;
+    saveMusicState();
+  });
+
   bgm.addEventListener('play', () => {
     setPlayingState(true);
   });
@@ -244,7 +283,7 @@
     setPlayingState(false);
   });
   bgm.addEventListener('ended', () => {
-    playNextRandomTrack(); // 播放完毕后随机播放下一首
+    playNextRandomTrack();
   });
   bgm.addEventListener('timeupdate', () => {
     if (!bgm.duration || isNaN(bgm.duration)) return;
@@ -253,7 +292,7 @@
     const mm = Math.floor(bgm.currentTime / 60),
       ss = Math.floor(bgm.currentTime % 60);
     timeLabel.textContent = mm + ':' + (ss < 10 ? '0' + ss : ss);
-    saveMusicState(); // 实时保存播放进度
+    saveMusicState();
   });
 
   // click progress to seek
@@ -297,7 +336,6 @@
     } else {
       aboutModalOverlay.classList.add('active');
       aboutModalOverlay.setAttribute('aria-hidden', 'false');
-      // 聚焦到关闭按钮以便键盘操作
       setTimeout(() => closeAboutModal.focus(), 100);
     }
   });
@@ -315,17 +353,13 @@
     }
   });
 
-
   // ensure player visibility obeys settings on resize too (mobile detection)
   window.addEventListener('resize', () => {
     const mobileNow = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 840;
     if (mobileNow) document.body.classList.add('mobile');
     else document.body.classList.remove('mobile');
-
-    // 重新应用设置以确保动画状态正确 (针对 reduced-motion)
     applySettings(loadSettings());
   });
 
-  // Set initial state for disc rotation (if audio already playing)
   if (!bgm.paused && !bgm.ended) setPlayingState(true);
 })();

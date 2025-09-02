@@ -13,25 +13,21 @@
 
 <body>
   <div class="topbar" role="navigation" aria-label="主导航">
-    <div class="brand">
-      <div class="logo">S</div>
-      <h3 style="margin:0">Summer 客户端</h3>
-    </div>
-
     <div class="nav-actions">
-      
-
-<button class="action-button" id="aboutBtn" aria-expanded="false" aria-controls="aboutModalOverlay" title="关于">
+      <button class="action-button" id="aboutBtn" aria-expanded="false" aria-controls="aboutModalOverlay" title="关于">
         ?
       </button>
-      
-
-<button class="action-button" id="menuToggle" aria-expanded="false" aria-controls="toolsMenu" title="工具与设置">
+      <button class="action-button" id="menuToggle" aria-expanded="false" aria-controls="toolsMenu" title="工具与设置">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
             stroke-linejoin="round" />
         </svg>
       </button>
+    </div>
+
+    <div class="brand">
+      <div class="logo">S</div>
+      <h3 style="margin:0">Summer 客户端</h3>
     </div>
   </div>
 
@@ -71,7 +67,7 @@
     <a href="https://horizoncfg.top/scfgGen" target="_blank"
       rel="noopener noreferrer">自动身法 Lua 在线可视化编程（scfgGen）</a>
     <a href="https://github.com/tomh500/Summer/releases" target="_blank"
-      rel="noopener noreferrer">项目发布页</a>
+      rel="noopener noreferrer">项目发布页（GitHub Releases）</a>
     <div class="section-title" style="margin-top:10px">设置</div>
     <div class="setting-row">
       <div class="small">播放左下音乐</div>
@@ -169,12 +165,12 @@
           <thead>
             <tr>
               <th>对比项</th>
-              <th class="highlight">夏日客户端</th>
+              <th class="highlight">Summer 客户端</th>
               <th>视野客户端</th>
               <th>FanpaiHelper</th>
-              <th>永远上升(ForeverRise)</th>
+              <th>ForeverRise</th>
               <th>AIRISU 系列</th>
-              <th>梦风(DreamWind)</th>
+              <th>DreamWind</th>
             </tr>
           </thead>
           <tbody>
@@ -191,7 +187,7 @@
               <td>性能速度</td>
               <td class="highlight">高性能</td>
               <td>轻量，配置较难读</td>
-              <td>奇慢无比</td>
+              <td>存在性能问题</td>
               <td>一般</td>
               <td>垃圾</td>
               <td>一般</td>
@@ -207,7 +203,7 @@
             </tr>
             <tr>
               <td>跨平台</td>
-              <td class="highlight">是</td>
+              <td class="highlight">wine是</td>
               <td>是</td>
               <td>理论上是（性能受限）</td>
               <td>是</td>
@@ -256,30 +252,47 @@
   </div>
 
   <div class="player-controls" id="playerControls" aria-hidden="true">
-    <div style="display:flex;align-items:center;gap:8px">
+    <div class="progress-container">
       <button id="playPauseBtn" aria-pressed="false" title="播放/暂停">▶️</button>
       <div class="progress" aria-hidden="false" title="进度">
         <i id="progressBar"></i>
       </div>
       <div style="min-width:56px;text-align:right;color:var(--muted);font-size:.85rem" id="timeLabel">0:00</div>
     </div>
+    <div class="volume-control">
+      <button id="nextTrackBtn" title="下一首">⏭️</button>
+      <div style="color:var(--muted);font-size:1rem;min-width:16px;text-align:center;">🔊</div>
+      <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5" aria-label="音量">
+    </div>
   </div>
 
   <audio id="bgm" preload="metadata">
-    
-
-<source src="snd/bgm_1.mp3" type="audio/mpeg">
+    <source src="snd/bgm_1.mp3" type="audio/mpeg">
+    <source src="snd/bgm_2.mp3" type="audio/mpeg">
+    <source src="snd/bgm_3.mp3" type="audio/mpeg">
+    <source src="snd/bgm_4.mp3" type="audio/mpeg">
+    <source src="snd/bgm_5.mp3" type="audio/mpeg">
+    <source src="snd/bgm_6.mp3" type="audio/mpeg">
+    <source src="snd/bgm_7.mp3" type="audio/mpeg">
+    <source src="snd/bgm_8.mp3" type="audio/mpeg">
+    <source src="snd/bgm_9.mp3" type="audio/mpeg">
     您的浏览器不支持 audio 元素。
   </audio>
 
-  
-
-<div id="aboutModalOverlay" class="about-modal-overlay" aria-hidden="true">
+  <div id="aboutModalOverlay" class="about-modal-overlay" aria-hidden="true">
     <div class="about-modal" role="dialog" aria-labelledby="aboutModalTitle">
       <h3 id="aboutModalTitle">关于</h3>
       <p>Summer客户端</p>
       <p>暂无更多信息</p>
       <button class="close-button" id="closeAboutModal">关闭</button>
+    </div>
+  </div>
+
+  <div id="autoplayModalOverlay" class="autoplay-modal-overlay">
+    <div class="autoplay-modal" role="dialog" aria-labelledby="autoplayModalTitle">
+      <h3 id="autoplayModalTitle">Summer 客户端</h3>
+      <p>欢迎访问无损平方集团产品-Summer客户端</p>
+      <button class="cta" id="closeAutoplayModalBtn">开始浏览</button>
     </div>
   </div>
 
