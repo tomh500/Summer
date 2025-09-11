@@ -2,3 +2,4 @@ cpp/*
 updateVer.txt
 UpdateVersion.bat
 UpdateVersion.py
+*.wav
