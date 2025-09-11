@@ -1,0 +1,6 @@
+ReadConsole: true
+cs2.exe:
+  binds:
+    - key: SPACE
+      fps: 0
+      hold: true
