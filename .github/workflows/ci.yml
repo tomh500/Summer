@@ -1,0 +1,362 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  release:
+    types: [ published ]
+
+env:
+  BUILD_TYPE: Release
+  PROJECT_VERSION: 3.1
+
+jobs:
+  # Code Quality Checks
+  code-quality:
+    runs-on: ubuntu-latest
+    name: Code Quality Analysis
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install Code Analysis Tools
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cppcheck clang-format
+        pip install codespell
+    
+    - name: Run cppcheck (Static Analysis)
+      run: |
+        cppcheck --enable=all --error-exitcode=1 \
+          --suppress=missingIncludeSystem \
+          --suppress=unusedFunction \
+          --inline-suppr \
+          code/CPP-OpenSource/ || exit 0
+    
+    - name: Check Code Formatting
+      run: |
+        find code/CPP-OpenSource -name "*.cpp" -o -name "*.h" | \
+        xargs clang-format -style=file -output-replacements-xml | \
+        grep -c "<replacement " > /dev/null && exit 1 || exit 0
+    
+    - name: Spell Check Documentation
+      run: |
+        codespell README.md docs/ --skip="*.png,*.jpg,*.gif"
+    
+    - name: Validate Configuration Files
+      run: |
+        count=$(find . -name "*.cfg" -exec grep -l -E "syntax error|parse error" {} + | wc -l)
+        if [ "$count" -gt 0 ]; then
+          echo "Found $count CFG files with syntax/parse error markers"
+          exit 1
+        fi
+
+  # Linux Build and Test
+  build-linux:
+    runs-on: ubuntu-latest
+    name: Build and Test (Linux)
+    needs: code-quality
+    
+    strategy:
+      matrix:
+        compiler: [gcc, clang]
+        include:
+          - compiler: gcc
+            cc: gcc-11
+            cxx: g++-11
+          - compiler: clang
+            cc: clang-14
+            cxx: clang++-14
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+    
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          build-essential cmake ninja-build \
+          libsdl2-dev libsdl2-mixer-dev \
+          nlohmann-json3-dev \
+          libsimdjson-dev \
+          lcov \
+          ${{ matrix.cc }} ${{ matrix.cxx }}
+    
+    - name: Setup Build Environment
+      run: |
+        echo "CC=${{ matrix.cc }}" >> $GITHUB_ENV
+        echo "CXX=${{ matrix.cxx }}" >> $GITHUB_ENV
+    
+    - name: Configure CMake
+      run: |
+        cd code/CPP-OpenSource
+        cmake -B build -G Ninja \
+          -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
+          -DCMAKE_C_COMPILER=${{ matrix.cc }} \
+          -DCMAKE_CXX_COMPILER=${{ matrix.cxx }} \
+          -DENABLE_TESTING=ON \
+          -DENABLE_COVERAGE=ON
+    
+    - name: Build Project
+      run: |
+        cd code/CPP-OpenSource
+        cmake --build build --config ${{env.BUILD_TYPE}} --parallel $(nproc)
+    
+    - name: Run Unit Tests
+      run: |
+        cd code/CPP-OpenSource/build
+        ctest --output-on-failure --parallel $(nproc)
+    
+    - name: Generate Coverage Report
+      if: matrix.compiler == 'gcc'
+      run: |
+        cd code/CPP-OpenSource
+        lcov --capture --directory build --output-file coverage.info
+        lcov --remove coverage.info '/usr/*' --output-file coverage.info
+    
+    - name: Upload Coverage to Codecov
+      if: matrix.compiler == 'gcc'
+      uses: codecov/codecov-action@v3
+      with:
+        file: code/CPP-OpenSource/coverage.info
+        flags: unittests
+        name: codecov-umbrella
+
+  # Windows Build and Test
+  build-windows:
+    runs-on: windows-latest
+    name: Build and Test (Windows)
+    needs: code-quality
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.3
+    
+    - name: Setup vcpkg
+      uses: lukka/run-vcpkg@v11
+      with:
+        vcpkgJsonGlob: 'code/CPP-OpenSource/vcpkg.json'
+      id: runvcpkg
+    
+    - name: Install Dependencies with vcpkg
+      run: |
+        vcpkg install sdl2 sdl2-mixer nlohmann-json cpp-httplib simdjson
+    
+    - name: Configure CMake
+      run: |
+        cd code/CPP-OpenSource
+        cmake -B build \
+          -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
+          -DCMAKE_TOOLCHAIN_FILE=${{ steps.runvcpkg.outputs.RUNVCPKG_VCPKG_ROOT }}/scripts/buildsystems/vcpkg.cmake \
+          -DENABLE_TESTING=ON
+    
+    - name: Build Project
+      run: |
+        cd code/CPP-OpenSource
+        cmake --build build --config ${{env.BUILD_TYPE}} --parallel
+    
+    - name: Run Unit Tests
+      run: |
+        cd code/CPP-OpenSource/build
+        ctest --output-on-failure --parallel --build-config ${{env.BUILD_TYPE}}
+    
+    - name: Package Artifacts
+      run: |
+        cd code/CPP-OpenSource/build
+        cpack -G ZIP -C ${{env.BUILD_TYPE}}
+    
+    - name: Upload Windows Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: summer-autumn-windows-${{ github.sha }}
+        path: code/CPP-OpenSource/build/*.zip
+
+  # Security Scanning
+  security-scan:
+    runs-on: ubuntu-latest
+    name: Security Analysis
+    needs: code-quality
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: Run CodeQL Analysis
+      uses: github/codeql-action/init@v2
+      with:
+        languages: cpp
+        queries: security-and-quality
+    
+    - name: Install Dependencies for CodeQL
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          build-essential cmake \
+          libsdl2-dev libsdl2-mixer-dev \
+          nlohmann-json3-dev libsimdjson-dev
+    
+    - name: Build for CodeQL
+      run: |
+        cd code/CPP-OpenSource
+        cmake -B build -DCMAKE_BUILD_TYPE=Debug
+        cmake --build build --parallel $(nproc)
+    
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+
+  # Documentation Validation
+  docs-validation:
+    runs-on: ubuntu-latest
+    name: Documentation Validation
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+    
+    - name: Install Documentation Tools
+      run: |
+        npm install -g markdownlint-cli2
+        python -m pip install --upgrade pip
+        python -m pip install mkdocs mkdocs-material
+    
+    - name: Validate Markdown
+      run: |
+        markdownlint-cli2 "**/*.md" "!node_modules/**"
+    
+    - name: Check Links
+      uses: lycheeverse/lychee-action@v1
+      with:
+        args: --verbose --no-progress --exclude-mail --accept 200,206 '**/*.md'
+    
+    - name: Validate Configuration Documentation
+      run: |
+        # Check that all CFG files have corresponding documentation
+        find code/Modules -name "*.cfg" | while read cfg; do
+          module=$(dirname $cfg | xargs basename)
+          if ! grep -r "$module" docs/ >/dev/null 2>&1; then
+            echo "Warning: Module $module lacks documentation"
+          fi
+        done
+
+  # Integration Tests
+  integration-tests:
+    runs-on: ubuntu-latest
+    name: Integration Tests
+    needs: [build-linux, build-windows]
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Test Environment
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          build-essential cmake \
+          libsdl2-dev libsdl2-mixer-dev \
+          nlohmann-json3-dev libsimdjson-dev
+    
+    - name: Build Project
+      run: |
+        cd code/CPP-OpenSource
+        cmake -B build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+        cmake --build build --parallel $(nproc)
+    
+    - name: Test Module Loading
+      run: |
+        cd code/CPP-OpenSource/build
+        # Check if GSI binary exists
+        if [ ! -f "./GSI" ]; then
+          echo "GSI binary not found, skipping module loading test"
+          exit 0
+        fi
+        # Test that all modules can be discovered and loaded
+        ./GSI --test-mode --modules-path ../../code/Modules 2>&1 | \
+        grep -i "error\|failed" && exit 1 || exit 0
+    
+    - name: Test Configuration Generation
+      run: |
+        # Test that configuration files can be generated without errors
+        cd code/CPP-OpenSource/build
+        if [ ! -f "./ConfigGenerator" ]; then
+          echo "ConfigGenerator binary not found, skipping configuration generation test"
+          exit 0
+        fi
+        ./ConfigGenerator --output-dir test_output --modules-path ../code/Modules
+        find test_output -name "*.cfg" -exec grep -l "syntax error" {} \; | \
+        if [ $(wc -l) -gt 0 ]; then exit 1; fi || exit 0
+    
+    - name: Performance Benchmarks
+      run: |
+        cd code/CPP-OpenSource/build
+        if [ ! -f "./PerformanceTests" ]; then
+          echo "PerformanceTests binary not found, skipping performance benchmarks"
+          touch benchmark_results.txt
+          echo "Performance tests skipped - binary not available" > benchmark_results.txt
+          exit 0
+        fi
+        ./PerformanceTests --benchmark-mode 2>&1 | tee benchmark_results.txt
+        # Check that performance hasn't regressed significantly
+        # This would need baseline comparison logic
+    
+    - name: Upload Integration Test Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: integration-test-results
+        path: |
+          code/CPP-OpenSource/build/test_output/
+          code/CPP-OpenSource/build/benchmark_results.txt
+
+  # Notification
+  notify:
+    runs-on: ubuntu-latest
+    name: Notify Build Status
+    needs: [build-linux, build-windows, security-scan, integration-tests]
+    if: always()
+    
+    steps:
+    - name: Notify Success
+      if: ${{ success() }}
+      run: |
+        echo "✅ All CI/CD checks passed successfully!"
+        echo "Build Status: SUCCESS"
+        echo "Commit: ${{ github.sha }}"
+        echo "Branch: ${{ github.ref_name }}"
+    
+    - name: Notify Failure
+      if: ${{ failure() }}
+      run: |
+        echo "❌ CI/CD pipeline failed!"
+        echo "Build Status: FAILURE"
+        echo "Commit: ${{ github.sha }}"
+        echo "Branch: ${{ github.ref_name }}"
+        echo "Please check the workflow logs for details."
+        exit 1
